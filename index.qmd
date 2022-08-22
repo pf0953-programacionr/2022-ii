@@ -6,7 +6,7 @@ Se estudian los fundamentos de R, sus bibliotecas geoespaciales y sus capacidade
 
 El enfoque del curso es teórico-práctico, con lecciones teóricas combinadas con ejercicios de programación en los cuales los estudiantes aplican en diversos escenarios de procesamiento de datos los conocimientos y habilidades aprendidas.
 
-Este sitio web corresponde al curso impartido durante el segundo lectivo de 2022. Para más información sobre los contenidos, metodología, evaluación y otros temas, puede consultar el [programa del curso]().
+Este sitio web corresponde al curso impartido durante el segundo lectivo de 2022. Para más información sobre los contenidos, metodología, evaluación y otros temas, puede consultar el [programa del curso](https://github.com/pf0953-programacionr/2022-ii/blob/main/programa-curso/pf0953-programacionr-g001-2022-ii.pdf).
 
 **Información de contacto**
 
