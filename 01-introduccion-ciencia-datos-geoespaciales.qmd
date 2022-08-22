@@ -14,6 +14,9 @@ Peng, R. D. (2011). Reproducible Research in Computational Science. *Science, 33
 
 Singleton, A. D., Spielman, S., & Brunsdon, C. (2016). Establishing a framework for Open Geographic Information science. *International Journal of Geographical Information Science, 30*(8), 1507-1521. <https://doi.org/10.1080/13658816.2015.1137579>
 
+Wu, Q. (2021, octubre 25). A streamlit app for creating timelapse of annual Landsat imagery (1984–2021). Medium. [https://giswqs.medium.com/a-streamlit-app-for-creating-timelapse-of-annual-landsat-imagery-1984-2021-3db407a8ac32](https://giswqs.medium.com/a-streamlit-app-for-creating-timelapse-of-annual-landsat-imagery-1984-2021-3db407a8ac32)
+
+
 ## El componente geoespacial de los datos
 
 Una gran parte de los datos disponibles contiene algún tipo de componente geográfico o espacial [^01-introduccion-ciencia-datos-geoespaciales-1]. Este componente puede expresarse de varias formas. Por ejemplo:
