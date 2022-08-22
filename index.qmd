@@ -1,9 +1,22 @@
-# Preface {.unnumbered}
+# Bienvenida {-}
 
-This is a Quarto book.
+Este curso trata sobre el manejo, visualización y análisis de datos geoespaciales mediante el lenguaje de programación [R](https://www.r-project.org/). Se imparte en la [Maestría Académica en Gestión Integrada del Recurso Hídrico para Latinoamérica y El Caribe](https://www.sep.ucr.ac.cr/posgrados/geografia/folleto/maestria_academica_recurso_hidrico.pdf) de la [Universidad de Costa Rica](https://www.ucr.ac.cr/).
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+Se estudian los fundamentos de R, sus bibliotecas geoespaciales y sus capacidades para generar gráficos estadísticos. También se utilizan herramientas para facilitar la reproducibilidad de los procedimientos y su comunicación a través de la Internet y otros medios.
 
-```{r}
-1 + 1
-```
+El enfoque del curso es teórico-práctico, con lecciones teóricas combinadas con ejercicios de programación en los cuales los estudiantes aplican en diversos escenarios de procesamiento de datos los conocimientos y habilidades aprendidas.
+
+Este sitio web corresponde al curso impartido durante el segundo lectivo de 2022.
+
+**Información de contacto**
+
+Si tiene alguna pregunta o comentario sobre este curso, por favor contacte a:
+
+> Manuel Vargas - manuel.vargas_d@ucr.ac.cr  
+Profesor  
+Universidad de Costa Rica,  
+Ciudad Universitaria Rodrigo Facio,  
+San Pedro de Montes de Oca,  
+Costa Rica.
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Los contenidos de este curso, a menos que se especifique de otra forma, se comparten mediante una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.

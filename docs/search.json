@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "2022-ii",
+    "title": "PF 0953 Programación en R 2022-II",
     "section": "",
-    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+    "text": "Este curso trata sobre el manejo, visualización y análisis de datos geoespaciales mediante el lenguaje de programación R. Se imparte en la Maestría Académica en Gestión Integrada del Recurso Hídrico para Latinoamérica y El Caribe de la Universidad de Costa Rica.\nSe estudian los fundamentos de R, sus bibliotecas geoespaciales y sus capacidades para generar gráficos estadísticos. También se utilizan herramientas para facilitar la reproducibilidad de los procedimientos y su comunicación a través de la Internet y otros medios.\nEl enfoque del curso es teórico-práctico, con lecciones teóricas combinadas con ejercicios de programación en los cuales los estudiantes aplican en diversos escenarios de procesamiento de datos los conocimientos y habilidades aprendidas.\nEste sitio web corresponde al curso impartido durante el segundo lectivo de 2022.\nInformación de contacto\nSi tiene alguna pregunta o comentario sobre este curso, por favor contacte a:\n\nManuel Vargas - manuel.vargas_d@ucr.ac.cr\nProfesor\nUniversidad de Costa Rica,\nCiudad Universitaria Rodrigo Facio,\nSan Pedro de Montes de Oca,\nCosta Rica.\n\nLos contenidos de este curso, a menos que se especifique de otra forma, se comparten mediante una licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional."
   },
   {
     "objectID": "intro.html",

@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 book:
-  title: "2022-ii"
-  author: "Jane Doe"
-  date: "8/21/2022"
+  title: "PF 0953 Programación en R 2022-II"
+  author: "Manuel Vargas"
+  date: "2022-08-21"
   chapters:
     - index.qmd
     - intro.qmd
