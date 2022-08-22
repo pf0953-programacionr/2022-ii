@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>PF 0953 Programación en R 2022-II - 2&nbsp; Markdown: lenguaje de marcado</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03-git.html" rel="next">
+<link href="./01-introduccion-ciencia-datos-geoespaciales.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown: lenguaje de marcado</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">PF 0953 Programación en R 2022-II</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Bienvenida</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-01-introduccion.html" class="sidebar-item-text sidebar-link">I - Introducción</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-introduccion-ciencia-datos-geoespaciales.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la ciencia de datos geoespaciales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-markdown.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown: lenguaje de marcado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git: sistema de control de versiones</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Referencias bibliográficas</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#trabajo-previo" id="toc-trabajo-previo" class="nav-link active" data-scroll-target="#trabajo-previo"> <span class="header-section-number">2.1</span> Trabajo previo</a>
+  <ul class="collapse">
+  <li><a href="#tutoriales" id="toc-tutoriales" class="nav-link" data-scroll-target="#tutoriales"> <span class="header-section-number">2.1.1</span> Tutoriales</a></li>
+  <li><a href="#otros" id="toc-otros" class="nav-link" data-scroll-target="#otros"> <span class="header-section-number">2.1.2</span> Otros</a></li>
+  </ul></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"> <span class="header-section-number">2.2</span> Resumen</a></li>
+  <li><a href="#descripción-general" id="toc-descripción-general" class="nav-link" data-scroll-target="#descripción-general"> <span class="header-section-number">2.3</span> Descripción general</a></li>
+  <li><a href="#variaciones" id="toc-variaciones" class="nav-link" data-scroll-target="#variaciones"> <span class="header-section-number">2.4</span> Variaciones</a></li>
+  <li><a href="#sintaxis" id="toc-sintaxis" class="nav-link" data-scroll-target="#sintaxis"> <span class="header-section-number">2.5</span> Sintaxis</a>
+  <ul class="collapse">
+  <li><a href="#encabezados" id="toc-encabezados" class="nav-link" data-scroll-target="#encabezados"> <span class="header-section-number">2.5.1</span> Encabezados</a></li>
+  <li><a href="#itálicas" id="toc-itálicas" class="nav-link" data-scroll-target="#itálicas"> <span class="header-section-number">2.5.2</span> Itálicas</a></li>
+  <li><a href="#negritas" id="toc-negritas" class="nav-link" data-scroll-target="#negritas"> <span class="header-section-number">2.5.3</span> Negritas</a></li>
+  <li><a href="#citas-textuales" id="toc-citas-textuales" class="nav-link" data-scroll-target="#citas-textuales"> <span class="header-section-number">2.5.4</span> Citas textuales</a></li>
+  <li><a href="#enlaces-hipervínculos" id="toc-enlaces-hipervínculos" class="nav-link" data-scroll-target="#enlaces-hipervínculos"> <span class="header-section-number">2.5.5</span> Enlaces (hipervínculos)</a></li>
+  <li><a href="#imágenes" id="toc-imágenes" class="nav-link" data-scroll-target="#imágenes"> <span class="header-section-number">2.5.6</span> Imágenes</a></li>
+  <li><a href="#listas-numeradas" id="toc-listas-numeradas" class="nav-link" data-scroll-target="#listas-numeradas"> <span class="header-section-number">2.5.7</span> Listas numeradas</a></li>
+  <li><a href="#listas-no-numeradas" id="toc-listas-no-numeradas" class="nav-link" data-scroll-target="#listas-no-numeradas"> <span class="header-section-number">2.5.8</span> Listas no numeradas</a></li>
+  <li><a href="#otros-elementos-de-sintaxis" id="toc-otros-elementos-de-sintaxis" class="nav-link" data-scroll-target="#otros-elementos-de-sintaxis"> <span class="header-section-number">2.5.9</span> Otros elementos de sintaxis</a></li>
+  </ul></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios"> <span class="header-section-number">2.6</span> Ejercicios</a></li>
+  <li><a href="#recursos-de-interés" id="toc-recursos-de-interés" class="nav-link" data-scroll-target="#recursos-de-interés"> <span class="header-section-number">2.7</span> Recursos de interés</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown: lenguaje de marcado</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="trabajo-previo" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="trabajo-previo"><span class="header-section-number">2.1</span> Trabajo previo</h2>
+<section id="tutoriales" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="tutoriales"><span class="header-section-number">2.1.1</span> Tutoriales</h3>
+<p><em>Markdown Tutorial</em>. (s. f.). Recuperado 19 de marzo de 2022, de <a href="https://www.markdowntutorial.com/">https://www.markdowntutorial.com/</a></p>
+</section>
+<section id="otros" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="otros"><span class="header-section-number">2.1.2</span> Otros</h3>
+<ul>
+<li>Instale en su computadora el <a href="https://cloud.r-project.org/">sistema base del lenguaje R</a> y luego el ambiente integrado de desarrollo <a href="https://www.rstudio.com/products/rstudio/download/#download">RStudio Desktop</a>.</li>
+<li>Cree una cuenta gratuita en la plataforma de desarrollo colaborativo <a href="https://github.com/">GitHub</a>.</li>
+</ul>
+</section>
+</section>
+<section id="resumen" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="resumen"><span class="header-section-number">2.2</span> Resumen</h2>
+<p>Markdown es un lenguaje de marcado ligero ampliamente utilizado en comunicación científica, documentación de programas e investigación reproducible.</p>
+</section>
+<section id="descripción-general" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="descripción-general"><span class="header-section-number">2.3</span> Descripción general</h2>
+<p><a href="https://daringfireball.net/projects/markdown/">Markdown</a> es un <a href="https://es.wikipedia.org/wiki/Lenguaje_de_marcado">lenguaje de marcado</a> creado en 2004 por John Gruber. Las “marcas” se utilizan para brindar información acerca de la presentación (ej. negritas, itálicas) o la estructura (ej. títulos, encabezados) de un documento. Se caracteriza por ser más sencillo de leer y de usar que otros lenguajes de marcado (ej. <a href="https://es.wikipedia.org/wiki/HTML">Lenguaje de marcado de Hipertexto o HTML</a>), por lo que se considera un <a href="https://es.wikipedia.org/wiki/Lenguaje_de_marcas_ligero">lenguaje de marcado ligero</a>. Los documentos escritos en Markdown pueden exportarse a una gran variedad de formatos (ej. HTML, DOC, PDF, LaTex) para ser usados en libros, presentaciones o páginas web, entre otros. Markdown es ampliamente utilizado en comunicación científica, documentación de programas e investigación reproducible.</p>
+</section>
+<section id="variaciones" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="variaciones"><span class="header-section-number">2.4</span> Variaciones</h2>
+<p>Las variaciones de Markdown, también llamadas <em>flavors</em>, son extensiones o modificaciones de la especificación original. Entre las más populares están:</p>
+<ul>
+<li><a href="https://rmarkdown.rstudio.com/">R Markdown</a>: para el lenguaje R.</li>
+<li><a href="https://help.github.com/en/github/writing-on-github">GitHub Flavored Markdown</a>: para la plataforma GitHub.</li>
+<li><a href="https://github.com/Python-Markdown/markdown">Python Markdown</a>: para el lenguaje Python.</li>
+<li><a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc’s Markdown</a>: para el programa <a href="https://pandoc.org/">Pandoc</a> de conversión entre formatos.</li>
+<li><a href="https://kramdown.gettalong.org/quickref.html">Kramdown</a>: para el lenguaje Ruby.</li>
+</ul>
+<p>Puede verse una lista más extensa en <a href="https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors" class="uri">https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors</a>.</p>
+</section>
+<section id="sintaxis" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="sintaxis"><span class="header-section-number">2.5</span> Sintaxis</h2>
+<p>La sintaxis de Markdown permite especificar diferentes componentes de un documento, entre los que están:</p>
+<ul>
+<li>Encabezados.</li>
+<li>Estilos (ej. negritas, itálicas).</li>
+<li>Citas textuales.</li>
+<li>Enlaces a otros documentos (ej. páginas web).</li>
+<li>Imágenes.</li>
+<li>Listas.</li>
+</ul>
+<section id="encabezados" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="encabezados"><span class="header-section-number">2.5.1</span> Encabezados</h3>
+<p>Pueden definirse seis niveles de encabezados, mediante símbolos de numeral (<code>#</code>) antes del texto. El primer nivel es el de tamaño de texto más grande y el sexto el más pequeño. En la parte izquierda de la <a href="#fig-md-encabezados">Figure&nbsp;<span>2.1</span></a> se muestra la sintaxis Markdown de los encabezados y a la derecha la forma en que se despliegan en un documento.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-md-encabezados" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/md-encabezados.png" class="img-fluid figure-img" width="298"></p>
+<p></p><figcaption class="figure-caption">Figure 2.1: Sintaxis de Markdown - encabezados.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="itálicas" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="itálicas"><span class="header-section-number">2.5.2</span> Itálicas</h3>
+<p>Se definen con un asterisco (<code>*</code>) antes y después del texto o con un guión bajo (<code>_</code>) antes y después del texto.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-md-italicas" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/md-italica.png" class="img-fluid figure-img" width="250"></p>
+<p></p><figcaption class="figure-caption">Figure 2.2: Sintaxis de Markdown - itálicas.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="negritas" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="negritas"><span class="header-section-number">2.5.3</span> Negritas</h3>
+<p>Se definen con dos asteriscos (<code>**</code>) antes y después del texto o con dos guiones bajos (<code>__</code>) antes y después del texto.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-md-negritas" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/md-negrita.png" class="img-fluid figure-img" width="268"></p>
+<p></p><figcaption class="figure-caption">Figure 2.3: Sintaxis de Markdown - negritas.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="citas-textuales" class="level3" data-number="2.5.4">
+<h3 data-number="2.5.4" class="anchored" data-anchor-id="citas-textuales"><span class="header-section-number">2.5.4</span> Citas textuales</h3>
+<p>Se definen con un símbolo de “mayor que” (<code>&gt;</code>) antes de cada línea.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-md-citas" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/md-cita.png" class="img-fluid figure-img" width="334"></p>
+<p></p><figcaption class="figure-caption">Figure 2.4: Sintaxis de Markdown - citas textuales.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="enlaces-hipervínculos" class="level3" data-number="2.5.5">
+<h3 data-number="2.5.5" class="anchored" data-anchor-id="enlaces-hipervínculos"><span class="header-section-number">2.5.5</span> Enlaces (hipervínculos)</h3>
+<p>Se definen con paréntesis cuadrados (<code>[]</code>) seguidos de paréntesis redondos (<code>()</code>). En los paréntesis cuadrados se coloca (opcionalmente) el texto del enlace y en los redondos la dirección del documento.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-md-enlaces" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/md-enlace.png" class="img-fluid figure-img" width="312"></p>
+<p></p><figcaption class="figure-caption">Figure 2.5: Sintaxis de Markdown - enlaces.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="imágenes" class="level3" data-number="2.5.6">
+<h3 data-number="2.5.6" class="anchored" data-anchor-id="imágenes"><span class="header-section-number">2.5.6</span> Imágenes</h3>
+<p>Se definen con un signo de admiración de cierre (<code>!</code>), paréntesis cuadrados (<code>[]</code>) y paréntesis redondos (<code>()</code>). En los paréntesis cuadrados se coloca (opcionalmente) un texto alternativo de la imagen y en los redondos la dirección de la imagen, ya sea local o remota.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-md-imagenes" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/md-imagen.png" class="img-fluid figure-img" width="604"></p>
+<p></p><figcaption class="figure-caption">Figure 2.6: Sintaxis de Markdown - imágenes.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="listas-numeradas" class="level3" data-number="2.5.7">
+<h3 data-number="2.5.7" class="anchored" data-anchor-id="listas-numeradas"><span class="header-section-number">2.5.7</span> Listas numeradas</h3>
+<p>Se definen con números (<code>1. 2. 3. ...</code>) antes de cada elemento.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-md-listas-numeradas" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/md-lista-numerada.png" class="img-fluid figure-img" width="287"></p>
+<p></p><figcaption class="figure-caption">Figure 2.7: Sintaxis de Markdown - listas numeradas.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="listas-no-numeradas" class="level3" data-number="2.5.8">
+<h3 data-number="2.5.8" class="anchored" data-anchor-id="listas-no-numeradas"><span class="header-section-number">2.5.8</span> Listas no numeradas</h3>
+<p>Se definen con guiones (<code>-</code>) o asteriscos (<code>*</code>) antes de cada elemento.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-md-listas-no-numeradas" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/md-lista-no-numerada.png" class="img-fluid figure-img" width="272"></p>
+<p></p><figcaption class="figure-caption">Figure 2.8: Sintaxis de Markdown - listas no numeradas.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="otros-elementos-de-sintaxis" class="level3" data-number="2.5.9">
+<h3 data-number="2.5.9" class="anchored" data-anchor-id="otros-elementos-de-sintaxis"><span class="header-section-number">2.5.9</span> Otros elementos de sintaxis</h3>
+<p>Para conocer otros elementos de la sintaxis de Markdown, se recomienda revisar en detalle la <a href="https://www.markdownguide.org/">Guía de referencia de Markdown</a>.</p>
+</section>
+</section>
+<section id="ejercicios" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="ejercicios"><span class="header-section-number">2.6</span> Ejercicios</h2>
+<ol type="1">
+<li>Cree un documento Markdown llamado <code>README.md</code>, en RStudio, y escriba en este un breve perfil académico (<em>curriculum</em> académico).
+<ul>
+<li>Incluya información como: nombre, fotografía, datos de contacto, áreas de interés, carrera, cursos aprobados, publicaciones, etc.</li>
+<li>Puede usar información ficticia (<strong>no incluya datos confidenciales o sensibles</strong>).</li>
+<li>Especifique la fuente de las imágenes (y de cualquier otra información para la que sea necesario) y no utilice imágenes para las que no tiene autorización. Considere utilizar sitios con imágenes con licencias abiertas (ej. <a href="https://commons.wikimedia.org/">Wikimedia Commons</a>, <a href="https://unsplash.com/">Unsplash</a>, <a href="https://www.freeimages.com/">FreeImages</a>).</li>
+<li>Asegúrese de utilizar los siguientes elementos de sintaxis Markdown:
+<ul>
+<li>Varios niveles de encabezados.</li>
+<li>Negritas e itálicas.</li>
+<li>Listas.</li>
+<li>Enlaces a sitios web.</li>
+<li>Imágenes (al menos una local y una remota).</li>
+</ul></li>
+</ul></li>
+<li>Cree un repositorio en <a href="https://github.com/">GitHub</a> llamado <code>perfil-academico</code> y suba a este el documento que creó en el paso 1.</li>
+<li>Cree un sitio web en <a href="https://pages.github.com/">GitHub Pages</a> con el repositorio creado en el paso 2.</li>
+</ol>
+</section>
+<section id="recursos-de-interés" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="recursos-de-interés"><span class="header-section-number">2.7</span> Recursos de interés</h2>
+<p>Carrera Arias, F. J. (2020). <em>How to Install R on Windows, Mac OS X, and Ubuntu Tutorial</em>. DataCamp Community. <a href="https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu">https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu</a></p>
+<p><em>Markdown Guide</em>. (s. f.). Recuperado 10 de abril de 2022, de <a href="https://www.markdownguide.org/">https://www.markdownguide.org/</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01-introduccion-ciencia-datos-geoespaciales.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la ciencia de datos geoespaciales</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03-git.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git: sistema de control de versiones</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

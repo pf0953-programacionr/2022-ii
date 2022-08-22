@@ -8,8 +8,11 @@ book:
   date: "2022-08-21"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - part: part-01-introduccion.qmd
+      chapters:
+        - 01-introduccion-ciencia-datos-geoespaciales.qmd
+        - 02-markdown.qmd
+        - 03-git.qmd
     - references.qmd
 
 bibliography: references.bib

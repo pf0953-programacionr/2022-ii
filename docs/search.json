@@ -7,24 +7,136 @@
     "text": "Este curso trata sobre el manejo, visualización y análisis de datos geoespaciales mediante el lenguaje de programación R. Se imparte en la Maestría Académica en Gestión Integrada del Recurso Hídrico para Latinoamérica y El Caribe de la Universidad de Costa Rica.\nSe estudian los fundamentos de R, sus bibliotecas geoespaciales y sus capacidades para generar gráficos estadísticos. También se utilizan herramientas para facilitar la reproducibilidad de los procedimientos y su comunicación a través de la Internet y otros medios.\nEl enfoque del curso es teórico-práctico, con lecciones teóricas combinadas con ejercicios de programación en los cuales los estudiantes aplican en diversos escenarios de procesamiento de datos los conocimientos y habilidades aprendidas.\nEste sitio web corresponde al curso impartido durante el segundo lectivo de 2022.\nInformación de contacto\nSi tiene alguna pregunta o comentario sobre este curso, por favor contacte a:\n\nManuel Vargas - manuel.vargas_d@ucr.ac.cr\nProfesor\nUniversidad de Costa Rica,\nCiudad Universitaria Rodrigo Facio,\nSan Pedro de Montes de Oca,\nCosta Rica.\n\nLos contenidos de este curso, a menos que se especifique de otra forma, se comparten mediante una licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional."
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
+    "objectID": "01-introduccion-ciencia-datos-geoespaciales.html",
+    "href": "01-introduccion-ciencia-datos-geoespaciales.html",
+    "title": "1  Introducción a la ciencia de datos geoespaciales",
     "section": "",
-    "text": "See Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "Bartomeus Lab. (2016). A reproducible workflow. https://www.youtube.com/watch?v=s3JldKoA0zw\nFOSS4G. (2021). FOSS4G2021—Open source for open spatial data science—Anita Graser. https://www.youtube.com/watch?v=ZjXb53pOor0\nKrugman, P. (2013). Opinion | The Excel Depression. The New York Times. https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html\nPeng, R. D. (2011). Reproducible Research in Computational Science. Science, 334(6060), 1226-1227. https://doi.org/10.1126/science.1213847\nSingleton, A. D., Spielman, S., & Brunsdon, C. (2016). Establishing a framework for Open Geographic Information science. International Journal of Geographical Information Science, 30(8), 1507-1521. https://doi.org/10.1080/13658816.2015.1137579"
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
+    "objectID": "01-introduccion-ciencia-datos-geoespaciales.html#el-componente-geoespacial-de-los-datos",
+    "href": "01-introduccion-ciencia-datos-geoespaciales.html#el-componente-geoespacial-de-los-datos",
+    "title": "1  Introducción a la ciencia de datos geoespaciales",
+    "section": "1.2 El componente geoespacial de los datos",
+    "text": "1.2 El componente geoespacial de los datos\nUna gran parte de los datos disponibles contiene algún tipo de componente geográfico o espacial 1. Este componente puede expresarse de varias formas. Por ejemplo:\n\nCon nombres de lugares: El sapo dorado (Incilius periglenes) era una especie de anfibio, endémica de los bosques nubosos de altitud de Monteverde, Costa Rica.\nCon direcciones: La sede de la Organización de las Naciones Unidas (ONU) está ubicada en la ciudad de Nueva York, Estados Unidos, en la Primera Avenida, 750.\nCon coordenadas: *La cima del Monte Everest se localiza en las coordenadas geográficas 86°55′31″ E y 27°59′17″ N, como se muestra en la Figure 1.1.\n\n\n\n\n\n\nFigure 1.1: Mapa de Nepal que muestra la ubicación del Monte Everest en el sistema de coordenadas geográficas. Imagen de https://www.mapsofworld.com/.\n\n\n\n\nLas coordenadas correspondientes a lugares y direcciones pueden obtenerse a través de un proceso denominado georreferenciación, mediante el cual, en general, se determina la posición espacial de alguna entidad en un sistema de coordenadas. La georreferenciación puede emplearse también para obtener las coordenadas de, por ejemplo, fotografías aéreas o mapas antiguos. Es un proceso que puede resultar complejo y costoso y para el que se han desarrollado metodologías y plataformas especializadas (ej. Chapman AD & Wieczorek JR (2020) Georeferencing Best Practices, GEOLocate, Nominatim).\nEn la actualidad, hay una gran cantidad de fuentes que generan datos georreferenciados (i.e. ubicados en un sistema de coordenadas). Entre estas pueden mencionarse las tecnologías de observación de la Tierra (Earth Observation) (ej. imágenes satelitales), los dispositivos móviles y los sensores remotos, entre muchas otras.\nSeguidamente, se describen dos enfoques tecnológicos para el procesamiento de datos geoespaciales: el de los sistemas de información geográfica y el de ciencia de datos geoespaciales."
+  },
+  {
+    "objectID": "01-introduccion-ciencia-datos-geoespaciales.html#sistemas-de-información-geográfica",
+    "href": "01-introduccion-ciencia-datos-geoespaciales.html#sistemas-de-información-geográfica",
+    "title": "1  Introducción a la ciencia de datos geoespaciales",
+    "section": "1.3 Sistemas de información geográfica",
+    "text": "1.3 Sistemas de información geográfica\nA principios de la década de 1960, el geógrafo inglés Roger Tomlinson desarrolló en Canadá el que se considera el primer sistema de información geográfica. Se trataba del Canada Geographic Information System (CGIS) y su objetivo fue manejar los datos del inventario geográfico canadiense y su análisis para la gestión del territorio rural. De manera casi simultánea al trabajo de Tomlinson, surgieron desarrollos similares en Estados Unidos y en el Reino Unido. El surgimiento de los sistemas de información geográfica no implicó solo el surgimiento de nuevas herramientas de software, sino también el desarrollo de técnicas que hasta entonces no habían sido necesarias (Olaya 2020) como, por ejemplo, la manipulación de nuevos tipos de datos geométricos (ej. puntos, líneas, polígonos).\nEn general, un sistema de información geográfica (SIG) maneja datos georreferenciados y los asocia con datos convencionales (ej. textos, números), como se muestra en la Figure 1.2.\n\n\n\n\n\nFigure 1.2: Mapa elaborado en QGIS que muestra la ubicación de los aeródromos de Costa Rica.\n\n\n\n\nLos SIG presentan los datos en capas (layers). Por ejemplo, el mapa de la Figure 1.2 contiene una capa base raster (la que muestra el mar y el continente), una capa de polígonos correspondiente a las provincias de Costa Rica y una capa de puntos correspondiente a los aeródromos. A la izquierda puede apreciarse la lista de esas capas y a la derecha un cuadro con información detallada sobre uno de los aeródromos.\nLos SIG de escritorio (ej. ArcGIS Desktop, QGIS) son herramientas con interfaces de usuario muy gráficas e intuitivas, que no requieren de conocimientos de programación de computadoras y que permiten generar cartografía de alta calidad. Sin embargo, son poco flexibles y los resultados que producen son difícilmente reproducibles."
+  },
+  {
+    "objectID": "01-introduccion-ciencia-datos-geoespaciales.html#ciencia-de-datos-geoespaciales",
+    "href": "01-introduccion-ciencia-datos-geoespaciales.html#ciencia-de-datos-geoespaciales",
+    "title": "1  Introducción a la ciencia de datos geoespaciales",
+    "section": "1.4 Ciencia de datos geoespaciales",
+    "text": "1.4 Ciencia de datos geoespaciales\nDurante la última década, el uso de SIG se ha complementado con el de ciencia de datos, lo que posibilitado enriquecer la visualización y el análisis de datos geoespaciales mediante lenguajes de programación como Python, R o JavaScript, entre otros.\nEl uso de técnicas de ciencia de datos y de otros campos relacionados (ej. aprendizaje automatizado, big data) ha permitido aplicar a los datos geoespaciales técnicas y metodologías como análisis de regresión y clasificación estadística."
+  },
+  {
+    "objectID": "01-introduccion-ciencia-datos-geoespaciales.html#reproducibilidad",
+    "href": "01-introduccion-ciencia-datos-geoespaciales.html#reproducibilidad",
+    "title": "1  Introducción a la ciencia de datos geoespaciales",
+    "section": "1.5 Reproducibilidad",
+    "text": "1.5 Reproducibilidad\nUna de las principales características que distingue al enfoque de ciencia de datos del enfoque de SIG es la reproducibilidad. En general, la reproducibilidad es la capacidad de un ensayo o experimento de ser reproducido por otros. Más formalmente, en investigación cuantitativa, un análisis se considera reproducible si “el código fuente y los datos utilizados por un investigador para llegar a un resultado están disponibles y son suficientes para que otro investigador, trabajando de manera independiente, pueda llegar al mismo resultado” (Gandrud 2020).\nLa reproducibilidad, junto con la falsabilidad, es uno de los pilares del método científico. Sin embargo, en años recientes, se ha generado una creciente preocupación debido a que muchos estudios científicos publicados fallan las pruebas de reproducibilidad (véase, por ejemplo, The Excel Depression, de Paul Krugman), dando lugar a una crisis de reproducibilidad o replicabilidad en varias ciencias.\nEl concepto de reproducibilidad es cada vez más importante debido, entre otras razones, al aumento exponencial de datos disponibles y a la aplicación de la programación de computadoras, para procesar estos datos, por parte de especialistas de muchas disciplinas.\nAlex Singleton y otros autores (Singleton, Spielman, and Brunsdon 2016) han identificado los siguientes retos para la reproducibilidad en ciencia de datos geoespaciales:\n\nLos datos deben ser de dominio público y estar disponibles para los investigadores.\nEl software utilizado debe ser de código abierto (open source) y estar disponible para ser revisado.\nSiempre que sea posible, los flujos de trabajo deben ser públicos y con enlaces a los datos, software y métodos de análisis, junto con la documentación necesaria.\nEl proceso de revisión por pares (peer review process) y la publicación académica deben requerir la presentación de un modelo de flujo de trabajo e idealmente la disponibilidad de los materiales necesarios para la replicación.\nEn los casos en los que la reproducibilidad total no sea posible (ej. datos sensibles), los investigadores deben esforzarse por incluir todos los aspectos que puedan de un marco de trabajo abierto.\n\nEn general, el estándar mínimo de reproducibilidad requiere que los datos y el código fuente estén disponibles para otros investigadores (Peng 2011). Sin embargo, dependiendo de las circunstancias y recursos disponibles, existe todo un espectro de posibilidades, que se ilustra en la Figure 1.3.\n\n\n\n\n\nFigure 1.3: Espectro de reproducibilidad. Imagen de Anita Graser, con base en (Peng, 2001).\n\n\n\n\n\n1.5.1 Herramientas para facilitar la reproducibilidad\nEn esta sección se destacan dos tipos de herramientas que en la actualidad se consideran esenciales para apoyar la reproducibilidad de una investigación: los lenguajes de marcado y los sistemas de control de versiones.\nLa documentación es vital durante todo el ciclo de vida de una investigación reproducible. Para documentar, se recomienda utilizar mecanismos estandarizados y abiertos como el lenguaje de marcado de hipertexto (HTML, en inglés, HyperText Markup Language) o Markdown, con los cuales pueden crearse documentos mediante editores de texto simples (i.e. no se requiere de software propietario), y exportables a varios formatos (ej. LaTeX, PDF).\nPara dar mantenimiento, tanto al código fuente como a la documentación, es necesario un sistema de control de versiones como Git, el cual permite llevar el registro de los cambios en archivos y también facilita el trabajo colaborativo al reunir las modificaciones hechas por varias personas. Git es usado en varias plataformas que comparten código fuente (ej. GitHub, GitLab) y que ofrecen servicios relacionados, como hospedaje de sitios web.\n\n\n\n\nGandrud, Christopher. 2020. Reproducible Research with R and RStudio. Third edition. The R Series. Boca Raton, FL: CRC Press.\n\n\nLongley, Paul A., Michael F. Goodchild, David J. Maguire, and David W. Rhind. 2005. Geographic Information Systems and Science. 2nd edition. Chichester ; Hoboken, NJ: Wiley.\n\n\nOlaya, Víctor. 2020. “Sistemas de Información Geográfica.” https://volaya.github.io/libro-sig/.\n\n\nPeng, Roger D. 2011. “Reproducible Research in Computational Science.” Science 334 (6060): 1226–27. https://doi.org/10.1126/science.1213847.\n\n\nSingleton, Alex David, Seth Spielman, and Chris Brunsdon. 2016. “Establishing a Framework for Open Geographic Information Science.” International Journal of Geographical Information Science 30 (8): 1507–21. https://doi.org/10.1080/13658816.2015.1137579."
+  },
+  {
+    "objectID": "02-markdown.html",
+    "href": "02-markdown.html",
+    "title": "2  Markdown: lenguaje de marcado",
     "section": "",
-    "text": "1 + 1\n\n[1] 2"
+    "text": "Markdown Tutorial. (s. f.). Recuperado 19 de marzo de 2022, de https://www.markdowntutorial.com/\n\n\n\n\nInstale en su computadora el sistema base del lenguaje R y luego el ambiente integrado de desarrollo RStudio Desktop.\nCree una cuenta gratuita en la plataforma de desarrollo colaborativo GitHub."
+  },
+  {
+    "objectID": "02-markdown.html#resumen",
+    "href": "02-markdown.html#resumen",
+    "title": "2  Markdown: lenguaje de marcado",
+    "section": "2.2 Resumen",
+    "text": "2.2 Resumen\nMarkdown es un lenguaje de marcado ligero ampliamente utilizado en comunicación científica, documentación de programas e investigación reproducible."
+  },
+  {
+    "objectID": "02-markdown.html#descripción-general",
+    "href": "02-markdown.html#descripción-general",
+    "title": "2  Markdown: lenguaje de marcado",
+    "section": "2.3 Descripción general",
+    "text": "2.3 Descripción general\nMarkdown es un lenguaje de marcado creado en 2004 por John Gruber. Las “marcas” se utilizan para brindar información acerca de la presentación (ej. negritas, itálicas) o la estructura (ej. títulos, encabezados) de un documento. Se caracteriza por ser más sencillo de leer y de usar que otros lenguajes de marcado (ej. Lenguaje de marcado de Hipertexto o HTML), por lo que se considera un lenguaje de marcado ligero. Los documentos escritos en Markdown pueden exportarse a una gran variedad de formatos (ej. HTML, DOC, PDF, LaTex) para ser usados en libros, presentaciones o páginas web, entre otros. Markdown es ampliamente utilizado en comunicación científica, documentación de programas e investigación reproducible."
+  },
+  {
+    "objectID": "02-markdown.html#variaciones",
+    "href": "02-markdown.html#variaciones",
+    "title": "2  Markdown: lenguaje de marcado",
+    "section": "2.4 Variaciones",
+    "text": "2.4 Variaciones\nLas variaciones de Markdown, también llamadas flavors, son extensiones o modificaciones de la especificación original. Entre las más populares están:\n\nR Markdown: para el lenguaje R.\nGitHub Flavored Markdown: para la plataforma GitHub.\nPython Markdown: para el lenguaje Python.\nPandoc’s Markdown: para el programa Pandoc de conversión entre formatos.\nKramdown: para el lenguaje Ruby.\n\nPuede verse una lista más extensa en https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors."
+  },
+  {
+    "objectID": "02-markdown.html#sintaxis",
+    "href": "02-markdown.html#sintaxis",
+    "title": "2  Markdown: lenguaje de marcado",
+    "section": "2.5 Sintaxis",
+    "text": "2.5 Sintaxis\nLa sintaxis de Markdown permite especificar diferentes componentes de un documento, entre los que están:\n\nEncabezados.\nEstilos (ej. negritas, itálicas).\nCitas textuales.\nEnlaces a otros documentos (ej. páginas web).\nImágenes.\nListas.\n\n\n2.5.1 Encabezados\nPueden definirse seis niveles de encabezados, mediante símbolos de numeral (#) antes del texto. El primer nivel es el de tamaño de texto más grande y el sexto el más pequeño. En la parte izquierda de la Figure 2.1 se muestra la sintaxis Markdown de los encabezados y a la derecha la forma en que se despliegan en un documento.\n\n\n\n\n\nFigure 2.1: Sintaxis de Markdown - encabezados.\n\n\n\n\n\n\n2.5.2 Itálicas\nSe definen con un asterisco (*) antes y después del texto o con un guión bajo (_) antes y después del texto.\n\n\n\n\n\nFigure 2.2: Sintaxis de Markdown - itálicas.\n\n\n\n\n\n\n2.5.3 Negritas\nSe definen con dos asteriscos (**) antes y después del texto o con dos guiones bajos (__) antes y después del texto.\n\n\n\n\n\nFigure 2.3: Sintaxis de Markdown - negritas.\n\n\n\n\n\n\n2.5.4 Citas textuales\nSe definen con un símbolo de “mayor que” (>) antes de cada línea.\n\n\n\n\n\nFigure 2.4: Sintaxis de Markdown - citas textuales.\n\n\n\n\n\n\n2.5.5 Enlaces (hipervínculos)\nSe definen con paréntesis cuadrados ([]) seguidos de paréntesis redondos (()). En los paréntesis cuadrados se coloca (opcionalmente) el texto del enlace y en los redondos la dirección del documento.\n\n\n\n\n\nFigure 2.5: Sintaxis de Markdown - enlaces.\n\n\n\n\n\n\n2.5.6 Imágenes\nSe definen con un signo de admiración de cierre (!), paréntesis cuadrados ([]) y paréntesis redondos (()). En los paréntesis cuadrados se coloca (opcionalmente) un texto alternativo de la imagen y en los redondos la dirección de la imagen, ya sea local o remota.\n\n\n\n\n\nFigure 2.6: Sintaxis de Markdown - imágenes.\n\n\n\n\n\n\n2.5.7 Listas numeradas\nSe definen con números (1. 2. 3. ...) antes de cada elemento.\n\n\n\n\n\nFigure 2.7: Sintaxis de Markdown - listas numeradas.\n\n\n\n\n\n\n2.5.8 Listas no numeradas\nSe definen con guiones (-) o asteriscos (*) antes de cada elemento.\n\n\n\n\n\nFigure 2.8: Sintaxis de Markdown - listas no numeradas.\n\n\n\n\n\n\n2.5.9 Otros elementos de sintaxis\nPara conocer otros elementos de la sintaxis de Markdown, se recomienda revisar en detalle la Guía de referencia de Markdown."
+  },
+  {
+    "objectID": "02-markdown.html#ejercicios",
+    "href": "02-markdown.html#ejercicios",
+    "title": "2  Markdown: lenguaje de marcado",
+    "section": "2.6 Ejercicios",
+    "text": "2.6 Ejercicios\n\nCree un documento Markdown llamado README.md, en RStudio, y escriba en este un breve perfil académico (curriculum académico).\n\nIncluya información como: nombre, fotografía, datos de contacto, áreas de interés, carrera, cursos aprobados, publicaciones, etc.\nPuede usar información ficticia (no incluya datos confidenciales o sensibles).\nEspecifique la fuente de las imágenes (y de cualquier otra información para la que sea necesario) y no utilice imágenes para las que no tiene autorización. Considere utilizar sitios con imágenes con licencias abiertas (ej. Wikimedia Commons, Unsplash, FreeImages).\nAsegúrese de utilizar los siguientes elementos de sintaxis Markdown:\n\nVarios niveles de encabezados.\nNegritas e itálicas.\nListas.\nEnlaces a sitios web.\nImágenes (al menos una local y una remota).\n\n\nCree un repositorio en GitHub llamado perfil-academico y suba a este el documento que creó en el paso 1.\nCree un sitio web en GitHub Pages con el repositorio creado en el paso 2."
+  },
+  {
+    "objectID": "02-markdown.html#recursos-de-interés",
+    "href": "02-markdown.html#recursos-de-interés",
+    "title": "2  Markdown: lenguaje de marcado",
+    "section": "2.7 Recursos de interés",
+    "text": "2.7 Recursos de interés\nCarrera Arias, F. J. (2020). How to Install R on Windows, Mac OS X, and Ubuntu Tutorial. DataCamp Community. https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu\nMarkdown Guide. (s. f.). Recuperado 10 de abril de 2022, de https://www.markdownguide.org/"
+  },
+  {
+    "objectID": "03-git.html",
+    "href": "03-git.html",
+    "title": "3  Git: sistema de control de versiones",
+    "section": "",
+    "text": "Abba, I. V. (2021). Git and GitHub Tutorial – Version Control for Beginners. FreeCodeCamp.Org. https://www.freecodecamp.org/news/git-and-github-for-beginners/\n\n\n\n\n\nInstale en su computadora el sistema de control de versiones Git."
+  },
+  {
+    "objectID": "03-git.html#resumen",
+    "href": "03-git.html#resumen",
+    "title": "3  Git: sistema de control de versiones",
+    "section": "3.2 Resumen",
+    "text": "3.2 Resumen\nGit es un sistema para administrar versiones de código fuente o, en general, de cualquier conjunto de archivos."
+  },
+  {
+    "objectID": "03-git.html#descripción-general",
+    "href": "03-git.html#descripción-general",
+    "title": "3  Git: sistema de control de versiones",
+    "section": "3.3 Descripción general",
+    "text": "3.3 Descripción general\nGit es un sistema de control de versiones diseñado para rastrear cambios en el código fuente durante el proceso de desarrollo de software. Sin embargo, puede ser utilizado para llevar el control de los cambios en cualquier conjunto de archivos (ej. documentación, música).\nUn sistema de control de versiones proporciona, entre otras ventajas:\n\nLa capacidad de recuperar versiones anteriores del conjunto de archivos.\nLa capacidad de integrar modificaciones efectuadas por varias personas en el conjunto de archivos.\nLa capacidad de mantener varias “ramas” (branches) de un producto (ej. “estable”, “evaluación”, “inestable”, como en el caso de Debian Linux, GRASS GIS y muchos otros proyectos de software libre).\nFacilidades para mantener redundancia y respaldos de los archivos (ej. Programa de respaldos de GitHub).\n\nGit fue diseñado por Linus Torvalds en 2005 durante del desarrollo del kernel del sistema operativo Linux. Se caracteriza por ser un sistema de control de versiones distribuido, lo que significa que el código fuente puede estar alojado en la estación de trabajo de cualquier miembro del equipo de desarrollo (i.e. no tiene que existir un repositorio central).\nEl protocolo de Git es utilizado en varios sitios que proveen servicios de alojamiento de software, entre los que están SourceForge, Bitbucket, GitLab y GitHub."
+  },
+  {
+    "objectID": "03-git.html#como-funciona-git",
+    "href": "03-git.html#como-funciona-git",
+    "title": "3  Git: sistema de control de versiones",
+    "section": "3.4 ¿Como funciona Git?",
+    "text": "3.4 ¿Como funciona Git?\nDesde el punto de vista de un usuario de Git (ej. un programador), Git se utiliza para sincronizar la versión local de un conjunto de archivos, llamado proyecto o repositorio, con la versión que está alojada en un sistema remoto (ej. GitHub). Cada repositorio se almacena en un directorio (carpeta) del sistema operativo. La sincronización se realiza principalmente a través de dos operaciones:\n\npush: para “subir” al repositorio remoto los cambios realizados en el repositorio local. Esta operación se realiza mediante el comando git push. Es probable que el sistema remoto le solicite al usuario algún tipo de autenticación (ej. nombre de usuario y clave).\npull: para “bajar” al repositorio local los cambios realizados en el repositorio remoto. Esta operación se realiza mediante el comando git pull.\n\nLas operaciones push y pull se ilustran en la figura @ref(fig:git-push-pull).\n\n\n\n\n\nOperaciones push y pull. Imagen de Melinda Higgins.\n\n\n\n\nAntes de un push, el usuario debe seleccionar los archivos que desea subir mediante el comando git add, el cual pasa los archivos a un “área de espera” (staging area). Luego debe usarse el comando git commit para “guardar” los cambios en el área de espera.\nLa relación entre estas operaciones de Git, se ilustra en la figura @ref(fig:git-push-pull-commit).\n\n\n\n\n\nOperaciones de Git. Imagen de Steven Klavins.\n\n\n\n\nEn la figura @ref(fig:git-stage-commit-push) se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.\n\n\n\n\n\nOperaciones de Git y compras en línea. Imagen de Melinda Higgins.\n\n\n\n\nOtras operaciones de Git de uso frecuente son:\n\ngit config: para especificar opciones globales de la sesión de Git (ej. nombre del usuario, dirección de corre electrónico).\ngit clone: para clonar (i.e. copiar) un repositorio remoto en la computadora local.\ngit status: para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera."
+  },
+  {
+    "objectID": "03-git.html#ejemplos-de-uso",
+    "href": "03-git.html#ejemplos-de-uso",
+    "title": "3  Git: sistema de control de versiones",
+    "section": "3.5 Ejemplos de uso",
+    "text": "3.5 Ejemplos de uso\n\n3.5.1 Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente\nPara seguir este ejemplo:\n\nBifurque (fork) a su cuenta en GitHub el repositorio localizado en la dirección https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo.\n\nCon la opción File - New Project - Version Control - Git de RStudio, clone a su computadora el repositorio que acaba de bifurcar.\nCon el editor de RStudio, abra el archivo README.md, agregue una línea y guarde el archivo.\n\nLuego, ejecute los siguientes comandos desde la la ventana Terminal de RStudio. Nota: las líneas que empiezan con # son comentarios.\n\n# 0. Especificación del nombre y de la dirección de correo del usuario.\n# Debe modificar la dirección de correo y el nombre del usuario con sus propios datos.\n$ git config --global user.email usuario@correo.com\n$ git config --global user.name usuariogithub\n# Para revisar:\n$ git config --global --list\n\n# 1. Revisión de los archivos con modificaciones.\n$ git status\n\n# 2. Adición de los archivos modificados al \"área de espera\".\n# El punto (.) indica que se agregarán todos los archivos modificados.\n$ git add .\n\n# 3. Almacenamiento (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.\n$ git commit -m \"Agregar línea 2\"\n\n# 4. \"Subida\" (push) de las modificaciones al repositorio remoto.\n$ git push\nRevise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del 1 al 4. Los comentarios en el commando commit deben reflejar los cambios realizados."
+  },
+  {
+    "objectID": "03-git.html#recursos-de-interés",
+    "href": "03-git.html#recursos-de-interés",
+    "title": "3  Git: sistema de control de versiones",
+    "section": "3.6 Recursos de interés",
+    "text": "3.6 Recursos de interés\nGitHub Archive Program. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de https://archiveprogram.github.com/\nHiggins, M. (s. f.). Reproducible Templates for Analysis and Dissemination. Coursera. Recuperado 11 de abril de 2022, de https://www.coursera.org/learn/reproducible-templates-analysis\nKlavins, S. (2020). Version Control part 1. Medium. https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6"
   },
   {
     "objectID": "references.html",
     "href": "references.html",
-    "title": "References",
+    "title": "Referencias bibliográficas",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "Gandrud, Christopher. 2020. Reproducible Research with\nR and RStudio. Third edition. The\nR Series. Boca Raton, FL: CRC Press.\n\n\nLongley, Paul A., Michael F. Goodchild, David J. Maguire, and David W.\nRhind. 2005. Geographic Information\nSystems and Science. 2nd edition.\nChichester ; Hoboken, NJ: Wiley.\n\n\nOlaya, Víctor. 2020. “Sistemas de Información\nGeográfica.” https://volaya.github.io/libro-sig/.\n\n\nPeng, Roger D. 2011. “Reproducible Research in\nComputational Science.”\nScience 334 (6060): 1226–27. https://doi.org/10.1126/science.1213847.\n\n\nSingleton, Alex David, Seth Spielman, and Chris Brunsdon. 2016.\n“Establishing a Framework for Open\nGeographic Information Science.”\nInternational Journal of Geographical Information Science 30\n(8): 1507–21. https://doi.org/10.1080/13658816.2015.1137579."
   }
 ]

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>PF 0953 Programación en R 2022-II - 3&nbsp; Git: sistema de control de versiones</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./02-markdown.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git: sistema de control de versiones</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">PF 0953 Programación en R 2022-II</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Bienvenida</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-01-introduccion.html" class="sidebar-item-text sidebar-link">I - Introducción</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-introduccion-ciencia-datos-geoespaciales.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la ciencia de datos geoespaciales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown: lenguaje de marcado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-git.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git: sistema de control de versiones</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Referencias bibliográficas</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#trabajo-previo" id="toc-trabajo-previo" class="nav-link active" data-scroll-target="#trabajo-previo"> <span class="header-section-number">3.1</span> Trabajo previo</a>
+  <ul class="collapse">
+  <li><a href="#tutoriales" id="toc-tutoriales" class="nav-link" data-scroll-target="#tutoriales"> <span class="header-section-number">3.1.1</span> Tutoriales</a></li>
+  <li><a href="#otros" id="toc-otros" class="nav-link" data-scroll-target="#otros"> <span class="header-section-number">3.1.2</span> Otros</a></li>
+  </ul></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"> <span class="header-section-number">3.2</span> Resumen</a></li>
+  <li><a href="#descripción-general" id="toc-descripción-general" class="nav-link" data-scroll-target="#descripción-general"> <span class="header-section-number">3.3</span> Descripción general</a></li>
+  <li><a href="#como-funciona-git" id="toc-como-funciona-git" class="nav-link" data-scroll-target="#como-funciona-git"> <span class="header-section-number">3.4</span> ¿Como funciona Git?</a></li>
+  <li><a href="#ejemplos-de-uso" id="toc-ejemplos-de-uso" class="nav-link" data-scroll-target="#ejemplos-de-uso"> <span class="header-section-number">3.5</span> Ejemplos de uso</a>
+  <ul class="collapse">
+  <li><a href="#clonación-de-un-repositorio-remoto-y-sincronización-de-los-cambios-efectuados-localmente" id="toc-clonación-de-un-repositorio-remoto-y-sincronización-de-los-cambios-efectuados-localmente" class="nav-link" data-scroll-target="#clonación-de-un-repositorio-remoto-y-sincronización-de-los-cambios-efectuados-localmente"> <span class="header-section-number">3.5.1</span> Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente</a></li>
+  </ul></li>
+  <li><a href="#recursos-de-interés" id="toc-recursos-de-interés" class="nav-link" data-scroll-target="#recursos-de-interés"> <span class="header-section-number">3.6</span> Recursos de interés</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git: sistema de control de versiones</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="trabajo-previo" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="trabajo-previo"><span class="header-section-number">3.1</span> Trabajo previo</h2>
+<section id="tutoriales" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="tutoriales"><span class="header-section-number">3.1.1</span> Tutoriales</h3>
+<ul>
+<li>Abba, I. V. (2021). <em>Git and GitHub Tutorial – Version Control for Beginners</em>. FreeCodeCamp.Org. https://www.freecodecamp.org/news/git-and-github-for-beginners/</li>
+</ul>
+</section>
+<section id="otros" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="otros"><span class="header-section-number">3.1.2</span> Otros</h3>
+<ul>
+<li>Instale en su computadora el sistema de control de versiones <a href="https://git-scm.com/downloads">Git</a>.</li>
+</ul>
+</section>
+</section>
+<section id="resumen" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="resumen"><span class="header-section-number">3.2</span> Resumen</h2>
+<p>Git es un sistema para administrar versiones de código fuente o, en general, de cualquier conjunto de archivos.</p>
+</section>
+<section id="descripción-general" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="descripción-general"><span class="header-section-number">3.3</span> Descripción general</h2>
+<p><a href="https://git-scm.com/">Git</a> es un sistema de <a href="https://es.wikipedia.org/wiki/Control_de_versiones">control de versiones</a> diseñado para rastrear cambios en el código fuente durante el proceso de desarrollo de software. Sin embargo, puede ser utilizado para llevar el control de los cambios en cualquier conjunto de archivos (ej. <a href="https://guides.github.com/features/wikis/">documentación</a>, <a href="https://techcrunch.com/2013/10/09/splice-music/">música</a>).</p>
+<p>Un sistema de control de versiones proporciona, entre otras ventajas:</p>
+<ul>
+<li>La capacidad de recuperar versiones anteriores del conjunto de archivos.</li>
+<li>La capacidad de integrar modificaciones efectuadas por varias personas en el conjunto de archivos.</li>
+<li>La capacidad de mantener varias “ramas” (<em>branches</em>) de un producto (ej. “estable”, “evaluación”, “inestable”, como en el caso de <a href="https://www.debian.org/releases/">Debian Linux</a>, <a href="https://grass.osgeo.org/download/software/sources/">GRASS GIS</a> y muchos otros proyectos de software libre).</li>
+<li>Facilidades para mantener redundancia y respaldos de los archivos (ej. <a href="https://archiveprogram.github.com/">Programa de respaldos de GitHub</a>).</li>
+</ul>
+<p>Git fue diseñado por Linus Torvalds en 2005 durante del desarrollo del <em>kernel</em> del sistema operativo Linux. Se caracteriza por ser un <a href="https://es.wikipedia.org/wiki/Control_de_versiones_distribuido">sistema de control de versiones distribuido</a>, lo que significa que el código fuente puede estar alojado en la estación de trabajo de cualquier miembro del equipo de desarrollo (i.e.&nbsp;no tiene que existir un repositorio central).</p>
+<p>El protocolo de Git es utilizado en varios sitios que proveen servicios de alojamiento de software, entre los que están <a href="https://sourceforge.net/">SourceForge</a>, <a href="https://bitbucket.org/">Bitbucket</a>, <a href="https://about.gitlab.com/">GitLab</a> y <a href="https://github.com/">GitHub</a>.</p>
+</section>
+<section id="como-funciona-git" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="como-funciona-git"><span class="header-section-number">3.4</span> ¿Como funciona Git?</h2>
+<p>Desde el punto de vista de un usuario de Git (ej. un programador), Git se utiliza para sincronizar la versión local de un conjunto de archivos, llamado proyecto o repositorio, con la versión que está alojada en un sistema remoto (ej. GitHub). Cada repositorio se almacena en un directorio (carpeta) del sistema operativo. La sincronización se realiza principalmente a través de dos operaciones:</p>
+<ul>
+<li><strong><em>push</em></strong>: para “subir” al repositorio remoto los cambios realizados en el repositorio local. Esta operación se realiza mediante el comando <a href="https://git-scm.com/docs/git-push">git push</a>. Es probable que el sistema remoto le solicite al usuario algún tipo de autenticación (ej. nombre de usuario y clave).</li>
+<li><strong><em>pull</em></strong>: para “bajar” al repositorio local los cambios realizados en el repositorio remoto. Esta operación se realiza mediante el comando <a href="https://git-scm.com/docs/git-pull">git pull</a>.</li>
+</ul>
+<p>Las operaciones <em>push</em> y <em>pull</em> se ilustran en la figura @ref(fig:git-push-pull).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/git-push-pull.png" class="img-fluid figure-img" width="251"></p>
+<p></p><figcaption class="figure-caption">Operaciones <em>push</em> y <em>pull</em>. Imagen de <a href="https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-1">Melinda Higgins</a>.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Antes de un <em>push</em>, el usuario debe seleccionar los archivos que desea subir mediante el comando <a href="https://git-scm.com/docs/git-add">git add</a>, el cual pasa los archivos a un “área de espera” (<em>staging area</em>). Luego debe usarse el comando <a href="https://git-scm.com/docs/git-commit">git commit</a> para “guardar” los cambios en el área de espera.</p>
+<p>La relación entre estas operaciones de Git, se ilustra en la figura @ref(fig:git-push-pull-commit).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/git-push-pull-commit.png" class="img-fluid figure-img" width="640"></p>
+<p></p><figcaption class="figure-caption">Operaciones de Git. Imagen de <a href="https://medium.com/@stevenklavins94/version-control-part-4-c9387cf5b33e">Steven Klavins</a>.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En la figura @ref(fig:git-stage-commit-push) se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/git-stage-commit-push.png" class="img-fluid figure-img" width="400"></p>
+<p></p><figcaption class="figure-caption">Operaciones de Git y compras en línea. Imagen de <a href="https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-2">Melinda Higgins</a>.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Otras operaciones de Git de uso frecuente son:</p>
+<ul>
+<li><a href="https://git-scm.com/docs/git-config">git config</a>: para especificar opciones globales de la sesión de Git (ej. nombre del usuario, dirección de corre electrónico).</li>
+<li><a href="https://git-scm.com/docs/git-clone">git clone</a>: para clonar (i.e.&nbsp;copiar) un repositorio remoto en la computadora local.</li>
+<li><a href="https://git-scm.com/docs/git-status">git status</a>: para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera.</li>
+</ul>
+</section>
+<section id="ejemplos-de-uso" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="ejemplos-de-uso"><span class="header-section-number">3.5</span> Ejemplos de uso</h2>
+<section id="clonación-de-un-repositorio-remoto-y-sincronización-de-los-cambios-efectuados-localmente" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="clonación-de-un-repositorio-remoto-y-sincronización-de-los-cambios-efectuados-localmente"><span class="header-section-number">3.5.1</span> Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente</h3>
+<p>Para seguir este ejemplo:</p>
+<ol type="1">
+<li>Bifurque (<em>fork</em>) a su cuenta en GitHub el repositorio localizado en la dirección <a href="https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo">https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo</a>.<br>
+</li>
+<li>Con la opción <em>File - New Project - Version Control - Git</em> de RStudio, clone a su computadora el repositorio que acaba de bifurcar.</li>
+<li>Con el editor de RStudio, abra el archivo <code>README.md</code>, agregue una línea y guarde el archivo.<br>
+</li>
+<li>Luego, ejecute los siguientes comandos desde la la ventana <em>Terminal</em> de RStudio. Nota: las líneas que empiezan con <code>#</code> son comentarios.</li>
+</ol>
+<pre class="shell"><code># 0. Especificación del nombre y de la dirección de correo del usuario.
+# Debe modificar la dirección de correo y el nombre del usuario con sus propios datos.
+$ git config --global user.email usuario@correo.com
+$ git config --global user.name usuariogithub
+# Para revisar:
+$ git config --global --list
+
+# 1. Revisión de los archivos con modificaciones.
+$ git status
+
+# 2. Adición de los archivos modificados al "área de espera".
+# El punto (.) indica que se agregarán todos los archivos modificados.
+$ git add .
+
+# 3. Almacenamiento (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.
+$ git commit -m "Agregar línea 2"
+
+# 4. "Subida" (push) de las modificaciones al repositorio remoto.
+$ git push</code></pre>
+<p>Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del 1 al 4. Los comentarios en el commando <code>commit</code> deben reflejar los cambios realizados.</p>
+</section>
+</section>
+<section id="recursos-de-interés" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="recursos-de-interés"><span class="header-section-number">3.6</span> Recursos de interés</h2>
+<p><em>GitHub Archive Program</em>. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de https://archiveprogram.github.com/</p>
+<p>Higgins, M. (s. f.). <em>Reproducible Templates for Analysis and Dissemination</em>. Coursera. Recuperado 11 de abril de 2022, de https://www.coursera.org/learn/reproducible-templates-analysis</p>
+<p>Klavins, S. (2020). <em>Version Control part 1</em>. Medium. https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-markdown.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown: lenguaje de marcado</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">Referencias bibliográficas</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
