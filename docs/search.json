@@ -44,93 +44,93 @@
   {
     "objectID": "02-markdown.html",
     "href": "02-markdown.html",
-    "title": "2  Markdown: lenguaje de marcado",
+    "title": "2  Markdown - lenguaje de marcado",
     "section": "",
     "text": "Markdown Tutorial. (s. f.). Recuperado 19 de marzo de 2022, de https://www.markdowntutorial.com/\n\n\n\n\nInstale en su computadora el sistema base del lenguaje R y luego el ambiente integrado de desarrollo RStudio Desktop.\nCree una cuenta gratuita en la plataforma de desarrollo colaborativo GitHub."
   },
   {
     "objectID": "02-markdown.html#resumen",
     "href": "02-markdown.html#resumen",
-    "title": "2  Markdown: lenguaje de marcado",
+    "title": "2  Markdown - lenguaje de marcado",
     "section": "2.2 Resumen",
     "text": "2.2 Resumen\nMarkdown es un lenguaje de marcado ligero ampliamente utilizado en comunicación científica, documentación de programas e investigación reproducible."
   },
   {
     "objectID": "02-markdown.html#descripción-general",
     "href": "02-markdown.html#descripción-general",
-    "title": "2  Markdown: lenguaje de marcado",
+    "title": "2  Markdown - lenguaje de marcado",
     "section": "2.3 Descripción general",
     "text": "2.3 Descripción general\nMarkdown es un lenguaje de marcado creado en 2004 por John Gruber. Las “marcas” se utilizan para brindar información acerca de la presentación (ej. negritas, itálicas) o la estructura (ej. títulos, encabezados) de un documento. Se caracteriza por ser más sencillo de leer y de usar que otros lenguajes de marcado (ej. Lenguaje de marcado de Hipertexto o HTML), por lo que se considera un lenguaje de marcado ligero. Los documentos escritos en Markdown pueden exportarse a una gran variedad de formatos (ej. HTML, DOC, PDF, LaTex) para ser usados en libros, presentaciones o páginas web, entre otros. Markdown es ampliamente utilizado en comunicación científica, documentación de programas e investigación reproducible."
   },
   {
     "objectID": "02-markdown.html#variaciones",
     "href": "02-markdown.html#variaciones",
-    "title": "2  Markdown: lenguaje de marcado",
+    "title": "2  Markdown - lenguaje de marcado",
     "section": "2.4 Variaciones",
     "text": "2.4 Variaciones\nLas variaciones de Markdown, también llamadas flavors, son extensiones o modificaciones de la especificación original. Entre las más populares están:\n\nR Markdown: para el lenguaje R.\nGitHub Flavored Markdown: para la plataforma GitHub.\nPython Markdown: para el lenguaje Python.\nPandoc’s Markdown: para el programa Pandoc de conversión entre formatos.\nKramdown: para el lenguaje Ruby.\n\nPuede verse una lista más extensa en https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors."
   },
   {
     "objectID": "02-markdown.html#sintaxis",
     "href": "02-markdown.html#sintaxis",
-    "title": "2  Markdown: lenguaje de marcado",
+    "title": "2  Markdown - lenguaje de marcado",
     "section": "2.5 Sintaxis",
     "text": "2.5 Sintaxis\nLa sintaxis de Markdown permite especificar diferentes componentes de un documento, entre los que están:\n\nEncabezados.\nEstilos (ej. negritas, itálicas).\nCitas textuales.\nEnlaces a otros documentos (ej. páginas web).\nImágenes.\nListas.\n\n\n2.5.1 Encabezados\nPueden definirse seis niveles de encabezados, mediante símbolos de numeral (#) antes del texto. El primer nivel es el de tamaño de texto más grande y el sexto el más pequeño. En la parte izquierda de la Figure 2.1 se muestra la sintaxis Markdown de los encabezados y a la derecha la forma en que se despliegan en un documento.\n\n\n\n\n\nFigure 2.1: Sintaxis de Markdown - encabezados.\n\n\n\n\n\n\n2.5.2 Itálicas\nSe definen con un asterisco (*) antes y después del texto o con un guión bajo (_) antes y después del texto.\n\n\n\n\n\nFigure 2.2: Sintaxis de Markdown - itálicas.\n\n\n\n\n\n\n2.5.3 Negritas\nSe definen con dos asteriscos (**) antes y después del texto o con dos guiones bajos (__) antes y después del texto.\n\n\n\n\n\nFigure 2.3: Sintaxis de Markdown - negritas.\n\n\n\n\n\n\n2.5.4 Citas textuales\nSe definen con un símbolo de “mayor que” (>) antes de cada línea.\n\n\n\n\n\nFigure 2.4: Sintaxis de Markdown - citas textuales.\n\n\n\n\n\n\n2.5.5 Enlaces (hipervínculos)\nSe definen con paréntesis cuadrados ([]) seguidos de paréntesis redondos (()). En los paréntesis cuadrados se coloca (opcionalmente) el texto del enlace y en los redondos la dirección del documento.\n\n\n\n\n\nFigure 2.5: Sintaxis de Markdown - enlaces.\n\n\n\n\n\n\n2.5.6 Imágenes\nSe definen con un signo de admiración de cierre (!), paréntesis cuadrados ([]) y paréntesis redondos (()). En los paréntesis cuadrados se coloca (opcionalmente) un texto alternativo de la imagen y en los redondos la dirección de la imagen, ya sea local o remota.\n\n\n\n\n\nFigure 2.6: Sintaxis de Markdown - imágenes.\n\n\n\n\n\n\n2.5.7 Listas numeradas\nSe definen con números (1. 2. 3. ...) antes de cada elemento.\n\n\n\n\n\nFigure 2.7: Sintaxis de Markdown - listas numeradas.\n\n\n\n\n\n\n2.5.8 Listas no numeradas\nSe definen con guiones (-) o asteriscos (*) antes de cada elemento.\n\n\n\n\n\nFigure 2.8: Sintaxis de Markdown - listas no numeradas.\n\n\n\n\n\n\n2.5.9 Otros elementos de sintaxis\nPara conocer otros elementos de la sintaxis de Markdown, se recomienda revisar en detalle la Guía de referencia de Markdown."
   },
   {
     "objectID": "02-markdown.html#ejercicios",
     "href": "02-markdown.html#ejercicios",
-    "title": "2  Markdown: lenguaje de marcado",
+    "title": "2  Markdown - lenguaje de marcado",
     "section": "2.6 Ejercicios",
     "text": "2.6 Ejercicios\n\nCree un documento Markdown llamado README.md, en RStudio, y escriba en este un breve perfil académico (curriculum académico).\n\nIncluya información como: nombre, fotografía, datos de contacto, áreas de interés, carrera, cursos aprobados, publicaciones, etc.\nPuede usar información ficticia (no incluya datos confidenciales o sensibles).\nEspecifique la fuente de las imágenes (y de cualquier otra información para la que sea necesario) y no utilice imágenes para las que no tiene autorización. Considere utilizar sitios con imágenes con licencias abiertas (ej. Wikimedia Commons, Unsplash, FreeImages).\nAsegúrese de utilizar los siguientes elementos de sintaxis Markdown:\n\nVarios niveles de encabezados.\nNegritas e itálicas.\nListas.\nEnlaces a sitios web.\nImágenes (al menos una local y una remota).\n\n\nCree un repositorio en GitHub llamado perfil-academico y suba a este el documento que creó en el paso 1.\nCree un sitio web en GitHub Pages con el repositorio creado en el paso 2."
   },
   {
     "objectID": "02-markdown.html#recursos-de-interés",
     "href": "02-markdown.html#recursos-de-interés",
-    "title": "2  Markdown: lenguaje de marcado",
+    "title": "2  Markdown - lenguaje de marcado",
     "section": "2.7 Recursos de interés",
     "text": "2.7 Recursos de interés\nCarrera Arias, F. J. (2020). How to Install R on Windows, Mac OS X, and Ubuntu Tutorial. DataCamp Community. https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu\nMarkdown Guide. (s. f.). Recuperado 10 de abril de 2022, de https://www.markdownguide.org/"
   },
   {
     "objectID": "03-git.html",
     "href": "03-git.html",
-    "title": "3  Git: sistema de control de versiones",
+    "title": "3  Git - sistema de control de versiones",
     "section": "",
-    "text": "Abba, I. V. (2021). Git and GitHub Tutorial – Version Control for Beginners. FreeCodeCamp.Org. https://www.freecodecamp.org/news/git-and-github-for-beginners/\n\n\n\n\n\nInstale en su computadora el sistema de control de versiones Git."
+    "text": "Abba, I. V. (2021). Git and GitHub Tutorial – Version Control for Beginners. FreeCodeCamp.Org. https://www.freecodecamp.org/news/git-and-github-for-beginners/\n\n\n\nInstale en su computadora el sistema de control de versiones Git."
   },
   {
     "objectID": "03-git.html#resumen",
     "href": "03-git.html#resumen",
-    "title": "3  Git: sistema de control de versiones",
+    "title": "3  Git - sistema de control de versiones",
     "section": "3.2 Resumen",
     "text": "3.2 Resumen\nGit es un sistema para administrar versiones de código fuente o, en general, de cualquier conjunto de archivos."
   },
   {
     "objectID": "03-git.html#descripción-general",
     "href": "03-git.html#descripción-general",
-    "title": "3  Git: sistema de control de versiones",
+    "title": "3  Git - sistema de control de versiones",
     "section": "3.3 Descripción general",
-    "text": "3.3 Descripción general\nGit es un sistema de control de versiones diseñado para rastrear cambios en el código fuente durante el proceso de desarrollo de software. Sin embargo, puede ser utilizado para llevar el control de los cambios en cualquier conjunto de archivos (ej. documentación, música).\nUn sistema de control de versiones proporciona, entre otras ventajas:\n\nLa capacidad de recuperar versiones anteriores del conjunto de archivos.\nLa capacidad de integrar modificaciones efectuadas por varias personas en el conjunto de archivos.\nLa capacidad de mantener varias “ramas” (branches) de un producto (ej. “estable”, “evaluación”, “inestable”, como en el caso de Debian Linux, GRASS GIS y muchos otros proyectos de software libre).\nFacilidades para mantener redundancia y respaldos de los archivos (ej. Programa de respaldos de GitHub).\n\nGit fue diseñado por Linus Torvalds en 2005 durante del desarrollo del kernel del sistema operativo Linux. Se caracteriza por ser un sistema de control de versiones distribuido, lo que significa que el código fuente puede estar alojado en la estación de trabajo de cualquier miembro del equipo de desarrollo (i.e. no tiene que existir un repositorio central).\nEl protocolo de Git es utilizado en varios sitios que proveen servicios de alojamiento de software, entre los que están SourceForge, Bitbucket, GitLab y GitHub."
+    "text": "3.3 Descripción general\nGit es un sistema de control de versiones diseñado para “rastrear” cambios en el código fuente durante el proceso de desarrollo de software. Sin embargo, puede ser utilizado para llevar el control de los cambios en cualquier conjunto de archivos (ej. documentación, música).\nUn sistema de control de versiones proporciona, entre otras ventajas:\n\nLa capacidad de recuperar versiones anteriores de los archivos.\nLa capacidad de integrar modificaciones efectuadas por varias personas en el mismo conjunto de archivos.\nLa capacidad de mantener varias “ramas” (branches) de un producto (ej. “estable”, “evaluación”, “inestable”, como en el caso de Debian Linux, GRASS GIS y muchos otros proyectos de software libre).\nFacilidades para mantener redundancia y respaldos de los archivos (ej. Programa de respaldos de GitHub). Esta es una facilidad que implementan algunos servicios en la nube.\n\nGit fue diseñado por Linus Torvalds en 2005 durante del desarrollo del kernel del sistema operativo Linux. Se caracteriza por ser un sistema de control de versiones distribuido, lo que significa que el código fuente puede estar alojado en la estación de trabajo de cualquier miembro del equipo de desarrollo. No se requiere de un repositorio “central”, pero también se puede trabajar de esa forma.\nEl protocolo de Git es utilizado en varios sitios que proveen servicios de alojamiento de software, entre los que están SourceForge, Bitbucket, GitLab y GitHub."
   },
   {
-    "objectID": "03-git.html#como-funciona-git",
-    "href": "03-git.html#como-funciona-git",
-    "title": "3  Git: sistema de control de versiones",
-    "section": "3.4 ¿Como funciona Git?",
-    "text": "3.4 ¿Como funciona Git?\nDesde el punto de vista de un usuario de Git (ej. un programador), Git se utiliza para sincronizar la versión local de un conjunto de archivos, llamado proyecto o repositorio, con la versión que está alojada en un sistema remoto (ej. GitHub). Cada repositorio se almacena en un directorio (carpeta) del sistema operativo. La sincronización se realiza principalmente a través de dos operaciones:\n\npush: para “subir” al repositorio remoto los cambios realizados en el repositorio local. Esta operación se realiza mediante el comando git push. Es probable que el sistema remoto le solicite al usuario algún tipo de autenticación (ej. nombre de usuario y clave).\npull: para “bajar” al repositorio local los cambios realizados en el repositorio remoto. Esta operación se realiza mediante el comando git pull.\n\nLas operaciones push y pull se ilustran en la figura @ref(fig:git-push-pull).\n\n\n\n\n\nOperaciones push y pull. Imagen de Melinda Higgins.\n\n\n\n\nAntes de un push, el usuario debe seleccionar los archivos que desea subir mediante el comando git add, el cual pasa los archivos a un “área de espera” (staging area). Luego debe usarse el comando git commit para “guardar” los cambios en el área de espera.\nLa relación entre estas operaciones de Git, se ilustra en la figura @ref(fig:git-push-pull-commit).\n\n\n\n\n\nOperaciones de Git. Imagen de Steven Klavins.\n\n\n\n\nEn la figura @ref(fig:git-stage-commit-push) se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.\n\n\n\n\n\nOperaciones de Git y compras en línea. Imagen de Melinda Higgins.\n\n\n\n\nOtras operaciones de Git de uso frecuente son:\n\ngit config: para especificar opciones globales de la sesión de Git (ej. nombre del usuario, dirección de corre electrónico).\ngit clone: para clonar (i.e. copiar) un repositorio remoto en la computadora local.\ngit status: para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera."
+    "objectID": "03-git.html#funcionamiento-de-git",
+    "href": "03-git.html#funcionamiento-de-git",
+    "title": "3  Git - sistema de control de versiones",
+    "section": "3.4 Funcionamiento de Git",
+    "text": "3.4 Funcionamiento de Git\nDesde el punto de vista de un usuario de Git (ej. un programador), Git se utiliza para sincronizar la versión local (i.e. en una computadora personal) de un conjunto de archivos, llamado proyecto o repositorio, con la versión que está alojada en un sistema remoto (ej. GitHub). Cada repositorio se almacena en un directorio (carpeta) del sistema operativo. La sincronización se realiza principalmente a través de dos operaciones:\n\npush: para “subir” al repositorio remoto los cambios realizados en el repositorio local. Esta operación se realiza mediante el comando git push. Es probable que el sistema remoto le solicite al usuario algún tipo de autenticación (ej. nombre de usuario y clave).\npull: para “bajar” al repositorio local los cambios realizados en el repositorio remoto. Esta operación se realiza mediante el comando git pull.\n\nLas operaciones push y pull se ilustran en la Figure 3.1.\n\n\n\n\n\nFigure 3.1: Operaciones push y pull. Imagen de Melinda Higgins.\n\n\n\n\nAntes de un push, el usuario debe seleccionar los archivos que desea subir mediante el comando git add, el cual pasa los archivos a un “área de espera” (staging area). Luego debe usarse el comando git commit para “guardar” los cambios pendientes en el área de espera. Cada commit guarda el estado del conjunto de archivos en un momento específico (snapshot).\nLa relación entre estas operaciones de Git, se ilustra en la Figure 3.2.\n\n\n\n\n\nFigure 3.2: Operaciones de Git. Imagen de Steven Klavins.\n\n\n\n\nEn la Figure 3.3, se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.\n\n\n\n\n\nFigure 3.3: Operaciones de Git y compras en línea. Imagen de Melinda Higgins.\n\n\n\n\nOtras operaciones de Git de uso frecuente son:\n\ngit config: para especificar opciones globales de la sesión de Git (ej. nombre del usuario, dirección de correo electrónico).\ngit init: para inicializar un repositorio git.\ngit clone: para clonar (i.e. copiar) un repositorio remoto en la computadora local.\ngit status: para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera.\ngit log: para revisar el historial de commits.\ngit show: para visualizar los cambios efectuados en los commits.\ngit reset: para regresar al estado correspondiente a un commit anterior."
   },
   {
     "objectID": "03-git.html#ejemplos-de-uso",
     "href": "03-git.html#ejemplos-de-uso",
-    "title": "3  Git: sistema de control de versiones",
+    "title": "3  Git - sistema de control de versiones",
     "section": "3.5 Ejemplos de uso",
-    "text": "3.5 Ejemplos de uso\n\n3.5.1 Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente\nPara seguir este ejemplo:\n\nBifurque (fork) a su cuenta en GitHub el repositorio localizado en la dirección https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo.\n\nCon la opción File - New Project - Version Control - Git de RStudio, clone a su computadora el repositorio que acaba de bifurcar.\nCon el editor de RStudio, abra el archivo README.md, agregue una línea y guarde el archivo.\n\nLuego, ejecute los siguientes comandos desde la la ventana Terminal de RStudio. Nota: las líneas que empiezan con # son comentarios.\n\n# 0. Especificación del nombre y de la dirección de correo del usuario.\n# Debe modificar la dirección de correo y el nombre del usuario con sus propios datos.\n$ git config --global user.email usuario@correo.com\n$ git config --global user.name usuariogithub\n# Para revisar:\n$ git config --global --list\n\n# 1. Revisión de los archivos con modificaciones.\n$ git status\n\n# 2. Adición de los archivos modificados al \"área de espera\".\n# El punto (.) indica que se agregarán todos los archivos modificados.\n$ git add .\n\n# 3. Almacenamiento (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.\n$ git commit -m \"Agregar línea 2\"\n\n# 4. \"Subida\" (push) de las modificaciones al repositorio remoto.\n$ git push\nRevise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del 1 al 4. Los comentarios en el commando commit deben reflejar los cambios realizados."
+    "text": "3.5 Ejemplos de uso\n\n3.5.1 Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente\nPara seguir este ejemplo:\n\nObtenga un token de GitHub en la siguiente opción de menú de su perfil de usuario: Settings - Developer settings - Personal access tokens. Seleccione las operaciones de tipo “repo”. Copie el token en un lugar seguro, ya que lo necesitará para autenticarse en GitHub.\nRealice un fork a su cuenta en GitHub del repositorio localizado en la dirección https://github.com/pf0953-programacionr/2022-ii-tutorial-git-repo-ejemplo. Obtendrá un repositorio llamado “https://github.com/[nombre-usuario]/2022-ii-tutorial-git-repo-ejemplo”, en donde [nombre-usuario] es su nombre de usuario en GitHub.\nCon la opción File - New Project - Version Control - Git de RStudio, clone a su computadora el repositorio que acaba de bifurcar.\nCon el editor de RStudio, abra el archivo README.md, agregue una línea y guarde el archivo.\nLuego, ejecute los siguientes comandos desde la la ventana Terminal de RStudio. Nota: las líneas que empiezan con # son comentarios.\n\n# a. Parámetros de configuración: nombre y dirección de correo del usuario.\n#    Debe cambiar [email-usuario] y [nombre-usuario] por sus propios datos.\ngit config --global user.email [email-usuario]\ngit config --global user.name [nombre-usuario]\n# Para revisar los parámetros de configuración:\ngit config --global --list\n\n# b. Revisión de los archivos con modificaciones.\ngit status\n\n# c. Adición (add) de los archivos modificados al \"área de espera\".\n#    El punto (.) indica que se agregarán todos los archivos modificados.\ngit add .\n\n# d. Grabado (commit) del conjunto de archivos modificados,\n#    junto con un mensaje explicativo:\ngit commit -m \"Agregar línea 2\"\n\n# e. \"Subida\" (push) de las modificaciones al repositorio remoto.\n#    En este paso, es posible que deba utilizar su nombre de usuario/clave\n#    o su token de GitHub para autenticarse.\ngit push\n\nRevise los cambios aplicados en el repositorio remoto en GitHub.\nAgregue más líneas al archivo del repositorio local y sincronícelo con el remoto, realizando nuevamente los pasos del b al e para cada commit. Recuerde que los comentarios de cada commit deben reflejar los cambios que están siendo aplicados."
   },
   {
     "objectID": "03-git.html#recursos-de-interés",
     "href": "03-git.html#recursos-de-interés",
-    "title": "3  Git: sistema de control de versiones",
+    "title": "3  Git - sistema de control de versiones",
     "section": "3.6 Recursos de interés",
-    "text": "3.6 Recursos de interés\nGitHub Archive Program. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de https://archiveprogram.github.com/\nHiggins, M. (s. f.). Reproducible Templates for Analysis and Dissemination. Coursera. Recuperado 11 de abril de 2022, de https://www.coursera.org/learn/reproducible-templates-analysis\nKlavins, S. (2020). Version Control part 1. Medium. https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6"
+    "text": "3.6 Recursos de interés\nGit. (s. f.). Recuperado 28 de agosto de 2022, de https://git-scm.com/\nGitHub Archive Program. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de https://archiveprogram.github.com/\nHiggins, M. (s. f.). Reproducible Templates for Analysis and Dissemination. Coursera. Recuperado 11 de abril de 2022, de https://www.coursera.org/learn/reproducible-templates-analysis\nKlavins, S. (2020). Version Control part 1. Medium. https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6"
   },
   {
     "objectID": "references.html",

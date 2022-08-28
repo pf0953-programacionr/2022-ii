@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PF 0953 Programación en R 2022-II - 3&nbsp; Git: sistema de control de versiones</title>
+<title>PF 0953 Programación en R 2022-II - 3&nbsp; Git - sistema de control de versiones</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git: sistema de control de versiones</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git - sistema de control de versiones</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -108,12 +108,12 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown: lenguaje de marcado</span></a>
+  <a href="./02-markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown - lenguaje de marcado</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-git.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git: sistema de control de versiones</span></a>
+  <a href="./03-git.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git - sistema de control de versiones</span></a>
   </div>
 </li>
       </ul>
@@ -139,7 +139,7 @@ ul.task-list{list-style: none;}
   </ul></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"> <span class="header-section-number">3.2</span> Resumen</a></li>
   <li><a href="#descripción-general" id="toc-descripción-general" class="nav-link" data-scroll-target="#descripción-general"> <span class="header-section-number">3.3</span> Descripción general</a></li>
-  <li><a href="#como-funciona-git" id="toc-como-funciona-git" class="nav-link" data-scroll-target="#como-funciona-git"> <span class="header-section-number">3.4</span> ¿Como funciona Git?</a></li>
+  <li><a href="#funcionamiento-de-git" id="toc-funcionamiento-de-git" class="nav-link" data-scroll-target="#funcionamiento-de-git"> <span class="header-section-number">3.4</span> Funcionamiento de Git</a></li>
   <li><a href="#ejemplos-de-uso" id="toc-ejemplos-de-uso" class="nav-link" data-scroll-target="#ejemplos-de-uso"> <span class="header-section-number">3.5</span> Ejemplos de uso</a>
   <ul class="collapse">
   <li><a href="#clonación-de-un-repositorio-remoto-y-sincronización-de-los-cambios-efectuados-localmente" id="toc-clonación-de-un-repositorio-remoto-y-sincronización-de-los-cambios-efectuados-localmente" class="nav-link" data-scroll-target="#clonación-de-un-repositorio-remoto-y-sincronización-de-los-cambios-efectuados-localmente"> <span class="header-section-number">3.5.1</span> Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente</a></li>
@@ -153,7 +153,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git: sistema de control de versiones</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git - sistema de control de versiones</span></h1>
 </div>
 
 
@@ -171,15 +171,11 @@ ul.task-list{list-style: none;}
 <h2 data-number="3.1" class="anchored" data-anchor-id="trabajo-previo"><span class="header-section-number">3.1</span> Trabajo previo</h2>
 <section id="tutoriales" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="tutoriales"><span class="header-section-number">3.1.1</span> Tutoriales</h3>
-<ul>
-<li>Abba, I. V. (2021). <em>Git and GitHub Tutorial – Version Control for Beginners</em>. FreeCodeCamp.Org. https://www.freecodecamp.org/news/git-and-github-for-beginners/</li>
-</ul>
+<p>Abba, I. V. (2021). <em>Git and GitHub Tutorial – Version Control for Beginners</em>. FreeCodeCamp.Org. <a href="https://www.freecodecamp.org/news/git-and-github-for-beginners/">https://www.freecodecamp.org/news/git-and-github-for-beginners/</a></p>
 </section>
 <section id="otros" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="otros"><span class="header-section-number">3.1.2</span> Otros</h3>
-<ul>
-<li>Instale en su computadora el sistema de control de versiones <a href="https://git-scm.com/downloads">Git</a>.</li>
-</ul>
+<p>Instale en su computadora el sistema de control de versiones <a href="https://git-scm.com/downloads">Git</a>.</p>
 </section>
 </section>
 <section id="resumen" class="level2" data-number="3.2">
@@ -188,63 +184,67 @@ ul.task-list{list-style: none;}
 </section>
 <section id="descripción-general" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="descripción-general"><span class="header-section-number">3.3</span> Descripción general</h2>
-<p><a href="https://git-scm.com/">Git</a> es un sistema de <a href="https://es.wikipedia.org/wiki/Control_de_versiones">control de versiones</a> diseñado para rastrear cambios en el código fuente durante el proceso de desarrollo de software. Sin embargo, puede ser utilizado para llevar el control de los cambios en cualquier conjunto de archivos (ej. <a href="https://guides.github.com/features/wikis/">documentación</a>, <a href="https://techcrunch.com/2013/10/09/splice-music/">música</a>).</p>
+<p><a href="https://git-scm.com/">Git</a> es un sistema de <a href="https://es.wikipedia.org/wiki/Control_de_versiones">control de versiones</a> diseñado para “rastrear” cambios en el código fuente durante el proceso de desarrollo de software. Sin embargo, puede ser utilizado para llevar el control de los cambios en cualquier conjunto de archivos (ej. <a href="https://guides.github.com/features/wikis/">documentación</a>, <a href="https://techcrunch.com/2013/10/09/splice-music/">música</a>).</p>
 <p>Un sistema de control de versiones proporciona, entre otras ventajas:</p>
 <ul>
-<li>La capacidad de recuperar versiones anteriores del conjunto de archivos.</li>
-<li>La capacidad de integrar modificaciones efectuadas por varias personas en el conjunto de archivos.</li>
+<li>La capacidad de recuperar versiones anteriores de los archivos.</li>
+<li>La capacidad de integrar modificaciones efectuadas por varias personas en el mismo conjunto de archivos.</li>
 <li>La capacidad de mantener varias “ramas” (<em>branches</em>) de un producto (ej. “estable”, “evaluación”, “inestable”, como en el caso de <a href="https://www.debian.org/releases/">Debian Linux</a>, <a href="https://grass.osgeo.org/download/software/sources/">GRASS GIS</a> y muchos otros proyectos de software libre).</li>
-<li>Facilidades para mantener redundancia y respaldos de los archivos (ej. <a href="https://archiveprogram.github.com/">Programa de respaldos de GitHub</a>).</li>
+<li>Facilidades para mantener redundancia y respaldos de los archivos (ej. <a href="https://archiveprogram.github.com/">Programa de respaldos de GitHub</a>). Esta es una facilidad que implementan algunos servicios en la nube.</li>
 </ul>
-<p>Git fue diseñado por Linus Torvalds en 2005 durante del desarrollo del <em>kernel</em> del sistema operativo Linux. Se caracteriza por ser un <a href="https://es.wikipedia.org/wiki/Control_de_versiones_distribuido">sistema de control de versiones distribuido</a>, lo que significa que el código fuente puede estar alojado en la estación de trabajo de cualquier miembro del equipo de desarrollo (i.e.&nbsp;no tiene que existir un repositorio central).</p>
+<p>Git fue diseñado por Linus Torvalds en 2005 durante del desarrollo del <em>kernel</em> del sistema operativo Linux. Se caracteriza por ser un <a href="https://es.wikipedia.org/wiki/Control_de_versiones_distribuido">sistema de control de versiones distribuido</a>, lo que significa que el código fuente puede estar alojado en la estación de trabajo de cualquier miembro del equipo de desarrollo. No se requiere de un repositorio “central”, pero también se puede trabajar de esa forma.</p>
 <p>El protocolo de Git es utilizado en varios sitios que proveen servicios de alojamiento de software, entre los que están <a href="https://sourceforge.net/">SourceForge</a>, <a href="https://bitbucket.org/">Bitbucket</a>, <a href="https://about.gitlab.com/">GitLab</a> y <a href="https://github.com/">GitHub</a>.</p>
 </section>
-<section id="como-funciona-git" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="como-funciona-git"><span class="header-section-number">3.4</span> ¿Como funciona Git?</h2>
-<p>Desde el punto de vista de un usuario de Git (ej. un programador), Git se utiliza para sincronizar la versión local de un conjunto de archivos, llamado proyecto o repositorio, con la versión que está alojada en un sistema remoto (ej. GitHub). Cada repositorio se almacena en un directorio (carpeta) del sistema operativo. La sincronización se realiza principalmente a través de dos operaciones:</p>
+<section id="funcionamiento-de-git" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="funcionamiento-de-git"><span class="header-section-number">3.4</span> Funcionamiento de Git</h2>
+<p>Desde el punto de vista de un usuario de Git (ej. un programador), Git se utiliza para sincronizar la versión local (i.e.&nbsp;en una computadora personal) de un conjunto de archivos, llamado proyecto o repositorio, con la versión que está alojada en un sistema remoto (ej. GitHub). Cada repositorio se almacena en un directorio (carpeta) del sistema operativo. La sincronización se realiza principalmente a través de dos operaciones:</p>
 <ul>
 <li><strong><em>push</em></strong>: para “subir” al repositorio remoto los cambios realizados en el repositorio local. Esta operación se realiza mediante el comando <a href="https://git-scm.com/docs/git-push">git push</a>. Es probable que el sistema remoto le solicite al usuario algún tipo de autenticación (ej. nombre de usuario y clave).</li>
 <li><strong><em>pull</em></strong>: para “bajar” al repositorio local los cambios realizados en el repositorio remoto. Esta operación se realiza mediante el comando <a href="https://git-scm.com/docs/git-pull">git pull</a>.</li>
 </ul>
-<p>Las operaciones <em>push</em> y <em>pull</em> se ilustran en la figura @ref(fig:git-push-pull).</p>
+<p>Las operaciones <em>push</em> y <em>pull</em> se ilustran en la <a href="#fig-git-push-pull">Figure&nbsp;<span>3.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-git-push-pull" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/git-push-pull.png" class="img-fluid figure-img" width="251"></p>
-<p></p><figcaption class="figure-caption">Operaciones <em>push</em> y <em>pull</em>. Imagen de <a href="https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-1">Melinda Higgins</a>.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure 3.1: Operaciones <em>push</em> y <em>pull</em>. Imagen de <a href="https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-1">Melinda Higgins</a>.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Antes de un <em>push</em>, el usuario debe seleccionar los archivos que desea subir mediante el comando <a href="https://git-scm.com/docs/git-add">git add</a>, el cual pasa los archivos a un “área de espera” (<em>staging area</em>). Luego debe usarse el comando <a href="https://git-scm.com/docs/git-commit">git commit</a> para “guardar” los cambios en el área de espera.</p>
-<p>La relación entre estas operaciones de Git, se ilustra en la figura @ref(fig:git-push-pull-commit).</p>
+<p>Antes de un <em>push</em>, el usuario debe seleccionar los archivos que desea subir mediante el comando <a href="https://git-scm.com/docs/git-add">git add</a>, el cual pasa los archivos a un “área de espera” (<em>staging area</em>). Luego debe usarse el comando <a href="https://git-scm.com/docs/git-commit">git commit</a> para “guardar” los cambios pendientes en el área de espera. Cada <em>commit</em> guarda el estado del conjunto de archivos en un momento específico (<em>snapshot</em>).</p>
+<p>La relación entre estas operaciones de Git, se ilustra en la <a href="#fig-git-push-pull-commit">Figure&nbsp;<span>3.2</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-git-push-pull-commit" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/git-push-pull-commit.png" class="img-fluid figure-img" width="640"></p>
-<p></p><figcaption class="figure-caption">Operaciones de Git. Imagen de <a href="https://medium.com/@stevenklavins94/version-control-part-4-c9387cf5b33e">Steven Klavins</a>.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure 3.2: Operaciones de Git. Imagen de <a href="https://medium.com/@stevenklavins94/version-control-part-4-c9387cf5b33e">Steven Klavins</a>.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>En la figura @ref(fig:git-stage-commit-push) se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.</p>
+<p>En la <a href="#fig-git-stage-commit-push">Figure&nbsp;<span>3.3</span></a>, se muestra el funcionamiento de Git mediante una comparación con el procesamiento de una compra en línea.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-git-stage-commit-push" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/git-stage-commit-push.png" class="img-fluid figure-img" width="400"></p>
-<p></p><figcaption class="figure-caption">Operaciones de Git y compras en línea. Imagen de <a href="https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-2">Melinda Higgins</a>.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure 3.3: Operaciones de Git y compras en línea. Imagen de <a href="https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-2">Melinda Higgins</a>.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Otras operaciones de Git de uso frecuente son:</p>
 <ul>
-<li><a href="https://git-scm.com/docs/git-config">git config</a>: para especificar opciones globales de la sesión de Git (ej. nombre del usuario, dirección de corre electrónico).</li>
+<li><a href="https://git-scm.com/docs/git-config">git config</a>: para especificar opciones globales de la sesión de Git (ej. nombre del usuario, dirección de correo electrónico).</li>
+<li><a href="https://git-scm.com/docs/git-init">git init</a>: para inicializar un repositorio git.</li>
 <li><a href="https://git-scm.com/docs/git-clone">git clone</a>: para clonar (i.e.&nbsp;copiar) un repositorio remoto en la computadora local.</li>
 <li><a href="https://git-scm.com/docs/git-status">git status</a>: para revisar el estado de los archivos y, por ejemplo, saber cuales deben pasarse al área de espera.</li>
+<li><a href="https://git-scm.com/docs/git-log">git log</a>: para revisar el historial de <em>commits</em>.</li>
+<li><a href="https://git-scm.com/docs/git-show">git show</a>: para visualizar los cambios efectuados en los <em>commits</em>.</li>
+<li><a href="https://git-scm.com/docs/git-reset">git reset</a>: para regresar al estado correspondiente a un <em>commit</em> anterior.</li>
 </ul>
 </section>
 <section id="ejemplos-de-uso" class="level2" data-number="3.5">
@@ -252,41 +252,47 @@ ul.task-list{list-style: none;}
 <section id="clonación-de-un-repositorio-remoto-y-sincronización-de-los-cambios-efectuados-localmente" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="clonación-de-un-repositorio-remoto-y-sincronización-de-los-cambios-efectuados-localmente"><span class="header-section-number">3.5.1</span> Clonación de un repositorio remoto y sincronización de los cambios efectuados localmente</h3>
 <p>Para seguir este ejemplo:</p>
-<ol type="1">
-<li>Bifurque (<em>fork</em>) a su cuenta en GitHub el repositorio localizado en la dirección <a href="https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo">https://github.com/gf0604-procesamientodatosgeograficos/2022-i-tutorial-git-repo-ejemplo</a>.<br>
-</li>
+<ol start="0" type="1">
+<li>Obtenga un <em>token</em> de GitHub en la siguiente opción de menú de su perfil de usuario: <em>Settings - Developer settings - Personal access tokens</em>. Seleccione las operaciones de tipo “repo”. Copie el <em>token</em> en un lugar seguro, ya que lo necesitará para autenticarse en GitHub.</li>
+<li>Realice un <em>fork</em> a su cuenta en GitHub del repositorio localizado en la dirección <a href="https://github.com/pf0953-programacionr/2022-ii-tutorial-git-repo-ejemplo">https://github.com/pf0953-programacionr/2022-ii-tutorial-git-repo-ejemplo</a>. Obtendrá un repositorio llamado “https://github.com/[nombre-usuario]/2022-ii-tutorial-git-repo-ejemplo”, en donde [nombre-usuario] es su nombre de usuario en GitHub.</li>
 <li>Con la opción <em>File - New Project - Version Control - Git</em> de RStudio, clone a su computadora el repositorio que acaba de bifurcar.</li>
-<li>Con el editor de RStudio, abra el archivo <code>README.md</code>, agregue una línea y guarde el archivo.<br>
-</li>
+<li>Con el editor de RStudio, abra el archivo <code>README.md</code>, agregue una línea y guarde el archivo.</li>
 <li>Luego, ejecute los siguientes comandos desde la la ventana <em>Terminal</em> de RStudio. Nota: las líneas que empiezan con <code>#</code> son comentarios.</li>
 </ol>
-<pre class="shell"><code># 0. Especificación del nombre y de la dirección de correo del usuario.
-# Debe modificar la dirección de correo y el nombre del usuario con sus propios datos.
-$ git config --global user.email usuario@correo.com
-$ git config --global user.name usuariogithub
-# Para revisar:
-$ git config --global --list
+<pre class="shell"><code># a. Parámetros de configuración: nombre y dirección de correo del usuario.
+#    Debe cambiar [email-usuario] y [nombre-usuario] por sus propios datos.
+git config --global user.email [email-usuario]
+git config --global user.name [nombre-usuario]
+# Para revisar los parámetros de configuración:
+git config --global --list
 
-# 1. Revisión de los archivos con modificaciones.
-$ git status
+# b. Revisión de los archivos con modificaciones.
+git status
 
-# 2. Adición de los archivos modificados al "área de espera".
-# El punto (.) indica que se agregarán todos los archivos modificados.
-$ git add .
+# c. Adición (add) de los archivos modificados al "área de espera".
+#    El punto (.) indica que se agregarán todos los archivos modificados.
+git add .
 
-# 3. Almacenamiento (commit) del conjunto de archivos modificados, junto con un mensaje explicativo.
-$ git commit -m "Agregar línea 2"
+# d. Grabado (commit) del conjunto de archivos modificados,
+#    junto con un mensaje explicativo:
+git commit -m "Agregar línea 2"
 
-# 4. "Subida" (push) de las modificaciones al repositorio remoto.
-$ git push</code></pre>
-<p>Revise los cambios aplicados en el repositorio remoto en GitHub. Si se realizan nuevos cambios en el repositorio local, deben repetirse los pasos del 1 al 4. Los comentarios en el commando <code>commit</code> deben reflejar los cambios realizados.</p>
+# e. "Subida" (push) de las modificaciones al repositorio remoto.
+#    En este paso, es posible que deba utilizar su nombre de usuario/clave
+#    o su token de GitHub para autenticarse.
+git push</code></pre>
+<ol start="5" type="1">
+<li>Revise los cambios aplicados en el repositorio remoto en GitHub.</li>
+<li>Agregue más líneas al archivo del repositorio local y sincronícelo con el remoto, realizando nuevamente los pasos del b al e para cada <em>commit</em>. Recuerde que los comentarios de cada <code>commit</code> deben reflejar los cambios que están siendo aplicados.</li>
+</ol>
 </section>
 </section>
 <section id="recursos-de-interés" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="recursos-de-interés"><span class="header-section-number">3.6</span> Recursos de interés</h2>
-<p><em>GitHub Archive Program</em>. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de https://archiveprogram.github.com/</p>
-<p>Higgins, M. (s. f.). <em>Reproducible Templates for Analysis and Dissemination</em>. Coursera. Recuperado 11 de abril de 2022, de https://www.coursera.org/learn/reproducible-templates-analysis</p>
-<p>Klavins, S. (2020). <em>Version Control part 1</em>. Medium. https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6</p>
+<p><em>Git</em>. (s. f.). Recuperado 28 de agosto de 2022, de <a href="https://git-scm.com/">https://git-scm.com/</a></p>
+<p><em>GitHub Archive Program</em>. (s. f.). GitHub Archive Program. Recuperado 10 de abril de 2022, de <a href="https://archiveprogram.github.com/">https://archiveprogram.github.com/</a></p>
+<p>Higgins, M. (s. f.). <em>Reproducible Templates for Analysis and Dissemination</em>. Coursera. Recuperado 11 de abril de 2022, de <a href="https://www.coursera.org/learn/reproducible-templates-analysis">https://www.coursera.org/learn/reproducible-templates-analysis</a></p>
+<p>Klavins, S. (2020). <em>Version Control part 1</em>. Medium. <a href="https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6">https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6</a></p>
 
 
 </section>
@@ -392,7 +398,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./02-markdown.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown: lenguaje de marcado</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown - lenguaje de marcado</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

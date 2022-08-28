@@ -1,0 +1,1211 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={PF 0953 Programación en R 2022-II},
+  pdfauthor={Manuel Vargas},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{PF 0953 Programación en R 2022-II}
+\author{Manuel Vargas}
+\date{2022-08-21}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, frame hidden, enhanced, interior hidden, breakable, sharp corners]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\bookmarksetup{startatroot}
+
+\hypertarget{bienvenida}{%
+\chapter*{Bienvenida}\label{bienvenida}}
+\addcontentsline{toc}{chapter}{Bienvenida}
+
+Este curso trata sobre el manejo, visualización y análisis de datos
+geoespaciales mediante el lenguaje de programación
+\href{https://www.r-project.org/}{R}. Se imparte en la
+\href{https://www.sep.ucr.ac.cr/posgrados/geografia/folleto/maestria_academica_recurso_hidrico.pdf}{Maestría
+Académica en Gestión Integrada del Recurso Hídrico para Latinoamérica y
+El Caribe} de la \href{https://www.ucr.ac.cr/}{Universidad de Costa
+Rica}.
+
+Se estudian los fundamentos de R, sus bibliotecas geoespaciales y sus
+capacidades para generar gráficos estadísticos. También se utilizan
+herramientas para facilitar la reproducibilidad de los procedimientos y
+su comunicación a través de la Internet y otros medios.
+
+El enfoque del curso es teórico-práctico, con lecciones teóricas
+combinadas con ejercicios de programación en los cuales los estudiantes
+aplican en diversos escenarios de procesamiento de datos los
+conocimientos y habilidades aprendidas.
+
+Este sitio web corresponde al curso impartido durante el segundo lectivo
+de 2022. Para más información sobre los contenidos, metodología,
+evaluación y otros temas, puede consultar el
+\href{https://github.com/pf0953-programacionr/2022-ii/blob/main/programa-curso/pf0953-programacionr-g001-2022-ii.pdf}{programa
+del curso}.
+
+\textbf{Información de contacto}
+
+Si tiene alguna pregunta o comentario sobre este curso, por favor
+contacte a:
+
+\begin{quote}
+Manuel Vargas - manuel.vargas\_d@ucr.ac.cr\\
+Profesor\\
+Universidad de Costa Rica,\\
+Ciudad Universitaria Rodrigo Facio,\\
+San Pedro de Montes de Oca,\\
+Costa Rica.
+\end{quote}
+
+Los contenidos de este curso, a menos que se especifique de otra forma,
+se comparten mediante una licencia de Creative Commons
+Reconocimiento-CompartirIgual 4.0 Internacional.
+
+\part{I - Introducción}
+
+\hypertarget{introducciuxf3n-a-la-ciencia-de-datos-geoespaciales}{%
+\chapter{Introducción a la ciencia de datos
+geoespaciales}\label{introducciuxf3n-a-la-ciencia-de-datos-geoespaciales}}
+
+\hypertarget{trabajo-previo}{%
+\section{Trabajo previo}\label{trabajo-previo}}
+
+\hypertarget{lecturas}{%
+\subsection{Lecturas}\label{lecturas}}
+
+Bartomeus Lab. (2016). \emph{A reproducible workflow}.
+\url{https://www.youtube.com/watch?v=s3JldKoA0zw}
+
+FOSS4G. (2021). \emph{FOSS4G2021---Open source for open spatial data
+science---Anita Graser}.
+\url{https://www.youtube.com/watch?v=ZjXb53pOor0}
+
+Krugman, P. (2013). Opinion \textbar{} The Excel Depression. \emph{The
+New York Times}.
+\url{https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html}
+
+Peng, R. D. (2011). Reproducible Research in Computational Science.
+\emph{Science, 334}(6060), 1226-1227.
+\url{https://doi.org/10.1126/science.1213847}
+
+Singleton, A. D., Spielman, S., \& Brunsdon, C. (2016). Establishing a
+framework for Open Geographic Information science. \emph{International
+Journal of Geographical Information Science, 30}(8), 1507-1521.
+\url{https://doi.org/10.1080/13658816.2015.1137579}
+
+Wu, Q. (2021, octubre 25). A streamlit app for creating timelapse of
+annual Landsat imagery (1984--2021). Medium.
+\url{https://giswqs.medium.com/a-streamlit-app-for-creating-timelapse-of-annual-landsat-imagery-1984-2021-3db407a8ac32}
+
+\hypertarget{el-componente-geoespacial-de-los-datos}{%
+\section{El componente geoespacial de los
+datos}\label{el-componente-geoespacial-de-los-datos}}
+
+Una gran parte de los datos disponibles contiene algún tipo de
+componente geográfico o espacial \footnote{El adjetivo \emph{geográfico}
+  se refiere a la superficie de la Tierra. Así, por ejemplo, las
+  \emph{coordenadas geográficas} se utilizan para ubicar cualquier punto
+  en la superficie terrestre. El término \emph{espacial} se emplea para
+  referirse a cualquier espacio, no siempre localizable en el planeta
+  Tierra. En muchas ocasiones, ambas palabras son intercambiables. Por
+  ejemplo, muchos de los métodos utilizados para analizar datos
+  geográficos pueden aplicarse también en espacios no geográficos como,
+  por ejemplo, otros planetas, el cosmos, el cuerpo humano (ej. con
+  radiografías) o secuencias genómicas. En los últimos años, se ha
+  incrementado el uso del término \emph{geoespacial}, como una forma de
+  referirse al subconjunto del espacio correspondiente a la superficie
+  de la Tierra (Longley et al. 2005).}. Este componente puede expresarse
+de varias formas. Por ejemplo:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Con nombres de lugares}: \emph{El
+  \href{https://es.wikipedia.org/wiki/Incilius_periglenes}{sapo dorado
+  (Incilius
+  periglenes}}\href{https://es.wikipedia.org/wiki/Incilius_periglenes}{)}
+  era una especie de anfibio, endémica de los bosques nubosos de altitud
+  de Monteverde, Costa Rica.
+\item
+  \textbf{Con direcciones}: \emph{La
+  \href{https://es.wikipedia.org/wiki/Sede_de_la_Organizaci\%C3\%B3n_de_las_Naciones_Unidas}{sede
+  de la Organización de las Naciones Unidas (ONU)} está ubicada en la
+  ciudad de Nueva York, Estados Unidos, en la Primera Avenida, 750.}
+\item
+  \textbf{Con coordenadas}: *La cima del
+  \href{https://es.wikipedia.org/wiki/Monte_Everest}{Monte Everest} se
+  localiza en las coordenadas geográficas 86°55′31″ E y 27°59′17″ N,
+  como se muestra en la Figure~\ref{fig-mapa-nepal-everest}.
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics{./img/nepal-map.jpg}
+
+}
+
+\caption{\label{fig-mapa-nepal-everest}Mapa de Nepal que muestra la
+ubicación del Monte Everest en el sistema de coordenadas geográficas.
+Imagen de \url{https://www.mapsofworld.com/}.}
+
+\end{figure}
+
+Las coordenadas correspondientes a lugares y direcciones pueden
+obtenerse a través de un proceso denominado
+\href{https://es.wikipedia.org/wiki/Georreferenciaci\%C3\%B3n}{\emph{georreferenciación}},
+mediante el cual, en general, se determina la posición espacial de
+alguna entidad en un sistema de coordenadas. La georreferenciación puede
+emplearse también para obtener las coordenadas de, por ejemplo,
+fotografías aéreas o mapas antiguos. Es un proceso que puede resultar
+complejo y costoso y para el que se han desarrollado metodologías y
+plataformas especializadas (ej.
+\href{https://doi.org/10.15468/doc-gg7h-s853}{Chapman AD \& Wieczorek JR
+(2020) Georeferencing Best Practices},
+\href{https://www.geo-locate.org/}{GEOLocate},
+\href{https://nominatim.openstreetmap.org/ui/search.html}{Nominatim}).
+
+En la actualidad, hay una gran cantidad de fuentes que generan datos
+georreferenciados (i.e.~ubicados en un sistema de coordenadas). Entre
+estas pueden mencionarse las tecnologías de
+\href{https://ec.europa.eu/jrc/en/research-topic/earth-observation}{observación
+de la Tierra (\emph{Earth Observation})} (ej.
+\href{https://es.wikipedia.org/wiki/Imagen_satelital}{imágenes
+satelitales}), los dispositivos móviles y los sensores remotos, entre
+muchas otras.
+
+Seguidamente, se describen dos enfoques tecnológicos para el
+procesamiento de datos geoespaciales: el de los sistemas de información
+geográfica y el de ciencia de datos geoespaciales.
+
+\hypertarget{sistemas-de-informaciuxf3n-geogruxe1fica}{%
+\section{Sistemas de información
+geográfica}\label{sistemas-de-informaciuxf3n-geogruxe1fica}}
+
+A principios de la década de 1960, el geógrafo inglés
+\href{https://es.wikipedia.org/wiki/Roger_Tomlinson}{Roger Tomlinson}
+desarrolló en Canadá el que se considera el primer sistema de
+información geográfica. Se trataba del
+\href{https://en.wikipedia.org/wiki/Canada_Geographic_Information_System}{Canada
+Geographic Information System (CGIS)} y su objetivo fue manejar los
+datos del inventario geográfico canadiense y su análisis para la gestión
+del territorio rural. De manera casi simultánea al trabajo de Tomlinson,
+surgieron desarrollos similares en Estados Unidos y en el Reino Unido.
+El surgimiento de los sistemas de información geográfica no implicó solo
+el surgimiento de nuevas herramientas de software, sino también el
+desarrollo de técnicas que hasta entonces no habían sido necesarias
+(Olaya 2020) como, por ejemplo, la manipulación de nuevos tipos de datos
+geométricos (ej. puntos, líneas, polígonos).
+
+En general, un sistema de información geográfica (SIG) maneja datos
+georreferenciados y los asocia con datos convencionales (ej. textos,
+números), como se muestra en la Figure~\ref{fig-mapa-qgis}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.17in,height=\textheight]{./img/mapa-qgis.png}
+
+}
+
+\caption{\label{fig-mapa-qgis}Mapa elaborado en QGIS que muestra la
+ubicación de los aeródromos de Costa Rica.}
+
+\end{figure}
+
+Los SIG presentan los datos en capas (\emph{layers}). Por ejemplo, el
+mapa de la Figure~\ref{fig-mapa-qgis} contiene una capa base raster (la
+que muestra el mar y el continente), una capa de polígonos
+correspondiente a las provincias de Costa Rica y una capa de puntos
+correspondiente a los aeródromos. A la izquierda puede apreciarse la
+lista de esas capas y a la derecha un cuadro con información detallada
+sobre uno de los aeródromos.
+
+Los SIG de escritorio (ej.
+\href{https://www.esri.com/en-us/arcgis/products/arcgis-desktop/overview}{ArcGIS
+Desktop}, \href{https://www.qgis.org/}{QGIS}) son herramientas con
+interfaces de usuario muy gráficas e intuitivas, que no requieren de
+conocimientos de programación de computadoras y que permiten generar
+cartografía de alta calidad. Sin embargo, son poco flexibles y los
+resultados que producen son difícilmente
+\href{https://es.wikipedia.org/wiki/Reproducibilidad_y_repetibilidad}{reproducibles}.
+
+\hypertarget{ciencia-de-datos-geoespaciales}{%
+\section{Ciencia de datos
+geoespaciales}\label{ciencia-de-datos-geoespaciales}}
+
+Durante la última década, el uso de SIG se ha complementado con el de
+\href{https://es.wikipedia.org/wiki/Ciencia_de_datos}{ciencia de datos},
+lo que posibilitado enriquecer la visualización y el análisis de datos
+geoespaciales mediante lenguajes de programación como
+\href{https://www.python.org/}{Python},
+\href{https://www.r-project.org/}{R} o
+\href{http://www.ecma-international.org/publications-and-standards/standards/ecma-262/}{JavaScript},
+entre otros.
+
+El uso de técnicas de ciencia de datos y de otros campos relacionados
+(ej.
+\href{https://es.wikipedia.org/wiki/Aprendizaje_autom\%C3\%A1tico}{aprendizaje
+automatizado}, \href{https://es.wikipedia.org/wiki/Macrodatos}{\emph{big
+data}}) ha permitido aplicar a los datos geoespaciales técnicas y
+metodologías como
+\href{https://es.wikipedia.org/wiki/An\%C3\%A1lisis_de_la_regresi\%C3\%B3n}{análisis
+de regresión} y
+\href{https://es.wikipedia.org/wiki/Clasificaci\%C3\%B3n_estad\%C3\%ADstica}{clasificación
+estadística}.
+
+\hypertarget{reproducibilidad}{%
+\section{Reproducibilidad}\label{reproducibilidad}}
+
+Una de las principales características que distingue al enfoque de
+ciencia de datos del enfoque de SIG es la
+\href{https://es.wikipedia.org/wiki/Reproducibilidad_y_repetibilidad}{reproducibilidad}.
+En general, la reproducibilidad es la capacidad de un ensayo o
+experimento de ser reproducido por otros. Más formalmente, en
+investigación cuantitativa, un análisis se considera reproducible si
+\emph{``el código fuente y los datos utilizados por un investigador para
+llegar a un resultado están disponibles y son suficientes para que otro
+investigador, trabajando de manera independiente, pueda llegar al mismo
+resultado''} (Gandrud 2020).
+
+La reproducibilidad, junto con la
+\href{https://es.wikipedia.org/wiki/Falsabilidad}{falsabilidad}, es uno
+de los pilares del
+\href{https://es.wikipedia.org/wiki/M\%C3\%A9todo_cient\%C3\%ADfico}{método
+científico}. Sin embargo, en años recientes, se ha generado una
+creciente preocupación debido a que muchos estudios científicos
+publicados fallan las pruebas de reproducibilidad (véase, por ejemplo,
+\href{https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html}{\emph{The
+Excel Depression}, de Paul Krugman}), dando lugar a una
+\href{https://es.wikipedia.org/wiki/Crisis_de_replicaci\%C3\%B3n}{crisis
+de reproducibilidad o replicabilidad} en varias ciencias.
+
+El concepto de reproducibilidad es cada vez más importante debido, entre
+otras razones, al aumento exponencial de datos disponibles y a la
+aplicación de la programación de computadoras, para procesar estos
+datos, por parte de especialistas de muchas disciplinas.
+
+Alex Singleton y otros autores (Singleton, Spielman, and Brunsdon 2016)
+han identificado los siguientes retos para la reproducibilidad en
+ciencia de datos geoespaciales:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Los datos deben ser de dominio público y estar disponibles para los
+  investigadores.
+\item
+  El software utilizado debe ser de código abierto (\emph{open source})
+  y estar disponible para ser revisado.
+\item
+  Siempre que sea posible, los
+  \href{https://es.wikipedia.org/wiki/Flujo_de_trabajo}{flujos de
+  trabajo} deben ser públicos y con enlaces a los datos, software y
+  métodos de análisis, junto con la documentación necesaria.
+\item
+  El proceso de
+  \href{https://es.wikipedia.org/wiki/Revisi\%C3\%B3n_por_pares}{revisión
+  por pares (\emph{peer review process})} y la publicación académica
+  deben requerir la presentación de un modelo de flujo de trabajo e
+  idealmente la disponibilidad de los materiales necesarios para la
+  replicación.
+\item
+  En los casos en los que la reproducibilidad total no sea posible (ej.
+  datos sensibles), los investigadores deben esforzarse por incluir
+  todos los aspectos que puedan de un marco de trabajo abierto.
+\end{enumerate}
+
+En general, el estándar mínimo de reproducibilidad requiere que los
+datos y el código fuente estén disponibles para otros investigadores
+(Peng 2011). Sin embargo, dependiendo de las circunstancias y recursos
+disponibles, existe todo un espectro de posibilidades, que se ilustra en
+la Figure~\ref{fig-espectro-reproducibilidad}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.6in,height=\textheight]{./img/espectro-reproducibilidad.png}
+
+}
+
+\caption{\label{fig-espectro-reproducibilidad}Espectro de
+reproducibilidad. Imagen de
+\href{https://www.youtube.com/watch?v=ZjXb53pOor0}{Anita Graser}, con
+base en \href{https://doi.org/10.1126/science.1213847}{(Peng, 2001)}.}
+
+\end{figure}
+
+\hypertarget{herramientas-para-facilitar-la-reproducibilidad}{%
+\subsection{Herramientas para facilitar la
+reproducibilidad}\label{herramientas-para-facilitar-la-reproducibilidad}}
+
+En esta sección se destacan dos tipos de herramientas que en la
+actualidad se consideran esenciales para apoyar la reproducibilidad de
+una investigación: los lenguajes de marcado y los sistemas de control de
+versiones.
+
+La documentación es vital durante todo el ciclo de vida de una
+investigación reproducible. Para documentar, se recomienda utilizar
+mecanismos estandarizados y abiertos como el
+\href{https://es.wikipedia.org/wiki/HTML}{lenguaje de marcado de
+hipertexto (HTML, en inglés, \emph{HyperText Markup Language})} o
+\href{https://en.wikipedia.org/wiki/Markdown}{Markdown}, con los cuales
+pueden crearse documentos mediante editores de texto simples (i.e.~no se
+requiere de software propietario), y exportables a varios formatos (ej.
+\href{https://es.wikipedia.org/wiki/LaTeX}{LaTeX},
+\href{https://es.wikipedia.org/wiki/PDF}{PDF}).
+
+Para dar mantenimiento, tanto al código fuente como a la documentación,
+es necesario un sistema de
+\href{https://es.wikipedia.org/wiki/Control_de_versiones}{control de
+versiones} como \href{https://es.wikipedia.org/wiki/Git}{Git}, el cual
+permite llevar el registro de los cambios en archivos y también facilita
+el trabajo colaborativo al reunir las modificaciones hechas por varias
+personas. Git es usado en varias plataformas que comparten código fuente
+(ej. \href{https://github.com/}{GitHub},
+\href{https://about.gitlab.com/}{GitLab}) y que ofrecen servicios
+relacionados, como hospedaje de sitios web.
+
+\hypertarget{markdown-lenguaje-de-marcado}{%
+\chapter{Markdown: lenguaje de
+marcado}\label{markdown-lenguaje-de-marcado}}
+
+\hypertarget{trabajo-previo-1}{%
+\section{Trabajo previo}\label{trabajo-previo-1}}
+
+\hypertarget{tutoriales}{%
+\subsection{Tutoriales}\label{tutoriales}}
+
+\emph{Markdown Tutorial}. (s. f.). Recuperado 19 de marzo de 2022, de
+\url{https://www.markdowntutorial.com/}
+
+\hypertarget{otros}{%
+\subsection{Otros}\label{otros}}
+
+\begin{itemize}
+\tightlist
+\item
+  Instale en su computadora el
+  \href{https://cloud.r-project.org/}{sistema base del lenguaje R} y
+  luego el ambiente integrado de desarrollo
+  \href{https://www.rstudio.com/products/rstudio/download/\#download}{RStudio
+  Desktop}.
+\item
+  Cree una cuenta gratuita en la plataforma de desarrollo colaborativo
+  \href{https://github.com/}{GitHub}.
+\end{itemize}
+
+\hypertarget{resumen}{%
+\section{Resumen}\label{resumen}}
+
+Markdown es un lenguaje de marcado ligero ampliamente utilizado en
+comunicación científica, documentación de programas e investigación
+reproducible.
+
+\hypertarget{descripciuxf3n-general}{%
+\section{Descripción general}\label{descripciuxf3n-general}}
+
+\href{https://daringfireball.net/projects/markdown/}{Markdown} es un
+\href{https://es.wikipedia.org/wiki/Lenguaje_de_marcado}{lenguaje de
+marcado} creado en 2004 por John Gruber. Las ``marcas'' se utilizan para
+brindar información acerca de la presentación (ej. negritas, itálicas) o
+la estructura (ej. títulos, encabezados) de un documento. Se caracteriza
+por ser más sencillo de leer y de usar que otros lenguajes de marcado
+(ej. \href{https://es.wikipedia.org/wiki/HTML}{Lenguaje de marcado de
+Hipertexto o HTML}), por lo que se considera un
+\href{https://es.wikipedia.org/wiki/Lenguaje_de_marcas_ligero}{lenguaje
+de marcado ligero}. Los documentos escritos en Markdown pueden
+exportarse a una gran variedad de formatos (ej. HTML, DOC, PDF, LaTex)
+para ser usados en libros, presentaciones o páginas web, entre otros.
+Markdown es ampliamente utilizado en comunicación científica,
+documentación de programas e investigación reproducible.
+
+\hypertarget{variaciones}{%
+\section{Variaciones}\label{variaciones}}
+
+Las variaciones de Markdown, también llamadas \emph{flavors}, son
+extensiones o modificaciones de la especificación original. Entre las
+más populares están:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://rmarkdown.rstudio.com/}{R Markdown}: para el lenguaje R.
+\item
+  \href{https://help.github.com/en/github/writing-on-github}{GitHub
+  Flavored Markdown}: para la plataforma GitHub.
+\item
+  \href{https://github.com/Python-Markdown/markdown}{Python Markdown}:
+  para el lenguaje Python.
+\item
+  \href{https://pandoc.org/MANUAL.html\#pandocs-markdown}{Pandoc's
+  Markdown}: para el programa \href{https://pandoc.org/}{Pandoc} de
+  conversión entre formatos.
+\item
+  \href{https://kramdown.gettalong.org/quickref.html}{Kramdown}: para el
+  lenguaje Ruby.
+\end{itemize}
+
+Puede verse una lista más extensa en
+\url{https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors}.
+
+\hypertarget{sintaxis}{%
+\section{Sintaxis}\label{sintaxis}}
+
+La sintaxis de Markdown permite especificar diferentes componentes de un
+documento, entre los que están:
+
+\begin{itemize}
+\tightlist
+\item
+  Encabezados.
+\item
+  Estilos (ej. negritas, itálicas).
+\item
+  Citas textuales.
+\item
+  Enlaces a otros documentos (ej. páginas web).
+\item
+  Imágenes.
+\item
+  Listas.
+\end{itemize}
+
+\hypertarget{encabezados}{%
+\subsection{Encabezados}\label{encabezados}}
+
+Pueden definirse seis niveles de encabezados, mediante símbolos de
+numeral (\texttt{\#}) antes del texto. El primer nivel es el de tamaño
+de texto más grande y el sexto el más pequeño. En la parte izquierda de
+la Figure~\ref{fig-md-encabezados} se muestra la sintaxis Markdown de
+los encabezados y a la derecha la forma en que se despliegan en un
+documento.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1.98in,height=\textheight]{./img/md-encabezados.png}
+
+}
+
+\caption{\label{fig-md-encabezados}Sintaxis de Markdown - encabezados.}
+
+\end{figure}
+
+\hypertarget{ituxe1licas}{%
+\subsection{Itálicas}\label{ituxe1licas}}
+
+Se definen con un asterisco (\texttt{*}) antes y después del texto o con
+un guión bajo (\texttt{\_}) antes y después del texto.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1.66in,height=\textheight]{./img/md-italica.png}
+
+}
+
+\caption{\label{fig-md-italicas}Sintaxis de Markdown - itálicas.}
+
+\end{figure}
+
+\hypertarget{negritas}{%
+\subsection{Negritas}\label{negritas}}
+
+Se definen con dos asteriscos (\texttt{**}) antes y después del texto o
+con dos guiones bajos (\texttt{\_\_}) antes y después del texto.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1.78in,height=\textheight]{./img/md-negrita.png}
+
+}
+
+\caption{\label{fig-md-negritas}Sintaxis de Markdown - negritas.}
+
+\end{figure}
+
+\hypertarget{citas-textuales}{%
+\subsection{Citas textuales}\label{citas-textuales}}
+
+Se definen con un símbolo de ``mayor que'' (\texttt{\textgreater{}})
+antes de cada línea.
+
+\begin{figure}
+
+{\centering \includegraphics[width=2.22in,height=\textheight]{./img/md-cita.png}
+
+}
+
+\caption{\label{fig-md-citas}Sintaxis de Markdown - citas textuales.}
+
+\end{figure}
+
+\hypertarget{enlaces-hipervuxednculos}{%
+\subsection{Enlaces (hipervínculos)}\label{enlaces-hipervuxednculos}}
+
+Se definen con paréntesis cuadrados (\texttt{{[}{]}}) seguidos de
+paréntesis redondos (\texttt{()}). En los paréntesis cuadrados se coloca
+(opcionalmente) el texto del enlace y en los redondos la dirección del
+documento.
+
+\begin{figure}
+
+{\centering \includegraphics[width=2.08in,height=\textheight]{./img/md-enlace.png}
+
+}
+
+\caption{\label{fig-md-enlaces}Sintaxis de Markdown - enlaces.}
+
+\end{figure}
+
+\hypertarget{imuxe1genes}{%
+\subsection{Imágenes}\label{imuxe1genes}}
+
+Se definen con un signo de admiración de cierre (\texttt{!}), paréntesis
+cuadrados (\texttt{{[}{]}}) y paréntesis redondos (\texttt{()}). En los
+paréntesis cuadrados se coloca (opcionalmente) un texto alternativo de
+la imagen y en los redondos la dirección de la imagen, ya sea local o
+remota.
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.03in,height=\textheight]{./img/md-imagen.png}
+
+}
+
+\caption{\label{fig-md-imagenes}Sintaxis de Markdown - imágenes.}
+
+\end{figure}
+
+\hypertarget{listas-numeradas}{%
+\subsection{Listas numeradas}\label{listas-numeradas}}
+
+Se definen con números (\texttt{1.\ 2.\ 3.\ ...}) antes de cada
+elemento.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1.91in,height=\textheight]{./img/md-lista-numerada.png}
+
+}
+
+\caption{\label{fig-md-listas-numeradas}Sintaxis de Markdown - listas
+numeradas.}
+
+\end{figure}
+
+\hypertarget{listas-no-numeradas}{%
+\subsection{Listas no numeradas}\label{listas-no-numeradas}}
+
+Se definen con guiones (\texttt{-}) o asteriscos (\texttt{*}) antes de
+cada elemento.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1.81in,height=\textheight]{./img/md-lista-no-numerada.png}
+
+}
+
+\caption{\label{fig-md-listas-no-numeradas}Sintaxis de Markdown - listas
+no numeradas.}
+
+\end{figure}
+
+\hypertarget{otros-elementos-de-sintaxis}{%
+\subsection{Otros elementos de
+sintaxis}\label{otros-elementos-de-sintaxis}}
+
+Para conocer otros elementos de la sintaxis de Markdown, se recomienda
+revisar en detalle la \href{https://www.markdownguide.org/}{Guía de
+referencia de Markdown}.
+
+\hypertarget{ejercicios}{%
+\section{Ejercicios}\label{ejercicios}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Cree un documento Markdown llamado \texttt{README.md}, en RStudio, y
+  escriba en este un breve perfil académico (\emph{curriculum}
+  académico).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Incluya información como: nombre, fotografía, datos de contacto,
+    áreas de interés, carrera, cursos aprobados, publicaciones, etc.
+  \item
+    Puede usar información ficticia (\textbf{no incluya datos
+    confidenciales o sensibles}).
+  \item
+    Especifique la fuente de las imágenes (y de cualquier otra
+    información para la que sea necesario) y no utilice imágenes para
+    las que no tiene autorización. Considere utilizar sitios con
+    imágenes con licencias abiertas (ej.
+    \href{https://commons.wikimedia.org/}{Wikimedia Commons},
+    \href{https://unsplash.com/}{Unsplash},
+    \href{https://www.freeimages.com/}{FreeImages}).
+  \item
+    Asegúrese de utilizar los siguientes elementos de sintaxis Markdown:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Varios niveles de encabezados.
+    \item
+      Negritas e itálicas.
+    \item
+      Listas.
+    \item
+      Enlaces a sitios web.
+    \item
+      Imágenes (al menos una local y una remota).
+    \end{itemize}
+  \end{itemize}
+\item
+  Cree un repositorio en \href{https://github.com/}{GitHub} llamado
+  \texttt{perfil-academico} y suba a este el documento que creó en el
+  paso 1.
+\item
+  Cree un sitio web en \href{https://pages.github.com/}{GitHub Pages}
+  con el repositorio creado en el paso 2.
+\end{enumerate}
+
+\hypertarget{recursos-de-interuxe9s}{%
+\section{Recursos de interés}\label{recursos-de-interuxe9s}}
+
+Carrera Arias, F. J. (2020). \emph{How to Install R on Windows, Mac OS
+X, and Ubuntu Tutorial}. DataCamp Community.
+\url{https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu}
+
+\emph{Markdown Guide}. (s. f.). Recuperado 10 de abril de 2022, de
+\url{https://www.markdownguide.org/}
+
+\hypertarget{git---sistema-de-control-de-versiones}{%
+\chapter{Git - sistema de control de
+versiones}\label{git---sistema-de-control-de-versiones}}
+
+\hypertarget{trabajo-previo-2}{%
+\section{Trabajo previo}\label{trabajo-previo-2}}
+
+\hypertarget{tutoriales-1}{%
+\subsection{Tutoriales}\label{tutoriales-1}}
+
+Abba, I. V. (2021). \emph{Git and GitHub Tutorial -- Version Control for
+Beginners}. FreeCodeCamp.Org.
+\url{https://www.freecodecamp.org/news/git-and-github-for-beginners/}
+
+\hypertarget{otros-1}{%
+\subsection{Otros}\label{otros-1}}
+
+Instale en su computadora el sistema de control de versiones
+\href{https://git-scm.com/downloads}{Git}.
+
+\hypertarget{resumen-1}{%
+\section{Resumen}\label{resumen-1}}
+
+Git es un sistema para administrar versiones de código fuente o, en
+general, de cualquier conjunto de archivos.
+
+\hypertarget{descripciuxf3n-general-1}{%
+\section{Descripción general}\label{descripciuxf3n-general-1}}
+
+\href{https://git-scm.com/}{Git} es un sistema de
+\href{https://es.wikipedia.org/wiki/Control_de_versiones}{control de
+versiones} diseñado para ``rastrear'' cambios en el código fuente
+durante el proceso de desarrollo de software. Sin embargo, puede ser
+utilizado para llevar el control de los cambios en cualquier conjunto de
+archivos (ej.
+\href{https://guides.github.com/features/wikis/}{documentación},
+\href{https://techcrunch.com/2013/10/09/splice-music/}{música}).
+
+Un sistema de control de versiones proporciona, entre otras ventajas:
+
+\begin{itemize}
+\tightlist
+\item
+  La capacidad de recuperar versiones anteriores de los archivos.
+\item
+  La capacidad de integrar modificaciones efectuadas por varias personas
+  en el mismo conjunto de archivos.
+\item
+  La capacidad de mantener varias ``ramas'' (\emph{branches}) de un
+  producto (ej. ``estable'', ``evaluación'', ``inestable'', como en el
+  caso de \href{https://www.debian.org/releases/}{Debian Linux},
+  \href{https://grass.osgeo.org/download/software/sources/}{GRASS GIS} y
+  muchos otros proyectos de software libre).
+\item
+  Facilidades para mantener redundancia y respaldos de los archivos (ej.
+  \href{https://archiveprogram.github.com/}{Programa de respaldos de
+  GitHub}). Esta es una facilidad que implementan algunos servicios en
+  la nube.
+\end{itemize}
+
+Git fue diseñado por Linus Torvalds en 2005 durante del desarrollo del
+\emph{kernel} del sistema operativo Linux. Se caracteriza por ser un
+\href{https://es.wikipedia.org/wiki/Control_de_versiones_distribuido}{sistema
+de control de versiones distribuido}, lo que significa que el código
+fuente puede estar alojado en la estación de trabajo de cualquier
+miembro del equipo de desarrollo. No se requiere de un repositorio
+``central'', pero también se puede trabajar de esa forma.
+
+El protocolo de Git es utilizado en varios sitios que proveen servicios
+de alojamiento de software, entre los que están
+\href{https://sourceforge.net/}{SourceForge},
+\href{https://bitbucket.org/}{Bitbucket},
+\href{https://about.gitlab.com/}{GitLab} y
+\href{https://github.com/}{GitHub}.
+
+\hypertarget{funcionamiento-de-git}{%
+\section{Funcionamiento de Git}\label{funcionamiento-de-git}}
+
+Desde el punto de vista de un usuario de Git (ej. un programador), Git
+se utiliza para sincronizar la versión local (i.e.~en la computadora
+personal del usuario) de un conjunto de archivos, llamado proyecto o
+repositorio, con la versión que está alojada en un sistema remoto (ej.
+GitHub). Cada repositorio se almacena en un directorio (carpeta) del
+sistema operativo. La sincronización se realiza principalmente a través
+de dos operaciones:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\emph{push}}: para ``subir'' al repositorio remoto los cambios
+  realizados en el repositorio local. Esta operación se realiza mediante
+  el comando \href{https://git-scm.com/docs/git-push}{git push}. Es
+  probable que el sistema remoto le solicite al usuario algún tipo de
+  autenticación (ej. nombre de usuario y clave).
+\item
+  \textbf{\emph{pull}}: para ``bajar'' al repositorio local los cambios
+  realizados en el repositorio remoto. Esta operación se realiza
+  mediante el comando \href{https://git-scm.com/docs/git-pull}{git
+  pull}.
+\end{itemize}
+
+Las operaciones \emph{push} y \emph{pull} se ilustran en la
+Figure~\ref{fig-git-push-pull}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1.67in,height=\textheight]{./img/git-push-pull.png}
+
+}
+
+\caption{\label{fig-git-push-pull}Operaciones \emph{push} y \emph{pull}.
+Imagen de
+\href{https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-1}{Melinda
+Higgins}.}
+
+\end{figure}
+
+Antes de un \emph{push}, el usuario debe seleccionar los archivos que
+desea subir mediante el comando
+\href{https://git-scm.com/docs/git-add}{git add}, el cual pasa los
+archivos a un ``área de espera'' (\emph{staging area}). Luego debe
+usarse el comando \href{https://git-scm.com/docs/git-commit}{git commit}
+para ``guardar'' los cambios pendientes en el área de espera. Cada
+\emph{commit} guarda el estado del conjunto de archivos en un momento
+específico (\emph{snapshot}).
+
+La relación entre estas operaciones de Git, se ilustra en la
+Figure~\ref{fig-git-push-pull-commit}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.27in,height=\textheight]{./img/git-push-pull-commit.png}
+
+}
+
+\caption{\label{fig-git-push-pull-commit}Operaciones de Git. Imagen de
+\href{https://medium.com/@stevenklavins94/version-control-part-4-c9387cf5b33e}{Steven
+Klavins}.}
+
+\end{figure}
+
+En la Figure~\ref{fig-git-stage-commit-push}, se muestra el
+funcionamiento de Git mediante una comparación con el procesamiento de
+una compra en línea.
+
+\begin{figure}
+
+{\centering \includegraphics[width=2.66in,height=\textheight]{./img/git-stage-commit-push.png}
+
+}
+
+\caption{\label{fig-git-stage-commit-push}Operaciones de Git y compras
+en línea. Imagen de
+\href{https://www.coursera.org/learn/reproducible-templates-analysis/lecture/NGbQv/git-and-github-part-2}{Melinda
+Higgins}.}
+
+\end{figure}
+
+Otras operaciones de Git de uso frecuente son:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://git-scm.com/docs/git-config}{git config}: para
+  especificar opciones globales de la sesión de Git (ej. nombre del
+  usuario, dirección de corre electrónico).
+\item
+  \href{https://git-scm.com/docs/git-init}{git init}: para inicializar
+  un repositorio git.
+\item
+  \href{https://git-scm.com/docs/git-clone}{git clone}: para clonar
+  (i.e.~copiar) un repositorio remoto en la computadora local.
+\item
+  \href{https://git-scm.com/docs/git-status}{git status}: para revisar
+  el estado de los archivos y, por ejemplo, saber cuales deben pasarse
+  al área de espera.
+\item
+  \href{https://git-scm.com/docs/git-log}{git log}: para revisar el
+  historial de \emph{commits}.
+\item
+  \href{https://git-scm.com/docs/git-show}{git show}: para visualizar
+  los cambios efectuados en los \emph{commits}.
+\item
+  \href{https://git-scm.com/docs/git-reset}{git reset}: para regresar al
+  estado correspondiente a un \emph{commit} anterior.
+\end{itemize}
+
+\hypertarget{ejemplos-de-uso}{%
+\section{Ejemplos de uso}\label{ejemplos-de-uso}}
+
+\hypertarget{clonaciuxf3n-de-un-repositorio-remoto-y-sincronizaciuxf3n-de-los-cambios-efectuados-localmente}{%
+\subsection{Clonación de un repositorio remoto y sincronización de los
+cambios efectuados
+localmente}\label{clonaciuxf3n-de-un-repositorio-remoto-y-sincronizaciuxf3n-de-los-cambios-efectuados-localmente}}
+
+Para seguir este ejemplo:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{-1}
+\tightlist
+\item
+  Obtenga un \emph{token} de GitHub en la siguiente opción de menú de su
+  perfil de usuario: \emph{Settings - Developer settings - Personal
+  access tokens}. Seleccione las operaciones de tipo ``repo''. Copie el
+  \emph{token} en un lugar seguro, ya que lo necesitará para
+  autenticarse en GitHub.
+\item
+  Realice un \emph{fork} a su cuenta en GitHub del repositorio
+  localizado en la dirección
+  \url{https://github.com/pf0953-programacionr/2022-ii-tutorial-git-repo-ejemplo}.
+  Obtendrá un repositorio llamado
+  ``https://github.com/{[}nombre-usuario{]}/2022-ii-tutorial-git-repo-ejemplo'',
+  en donde {[}nombre-usuario{]} es su nombre de usuario en GitHub.
+\item
+  Con la opción \emph{File - New Project - Version Control - Git} de
+  RStudio, clone a su computadora el repositorio que acaba de bifurcar.
+\item
+  Con el editor de RStudio, abra el archivo \texttt{README.md}, agregue
+  una línea y guarde el archivo.
+\item
+  Luego, ejecute los siguientes comandos desde la la ventana
+  \emph{Terminal} de RStudio. Nota: las líneas que empiezan con
+  \texttt{\#} son comentarios.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# a. Parámetros de configuración: nombre y dirección de correo del usuario.}
+\NormalTok{\#    Debe cambiar [email{-}usuario] y [nombre{-}usuario] por sus propios datos.}
+\NormalTok{git config {-}{-}global user.email [email{-}usuario]}
+\NormalTok{git config {-}{-}global user.name [nombre{-}usuario]}
+\NormalTok{\# Para revisar los parámetros de configuración:}
+\NormalTok{git config {-}{-}global {-}{-}list}
+
+\NormalTok{\# b. Revisión de los archivos con modificaciones.}
+\NormalTok{git status}
+
+\NormalTok{\# c. Adición (add) de los archivos modificados al "área de espera".}
+\NormalTok{\#    El punto (.) indica que se agregarán todos los archivos modificados.}
+\NormalTok{git add .}
+
+\NormalTok{\# d. Grabado (commit) del conjunto de archivos modificados,}
+\NormalTok{\#    junto con un mensaje explicativo:}
+\NormalTok{git commit {-}m "Agregar línea 2"}
+
+\NormalTok{\# e. "Subida" (push) de las modificaciones al repositorio remoto.}
+\NormalTok{\#    En este paso, es posible que deba utilizar su nombre de usuario/clave}
+\NormalTok{\#    o su token de GitHub para autenticarse.}
+\NormalTok{git push}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Revise los cambios aplicados en el repositorio remoto en GitHub.
+\item
+  Agregue más líneas al archivo del repositorio local y sincronícelo con
+  el remoto, realizando nuevamente los pasos del b al e para cada
+  \emph{commit}. Recuerde que los comentarios de cada \texttt{commit}
+  deben reflejar los cambios que están siendo aplicados.
+\end{enumerate}
+
+\hypertarget{recursos-de-interuxe9s-1}{%
+\section{Recursos de interés}\label{recursos-de-interuxe9s-1}}
+
+\emph{Git}. (s. f.). Recuperado 28 de agosto de 2022, de
+\url{https://git-scm.com/}
+
+\emph{GitHub Archive Program}. (s. f.). GitHub Archive Program.
+Recuperado 10 de abril de 2022, de
+\url{https://archiveprogram.github.com/}
+
+Higgins, M. (s. f.). \emph{Reproducible Templates for Analysis and
+Dissemination}. Coursera. Recuperado 11 de abril de 2022, de
+\url{https://www.coursera.org/learn/reproducible-templates-analysis}
+
+Klavins, S. (2020). \emph{Version Control part 1}. Medium.
+\url{https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{referencias-bibliogruxe1ficas}{%
+\chapter*{Referencias
+bibliográficas}\label{referencias-bibliogruxe1ficas}}
+\addcontentsline{toc}{chapter}{Referencias bibliográficas}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-gandrud_reproducible_2020}{}}%
+Gandrud, Christopher. 2020. \emph{Reproducible Research with {R} and
+{RStudio}}. Third edition. The {R} Series. Boca Raton, FL: CRC Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-longley_geographic_2005}{}}%
+Longley, Paul A., Michael F. Goodchild, David J. Maguire, and David W.
+Rhind. 2005. \emph{Geographic {Information} {Systems} and {Science}}.
+2nd edition. Chichester ; Hoboken, NJ: Wiley.
+
+\leavevmode\vadjust pre{\hypertarget{ref-olaya_sistemas_2020}{}}%
+Olaya, Víctor. 2020. {``Sistemas de {Información} {Geográfica}.''}
+\url{https://volaya.github.io/libro-sig/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-peng_reproducible_2011}{}}%
+Peng, Roger D. 2011. {``Reproducible {Research} in {Computational}
+{Science}.''} \emph{Science} 334 (6060): 1226--27.
+\url{https://doi.org/10.1126/science.1213847}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-singleton_establishing_2016}{}}%
+Singleton, Alex David, Seth Spielman, and Chris Brunsdon. 2016.
+{``Establishing a Framework for {Open} {Geographic} {Information}
+Science.''} \emph{International Journal of Geographical Information
+Science} 30 (8): 1507--21.
+\url{https://doi.org/10.1080/13658816.2015.1137579}.
+
+\end{CSLReferences}
+
+
+
+\end{document}
