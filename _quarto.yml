@@ -13,6 +13,9 @@ book:
         - 01-introduccion-ciencia-datos-geoespaciales.qmd
         - 02-markdown.qmd
         - 03-git.qmd
+    - part: part-02-lenguaje-programacion-r.qmd    
+      chapters:
+        - 04-pensamiento_computacional-arquitectura_computadoras.qmd    
     - part: part-06-evaluaciones.qmd
       chapters:
         - examen_corto-01.qmd        
