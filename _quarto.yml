@@ -18,7 +18,8 @@ book:
         - 04-pensamiento_computacional-arquitectura_computadoras.qmd    
     - part: part-06-evaluaciones.qmd
       chapters:
-        - examen_corto-01.qmd        
+        - examen_corto-01.qmd    
+        - tarea-01.qmd
     - references.qmd
 
 bibliography: references.bib

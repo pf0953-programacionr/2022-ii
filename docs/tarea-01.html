@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Manuel Vargas">
-<meta name="dcterms.date" content="2022-08-21">
 
-<title>PF 0953 Programación en R 2022-II</title>
+<title>PF 0953 Programación en R 2022-II - Tarea 01</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -27,7 +25,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./part-01-introduccion.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./examen_corto-01.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -66,7 +65,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">PF 0953 Programación en R 2022-II</h1>
+      <h1 class="quarto-secondary-nav-title">Tarea 01</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -91,7 +90,7 @@ ul.task-list{list-style: none;}
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Bienvenida</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Bienvenida</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -149,7 +148,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tarea-01.html" class="sidebar-item-text sidebar-link">Tarea 01</a>
+  <a href="./tarea-01.html" class="sidebar-item-text sidebar-link active">Tarea 01</a>
   </div>
 </li>
       </ul>
@@ -168,7 +167,12 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#bienvenida" id="toc-bienvenida" class="nav-link active" data-scroll-target="#bienvenida">Bienvenida</a></li>
+  <li><a href="#fecha-y-hora-límite-de-entrega" id="toc-fecha-y-hora-límite-de-entrega" class="nav-link active" data-scroll-target="#fecha-y-hora-límite-de-entrega">Fecha y hora límite de entrega</a></li>
+  <li><a href="#entregables" id="toc-entregables" class="nav-link" data-scroll-target="#entregables">Entregables</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
+  <li><a href="#consideraciones-adicionales" id="toc-consideraciones-adicionales" class="nav-link" data-scroll-target="#consideraciones-adicionales">Consideraciones adicionales</a></li>
+  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">Desarrollo</a></li>
+  <li><a href="#calificación" id="toc-calificación" class="nav-link" data-scroll-target="#calificación">Calificación</a></li>
   </ul>
 </nav>
     </div>
@@ -177,49 +181,72 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">PF 0953 Programación en R 2022-II</h1>
+<h1 class="title d-none d-lg-block">Tarea 01</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Manuel Vargas </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 21, 2022</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
-<section id="bienvenida" class="level1 unnumbered">
-<h1 class="unnumbered">Bienvenida</h1>
-<p>Este curso trata sobre el manejo, visualización y análisis de datos geoespaciales mediante el lenguaje de programación <a href="https://www.r-project.org/">R</a>. Se imparte en la <a href="https://www.sep.ucr.ac.cr/posgrados/geografia/folleto/maestria_academica_recurso_hidrico.pdf">Maestría Académica en Gestión Integrada del Recurso Hídrico para Latinoamérica y El Caribe</a> de la <a href="https://www.ucr.ac.cr/">Universidad de Costa Rica</a>.</p>
-<p>Se estudian los fundamentos de R, sus bibliotecas geoespaciales y sus capacidades para generar gráficos estadísticos. También se utilizan herramientas para facilitar la reproducibilidad de los procedimientos y su comunicación a través de la Internet y otros medios.</p>
-<p>El enfoque del curso es teórico-práctico, con lecciones teóricas combinadas con ejercicios de programación en los cuales los estudiantes aplican en diversos escenarios de procesamiento de datos los conocimientos y habilidades aprendidas.</p>
-<p>Este sitio web corresponde al curso impartido durante el segundo lectivo de 2022. Para más información sobre los contenidos, metodología, evaluación y otros temas, puede consultar el <a href="https://github.com/pf0953-programacionr/2022-ii/blob/main/programa-curso/pf0953-programacionr-g001-2022-ii.pdf">programa del curso</a>.</p>
-<p><strong>Información de contacto</strong></p>
-<p>Si tiene alguna pregunta o comentario sobre este curso, por favor contacte a:</p>
-<blockquote class="blockquote">
-<p>Manuel Vargas - manuel.vargas_d@ucr.ac.cr<br>
-Profesor<br>
-Universidad de Costa Rica,<br>
-Ciudad Universitaria Rodrigo Facio,<br>
-San Pedro de Montes de Oca,<br>
-Costa Rica.</p>
-</blockquote>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Licencia de Creative Commons" style="border-width:0"></a><br>Los contenidos de este curso, a menos que se especifique de otra forma, se comparten mediante una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.</p>
+<section id="fecha-y-hora-límite-de-entrega" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="fecha-y-hora-límite-de-entrega">Fecha y hora límite de entrega</h2>
+<p>Lunes 12 de setiembre de 2022, 02:59 p.m.</p>
+</section>
+<section id="entregables" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="entregables">Entregables</h2>
+<ol type="1">
+<li>Dirección de un repositorio en GitHub llamado <code>notas-investigacion-reproducible</code> (ej. https://github.com/mfvargas/notas-investigacion-reproducible) que contenga un documento escrito en Markdown llamado <code>README.md</code>, con el contenido especificado en la sección Desarrollo.</li>
+<li>Dirección de un sitio web publicado en GitHub Pages generado a partir del repositorio especificado en el punto anterior (ej. https://mfvargas.github.io/notas-investigacion-reproducible/).</li>
+</ol>
+<p>La entrega debe realizarse a través de un mensaje de correo a la dirección del profesor (manuel.vargas_d@ucr.ac.cr). El mensaje debe contener ambas direcciones.</p>
+</section>
+<section id="objetivos" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="objetivos">Objetivos</h2>
+<p>Cada estudiante debe mostrar que es capaz de:</p>
+<ol type="1">
+<li>Escribir documentos en el lenguaje de marcado Markdown.</li>
+<li>Manejar repositorios en GitHub.</li>
+<li>Publicar repositorios en GitHub como sitios web en GitHub Pages.</li>
+</ol>
+</section>
+<section id="consideraciones-adicionales" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="consideraciones-adicionales">Consideraciones adicionales</h2>
+<p><strong>Esta tarea es estrictamente individual</strong>.</p>
+</section>
+<section id="desarrollo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="desarrollo">Desarrollo</h2>
+<p>El sitio web debe tener los contenidos y formatos que se muestran en las siguientes imágenes. Deben reproducirse los encabezados, negritas, itálicas, citas textuales, imágenes e hipervínculos a otros documentos.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/tarea-01-img-01.png" class="img-fluid" width="603"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/tarea-01-img-02.png" class="img-fluid" width="602"></p>
+</div>
+</div>
+<p>Los textos están disponibles en <a href="otros/tarea-01-texto.txt">este enlace</a>.</p>
+</section>
+<section id="calificación" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="calificación">Calificación</h2>
+<p>Entre paréntesis, se muestra el porcentaje correspondiente a cada aspecto que se calificará:</p>
+<p>Revisión de las direcciones entregadas:<br>
+- (5%) Dirección del repositorio en GitHub.<br>
+- (5%) Dirección del sitio web publicado en GitHub Pages.</p>
+<p>Revisión de los elementos del documento escrito en Markdown:<br>
+- (10%) Encabezados.<br>
+- (20%) Negritas e itálicas.<br>
+- (20%) Citas textuales.<br>
+- (20%) Imagen de la figura 1 (el archivo está en <a href="img/ZiemannEtAlFig1.png">ZiemannEtAlFig1.png</a>.<br>
+- (20%) Hipervínculos (además de los dos de la bibliografía, incluya uno al sitio web de la FDA en https://www.fda.gov/, en donde se mencionan las siglas).</p>
 
 
 </section>
@@ -324,10 +351,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./examen_corto-01.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Examen corto 01</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./part-01-introduccion.html" class="pagination-link">
-        <span class="nav-page-text">I - Introducción</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">Referencias bibliográficas</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

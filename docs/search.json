@@ -168,6 +168,48 @@
     "text": "Temas a evaluar\n\nIntroducción a la ciencia de datos geoespaciales\nMarkdown - lenguaje de marcado\nGit - sistema de control de versiones"
   },
   {
+    "objectID": "tarea-01.html",
+    "href": "tarea-01.html",
+    "title": "Tarea 01",
+    "section": "",
+    "text": "Lunes 12 de setiembre de 2022, 02:59 p.m."
+  },
+  {
+    "objectID": "tarea-01.html#entregables",
+    "href": "tarea-01.html#entregables",
+    "title": "Tarea 01",
+    "section": "Entregables",
+    "text": "Entregables\n\nDirección de un repositorio en GitHub llamado notas-investigacion-reproducible (ej. https://github.com/mfvargas/notas-investigacion-reproducible) que contenga un documento escrito en Markdown llamado README.md, con el contenido especificado en la sección Desarrollo.\nDirección de un sitio web publicado en GitHub Pages generado a partir del repositorio especificado en el punto anterior (ej. https://mfvargas.github.io/notas-investigacion-reproducible/).\n\nLa entrega debe realizarse a través de un mensaje de correo a la dirección del profesor (manuel.vargas_d@ucr.ac.cr). El mensaje debe contener ambas direcciones."
+  },
+  {
+    "objectID": "tarea-01.html#objetivos",
+    "href": "tarea-01.html#objetivos",
+    "title": "Tarea 01",
+    "section": "Objetivos",
+    "text": "Objetivos\nCada estudiante debe mostrar que es capaz de:\n\nEscribir documentos en el lenguaje de marcado Markdown.\nManejar repositorios en GitHub.\nPublicar repositorios en GitHub como sitios web en GitHub Pages."
+  },
+  {
+    "objectID": "tarea-01.html#consideraciones-adicionales",
+    "href": "tarea-01.html#consideraciones-adicionales",
+    "title": "Tarea 01",
+    "section": "Consideraciones adicionales",
+    "text": "Consideraciones adicionales\nEsta tarea es estrictamente individual."
+  },
+  {
+    "objectID": "tarea-01.html#desarrollo",
+    "href": "tarea-01.html#desarrollo",
+    "title": "Tarea 01",
+    "section": "Desarrollo",
+    "text": "Desarrollo\nEl sitio web debe tener los contenidos y formatos que se muestran en las siguientes imágenes. Deben reproducirse los encabezados, negritas, itálicas, citas textuales, imágenes e hipervínculos a otros documentos.\n\n\n\n\n\n\n\n\n\n\nLos textos están disponibles en este enlace."
+  },
+  {
+    "objectID": "tarea-01.html#calificación",
+    "href": "tarea-01.html#calificación",
+    "title": "Tarea 01",
+    "section": "Calificación",
+    "text": "Calificación\nEntre paréntesis, se muestra el porcentaje correspondiente a cada aspecto que se calificará:\nRevisión de las direcciones entregadas:\n- (5%) Dirección del repositorio en GitHub.\n- (5%) Dirección del sitio web publicado en GitHub Pages.\nRevisión de los elementos del documento escrito en Markdown:\n- (10%) Encabezados.\n- (20%) Negritas e itálicas.\n- (20%) Citas textuales.\n- (20%) Imagen de la figura 1 (el archivo está en ZiemannEtAlFig1.png.\n- (20%) Hipervínculos (además de los dos de la bibliografía, incluya uno al sitio web de la FDA en https://www.fda.gov/, en donde se mencionan las siglas)."
+  },
+  {
     "objectID": "references.html",
     "href": "references.html",
     "title": "Referencias bibliográficas",
