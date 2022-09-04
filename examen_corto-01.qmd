@@ -1,0 +1,9 @@
+# Examen corto 01 {.unnumbered}
+
+## Fecha {.unnumbered}
+Lunes 5 de setiembre de 2022
+
+## Temas a evaluar {.unnumbered}
+- [Introducción a la ciencia de datos geoespaciales](https://pf0953-programacionr.github.io/2022-ii/01-introduccion-ciencia-datos-geoespaciales.html)
+- [Markdown - lenguaje de marcado](https://pf0953-programacionr.github.io/2022-ii/02-markdown.html)
+- [Git - sistema de control de versiones](https://pf0953-programacionr.github.io/2022-ii/03-git.html)
