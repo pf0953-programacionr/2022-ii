@@ -213,7 +213,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, frame hidden, enhanced, interior hidden, breakable, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, interior hidden, enhanced, breakable, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -572,9 +572,9 @@ personas. Git es usado en varias plataformas que comparten código fuente
 \href{https://about.gitlab.com/}{GitLab}) y que ofrecen servicios
 relacionados, como hospedaje de sitios web.
 
-\hypertarget{markdown-lenguaje-de-marcado}{%
-\chapter{Markdown: lenguaje de
-marcado}\label{markdown-lenguaje-de-marcado}}
+\hypertarget{markdown---lenguaje-de-marcado}{%
+\chapter{Markdown - lenguaje de
+marcado}\label{markdown---lenguaje-de-marcado}}
 
 \hypertarget{trabajo-previo-1}{%
 \section{Trabajo previo}\label{trabajo-previo-1}}
@@ -966,12 +966,12 @@ de alojamiento de software, entre los que están
 \section{Funcionamiento de Git}\label{funcionamiento-de-git}}
 
 Desde el punto de vista de un usuario de Git (ej. un programador), Git
-se utiliza para sincronizar la versión local (i.e.~en la computadora
-personal del usuario) de un conjunto de archivos, llamado proyecto o
-repositorio, con la versión que está alojada en un sistema remoto (ej.
-GitHub). Cada repositorio se almacena en un directorio (carpeta) del
-sistema operativo. La sincronización se realiza principalmente a través
-de dos operaciones:
+se utiliza para sincronizar la versión local (i.e.~en una computadora
+personal) de un conjunto de archivos, llamado proyecto o repositorio,
+con la versión que está alojada en un sistema remoto (ej. GitHub). Cada
+repositorio se almacena en un directorio (carpeta) del sistema
+operativo. La sincronización se realiza principalmente a través de dos
+operaciones:
 
 \begin{itemize}
 \tightlist
@@ -1052,7 +1052,7 @@ Otras operaciones de Git de uso frecuente son:
 \item
   \href{https://git-scm.com/docs/git-config}{git config}: para
   especificar opciones globales de la sesión de Git (ej. nombre del
-  usuario, dirección de corre electrónico).
+  usuario, dirección de correo electrónico).
 \item
   \href{https://git-scm.com/docs/git-init}{git init}: para inicializar
   un repositorio git.
@@ -1169,6 +1169,370 @@ Dissemination}. Coursera. Recuperado 11 de abril de 2022, de
 
 Klavins, S. (2020). \emph{Version Control part 1}. Medium.
 \url{https://stevenklavins94.medium.com/version-control-part-1-c5f1b43127f6}
+
+\part{II - El lenguaje de programación R}
+
+\hypertarget{pensamiento-computacional-y-arquitectura-de-computadoras}{%
+\chapter{Pensamiento computacional y arquitectura de
+computadoras}\label{pensamiento-computacional-y-arquitectura-de-computadoras}}
+
+\hypertarget{trabajo-previo-3}{%
+\section{Trabajo previo}\label{trabajo-previo-3}}
+
+\hypertarget{lecturas-1}{%
+\subsection{Lecturas}\label{lecturas-1}}
+
+Wing, J. M. (2006). Computational thinking. \emph{Communications of the
+ACM, 49}(3), 33-35. \url{https://doi.org/10.1145/1118178.1118215}
+
+\hypertarget{resumen-2}{%
+\section{Resumen}\label{resumen-2}}
+
+El pensamiento computacional es un enfoque para la resolución de
+problemas basado en conceptos y métodos de las ciencias de la
+computación. Los principios fundamentales del pensamiento computacional
+son:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Descomposición}: división de un problema en subproblemas más
+  pequeños.
+\item
+  \textbf{Reconocimiento de patrones}: búsqueda de similitudes en los
+  problemas.
+\item
+  \textbf{Abstracción}: identificación de la información que se necesita
+  y filtrado de la que no se necesita para resolver un problema.
+\item
+  \textbf{Algoritmos}: descripción, paso por paso, de la solución a un
+  problema.
+\end{itemize}
+
+Las computadoras modernas están construídas con base en circuitos
+integrados (CI), también llamados chips o microchips. Los CI procesan
+información digital (que usa valores discretos), la cual generalmente es
+binaria (i.e.~de dos valores). Los CI de una computadora procesan dos
+estados correspondientes a dos niveles de tensión eléctrica: alto y
+bajo. Estos estados se representan con 0 y 1. Esto facilita la
+aplicación de la lógica binaria y de la aritmética binaria.
+
+Durante el período entre las guerras mundiales, Allan Turing desarrolló
+la máquina de Turing, un dispositivo teórico que manipula símbolos de
+una cinta de acuerdo con una tabla de reglas. La máquina de Turing
+simula el funcionamiento de un algoritmo y los conceptos de entrada,
+procesamiento y salida. En 1945, John von Neumann propuso un concepto
+conocido como programa almacenado, en el cual los datos y los programas
+se almacenan en una estructura llamada memoria, separada del hardware
+que ejecuta las instrucciones. Este modelo permite que las computadoras
+sean más fáciles de reprogramar y es conocido actualmente como
+arquitectura de von Neumann.
+
+El lenguaje máquina es un conjunto de instrucciones binarias
+interpretables por un CPU. Las instrucciones representan acciones a ser
+ejecutadas por la computadora. Cada CPU tiene su propio lenguaje
+máquina. Un programa consiste de una secuencia de instrucciones en
+lenguaje máquina.
+
+Debido a que programar una computadora en lenguaje máquina es
+excesivamente lento y complicado, en la década de 1950 comenzaron a
+crearse lenguajes de programación que, en lugar de unos y ceros,
+consisten de instrucciones formadas por palabras, usualmente en idioma
+inglés. Existe una gran variedad de lenguajes de programación que han
+sido creados con diversos fines: científicos, comerciales,
+educacionales, etc.
+
+\hypertarget{diapositivas}{%
+\section{Diapositivas}\label{diapositivas}}
+
+\href{https://pf0953-programacionr.github.io/2022-ii-pensamiento_computacional-arquitectura_computadoras/}{Pensamiento
+computacional y arquitectura de computadoras}
+
+\hypertarget{r---conceptos-buxe1sicos}{%
+\chapter{R - conceptos básicos}\label{r---conceptos-buxe1sicos}}
+
+\hypertarget{trabajo-previo-4}{%
+\section{Trabajo previo}\label{trabajo-previo-4}}
+
+\hypertarget{lecturas-2}{%
+\subsection{Lecturas}\label{lecturas-2}}
+
+Grolemund, G., \& Wickham, H. (2014). \emph{Hands-On Programming with R:
+Write Your Own Functions And Simulations} (capítulos 1 - 8). O'Reilly
+Media. \url{https://rstudio-education.github.io/hopr/}
+
+\hypertarget{resumen-3}{%
+\section{Resumen}\label{resumen-3}}
+
+En esta lección, se estudiarán los conceptos básicos del lenguaje de
+programación R, incluyendo:
+
+\begin{itemize}
+\tightlist
+\item
+  Características generales de R.
+\item
+  El ambiente de desarrollo RStudio.
+\item
+  Funciones y paquetes.
+\item
+  Tipos de datos.
+\item
+  Definición de funciones.
+\item
+  Condicionales.
+\item
+  Ciclos.
+\end{itemize}
+
+\hypertarget{caracteruxedsticas-generales}{%
+\section{Características generales}\label{caracteruxedsticas-generales}}
+
+\href{https://www.r-project.org/}{R} es un lenguaje de programación
+enfocado en análisis estadístico. Es ampliamente utilizado en diversas
+áreas de investigación, entre las que pueden mencionarse
+\href{https://en.wikipedia.org/wiki/Machine_learning}{aprendizaje
+automático (\emph{machine learning})},
+\href{https://en.wikipedia.org/wiki/Data_science}{ciencia de datos
+(\emph{data science})} y
+\href{https://en.wikipedia.org/wiki/Big_data}{\emph{big data}}, con
+aplicaciones en campos como biomedicina, bioinformática y finanzas,
+entre muchos otros. Fue creado por Ross Ihaka y Robert Gentleman en la
+Universidad de Auckland, Nueva Zelanda, en 1993.
+
+Algunas de las principales características de este lenguaje son:
+
+\begin{itemize}
+\tightlist
+\item
+  Es
+  \href{https://en.wikipedia.org/wiki/Interpreter_(computing)}{interpretado}:
+  las instrucciones se traducen una por una a
+  \href{https://en.wikipedia.org/wiki/Machine_code}{lenguaje máquina}, a
+  diferencia de los
+  \href{https://en.wikipedia.org/wiki/Compiler}{lenguajes compilados},
+  que traducen de manera conjunta las instrucciones de una unidad
+  completa (ej. un programa o una biblioteca). Los lenguajes
+  interpretados tienden a ser más lentos que los compilados, pero
+  también son más flexibles.
+\item
+  Es
+  \href{https://en.wikipedia.org/wiki/Cross-platform_software}{multiplataforma}:
+  puede ejecutarse en los sistemas operativos más populares (ej.
+  Microsoft Windows, macOS, Linux).
+\item
+  Tiene un
+  \href{https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/}{sistema
+  de tipos de datos dinámico}: las variables pueden tomar diferentes
+  tipos de datos (ej. textuales, numéricos) durante la ejecución del
+  programa, a diferencia del caso de un sistema de tipos de datos
+  estático, en el que las variables solo pueden tener un tipo de datos.
+\item
+  Soporta varios
+  \href{https://en.wikipedia.org/wiki/Programming_paradigm}{paradigmas
+  de programación}: los paradigmas son estilos o enfoques teóricos de
+  programación. R soporta los paradigmas de
+  \href{https://en.wikipedia.org/wiki/Functional_programming}{programación
+  funcional},
+  \href{https://en.wikipedia.org/wiki/Object-oriented_programming}{programación
+  orientada a objetos},
+  \href{https://en.wikipedia.org/wiki/Imperative_programming}{programación
+  imperativa} y
+  \href{https://en.wikipedia.org/wiki/Procedural_programming}{programación
+  procedimental}.
+\end{itemize}
+
+R es un proyecto de
+\href{https://en.wikipedia.org/wiki/Free_software}{software libre} que
+se comparte mediante una licencia
+\href{https://www.gnu.org/licenses/old-licenses/gpl-2.0.html}{GNU
+General Public Licence (GNU GPL)}. Esta característica permite que la
+funcionalidad original de R pueda ser ampliada mediante bibliotecas o
+paquetes desarrollados por la comunidad de programadores.
+
+Para programar en R, puede utilizarse una interfaz de línea de comandos,
+editores de texto (ej. \href{https://code.visualstudio.com/}{Visual
+Studio Code}, \href{https://www.vim.org/}{Vim}) y también ambientes de
+desarrollo integrados (IDE, \emph{integrated development environment})
+como \href{https://jupyter.org/}{Jupyter} o
+\href{https://rstudio.com/}{RStudio}.
+
+\hypertarget{el-ambiente-de-desarrollo-integrado-rstudio}{%
+\section{El ambiente de desarrollo integrado
+RStudio}\label{el-ambiente-de-desarrollo-integrado-rstudio}}
+
+\href{https://www.rstudio.com/}{RStudio} es el IDE más popular para el
+lenguaje R. Está disponible en una versión de escritorio (RStudio
+Desktop) y en una versión para servidor (RStudio Server). Esta última
+permite la conexión de varios usuarios a través de un navegador web.
+RStudio se ofrece también como un servicio en la nube, a través de
+\href{https://www.rstudio.com/products/cloud/}{RStudio Cloud}.
+
+La Figure~\ref{fig-rstudio-interfaz} muestra la interfaz de RStudio.
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.18in,height=\textheight]{./img/rstudio.png}
+
+}
+
+\caption{\label{fig-rstudio-interfaz}Interfaz del ambiente de desarrollo
+integrado RStudio.}
+
+\end{figure}
+
+Además de edición de código fuente en R (y otros lenguajes), RStudio
+contiene capacidades para depurar código y visualizar datos en formatos
+tabulares, gráficos y de mapas.
+
+\hypertarget{conjuntos-de-datos-para-pruebas}{%
+\section{Conjuntos de datos para
+pruebas}\label{conjuntos-de-datos-para-pruebas}}
+
+Para efectos de pruebas y ejemplos, la distribución base de R incorpora
+varios conjuntos de datos que pueden listarse con la función
+\href{https://rdrr.io/r/utils/data.html}{data()}. Para obtener
+información acerca de un conjunto de datos en particular, puede
+utilizarse el operador \texttt{?}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Información sobre todos los conjuntos de datos incorporados en la distribución base de R}
+\FunctionTok{data}\NormalTok{()}
+
+\CommentTok{\# Información sobre el cojunto de datos "cars"}
+\NormalTok{?cars}
+
+\CommentTok{\# Información sobre el cojunto de datos "mtcars"}
+\NormalTok{?mtcars}
+
+\CommentTok{\# Información sobre el cojunto de datos "Iris"}
+\NormalTok{?iris}
+\end{Highlighting}
+\end{Shaded}
+
+\part{Evaluaciones}
+
+\hypertarget{examen-corto-01}{%
+\chapter*{Examen corto 01}\label{examen-corto-01}}
+\addcontentsline{toc}{chapter}{Examen corto 01}
+
+\hypertarget{fecha}{%
+\section*{Fecha}\label{fecha}}
+\addcontentsline{toc}{section}{Fecha}
+
+Lunes 5 de setiembre de 2022
+
+\hypertarget{temas-a-evaluar}{%
+\section*{Temas a evaluar}\label{temas-a-evaluar}}
+\addcontentsline{toc}{section}{Temas a evaluar}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://pf0953-programacionr.github.io/2022-ii/01-introduccion-ciencia-datos-geoespaciales.html}{Introducción
+  a la ciencia de datos geoespaciales}
+\item
+  \href{https://pf0953-programacionr.github.io/2022-ii/02-markdown.html}{Markdown
+  - lenguaje de marcado}
+\item
+  \href{https://pf0953-programacionr.github.io/2022-ii/03-git.html}{Git
+  - sistema de control de versiones}
+\end{itemize}
+
+\hypertarget{tarea-01}{%
+\chapter*{Tarea 01}\label{tarea-01}}
+\addcontentsline{toc}{chapter}{Tarea 01}
+
+\hypertarget{fecha-y-hora-luxedmite-de-entrega}{%
+\section*{Fecha y hora límite de
+entrega}\label{fecha-y-hora-luxedmite-de-entrega}}
+\addcontentsline{toc}{section}{Fecha y hora límite de entrega}
+
+Lunes 12 de setiembre de 2022, 02:59 p.m.
+
+\hypertarget{entregables}{%
+\section*{Entregables}\label{entregables}}
+\addcontentsline{toc}{section}{Entregables}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Dirección de un repositorio en GitHub llamado
+  \texttt{notas-investigacion-reproducible} (ej.
+  https://github.com/mfvargas/notas-investigacion-reproducible) que
+  contenga un documento escrito en Markdown llamado \texttt{README.md},
+  con el contenido especificado en la sección Desarrollo.
+\item
+  Dirección de un sitio web publicado en GitHub Pages generado a partir
+  del repositorio especificado en el punto anterior (ej.
+  https://mfvargas.github.io/notas-investigacion-reproducible/).
+\end{enumerate}
+
+La entrega debe realizarse a través de un mensaje de correo a la
+dirección del profesor (manuel.vargas\_d@ucr.ac.cr). El mensaje debe
+contener ambas direcciones.
+
+\hypertarget{objetivos}{%
+\section*{Objetivos}\label{objetivos}}
+\addcontentsline{toc}{section}{Objetivos}
+
+Cada estudiante debe mostrar que es capaz de:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Escribir documentos en el lenguaje de marcado Markdown.
+\item
+  Manejar repositorios en GitHub.
+\item
+  Publicar repositorios en GitHub como sitios web en GitHub Pages.
+\end{enumerate}
+
+\hypertarget{consideraciones-adicionales}{%
+\section*{Consideraciones
+adicionales}\label{consideraciones-adicionales}}
+\addcontentsline{toc}{section}{Consideraciones adicionales}
+
+\textbf{Esta tarea es estrictamente individual}.
+
+\hypertarget{desarrollo}{%
+\section*{Desarrollo}\label{desarrollo}}
+\addcontentsline{toc}{section}{Desarrollo}
+
+El sitio web debe tener los contenidos y formatos que se muestran en las
+siguientes imágenes. Deben reproducirse los encabezados, negritas,
+itálicas, citas textuales, imágenes e hipervínculos a otros documentos.
+
+\includegraphics[width=4.02in,height=\textheight]{./img/tarea-01-img-01.png}
+
+\includegraphics[width=4.01in,height=\textheight]{./img/tarea-01-img-02.png}
+
+Los textos están disponibles en \href{otros/tarea-01-texto.txt}{este
+enlace}.
+
+\hypertarget{calificaciuxf3n}{%
+\section*{Calificación}\label{calificaciuxf3n}}
+\addcontentsline{toc}{section}{Calificación}
+
+Entre paréntesis, se muestra el porcentaje correspondiente a cada
+aspecto que se calificará:
+
+Revisión de las direcciones entregadas:\\
+- (5\%) Dirección del repositorio en GitHub.\\
+- (5\%) Dirección del sitio web publicado en GitHub Pages.
+
+Revisión de los elementos del documento escrito en Markdown:\\
+- (10\%) Encabezados.\\
+- (20\%) Negritas e itálicas.\\
+- (20\%) Citas textuales.\\
+- (20\%) Imagen de la figura 1 (el archivo está en
+\href{img/ZiemannEtAlFig1.png}{ZiemannEtAlFig1.png}.\\
+- (20\%) Hipervínculos (además de los dos de la bibliografía, incluya
+uno al sitio web de la FDA en https://www.fda.gov/, en donde se
+mencionan las siglas).
 
 \bookmarksetup{startatroot}
 

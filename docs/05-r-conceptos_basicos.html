@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>PF 0953 Programación en R 2022-II - 5&nbsp; R - conceptos básicos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./part-06-evaluaciones.html" rel="next">
+<link href="./04-pensamiento_computacional-arquitectura_computadoras.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R - conceptos básicos</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">PF 0953 Programación en R 2022-II</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Bienvenida</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-01-introduccion.html" class="sidebar-item-text sidebar-link">I - Introducción</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-introduccion-ciencia-datos-geoespaciales.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la ciencia de datos geoespaciales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown - lenguaje de marcado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git - sistema de control de versiones</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-02-lenguaje-programacion-r.html" class="sidebar-item-text sidebar-link">II - El lenguaje de programación R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-pensamiento_computacional-arquitectura_computadoras.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pensamiento computacional y arquitectura de computadoras</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-r-conceptos_basicos.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R - conceptos básicos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-06-evaluaciones.html" class="sidebar-item-text sidebar-link">Evaluaciones</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examen_corto-01.html" class="sidebar-item-text sidebar-link">Examen corto 01</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tarea-01.html" class="sidebar-item-text sidebar-link">Tarea 01</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Referencias bibliográficas</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#trabajo-previo" id="toc-trabajo-previo" class="nav-link active" data-scroll-target="#trabajo-previo"> <span class="header-section-number">5.1</span> Trabajo previo</a>
+  <ul class="collapse">
+  <li><a href="#lecturas" id="toc-lecturas" class="nav-link" data-scroll-target="#lecturas"> <span class="header-section-number">5.1.1</span> Lecturas</a></li>
+  </ul></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"> <span class="header-section-number">5.2</span> Resumen</a></li>
+  <li><a href="#características-generales" id="toc-características-generales" class="nav-link" data-scroll-target="#características-generales"> <span class="header-section-number">5.3</span> Características generales</a></li>
+  <li><a href="#el-ambiente-de-desarrollo-integrado-rstudio" id="toc-el-ambiente-de-desarrollo-integrado-rstudio" class="nav-link" data-scroll-target="#el-ambiente-de-desarrollo-integrado-rstudio"> <span class="header-section-number">5.4</span> El ambiente de desarrollo integrado RStudio</a></li>
+  <li><a href="#conjuntos-de-datos-para-pruebas" id="toc-conjuntos-de-datos-para-pruebas" class="nav-link" data-scroll-target="#conjuntos-de-datos-para-pruebas"> <span class="header-section-number">5.5</span> Conjuntos de datos para pruebas</a></li>
+  <li><a href="#funciones" id="toc-funciones" class="nav-link" data-scroll-target="#funciones"> <span class="header-section-number">5.6</span> Funciones</a>
+  <ul class="collapse">
+  <li><a href="#ejemplos" id="toc-ejemplos" class="nav-link" data-scroll-target="#ejemplos"> <span class="header-section-number">5.6.1</span> Ejemplos</a></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios"> <span class="header-section-number">5.6.2</span> Ejercicios</a></li>
+  <li><a href="#argumentos" id="toc-argumentos" class="nav-link" data-scroll-target="#argumentos"> <span class="header-section-number">5.6.3</span> Argumentos</a></li>
+  <li><a href="#ejercicios-1" id="toc-ejercicios-1" class="nav-link" data-scroll-target="#ejercicios-1"> <span class="header-section-number">5.6.4</span> Ejercicios</a></li>
+  <li><a href="#ayuda" id="toc-ayuda" class="nav-link" data-scroll-target="#ayuda"> <span class="header-section-number">5.6.5</span> Ayuda</a></li>
+  </ul></li>
+  <li><a href="#paquetes" id="toc-paquetes" class="nav-link" data-scroll-target="#paquetes"> <span class="header-section-number">5.7</span> Paquetes</a>
+  <ul class="collapse">
+  <li><a href="#ejercicios-2" id="toc-ejercicios-2" class="nav-link" data-scroll-target="#ejercicios-2"> <span class="header-section-number">5.7.1</span> Ejercicios</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R - conceptos básicos</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="trabajo-previo" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="trabajo-previo"><span class="header-section-number">5.1</span> Trabajo previo</h2>
+<section id="lecturas" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="lecturas"><span class="header-section-number">5.1.1</span> Lecturas</h3>
+<p>Grolemund, G., &amp; Wickham, H. (2014). <em>Hands-On Programming with R: Write Your Own Functions And Simulations</em> (capítulos 1 - 12). O’Reilly Media. <a href="https://rstudio-education.github.io/hopr/">https://rstudio-education.github.io/hopr/</a></p>
+</section>
+</section>
+<section id="resumen" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="resumen"><span class="header-section-number">5.2</span> Resumen</h2>
+<p>En esta lección, se estudiarán los conceptos básicos del lenguaje de programación R, incluyendo:</p>
+<ul>
+<li>Características generales de R.</li>
+<li>El ambiente de desarrollo RStudio.</li>
+<li>Funciones y paquetes.</li>
+<li>Tipos de datos.</li>
+<li>Definición de funciones.</li>
+<li>Condicionales.</li>
+<li>Ciclos.</li>
+</ul>
+</section>
+<section id="características-generales" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="características-generales"><span class="header-section-number">5.3</span> Características generales</h2>
+<p><a href="https://www.r-project.org/">R</a> es un lenguaje de programación enfocado en análisis estadístico. Es ampliamente utilizado en diversas áreas de investigación, entre las que pueden mencionarse <a href="https://en.wikipedia.org/wiki/Machine_learning">aprendizaje automático (<em>machine learning</em>)</a>, <a href="https://en.wikipedia.org/wiki/Data_science">ciencia de datos (<em>data science</em>)</a> y <a href="https://en.wikipedia.org/wiki/Big_data"><em>big data</em></a>, con aplicaciones en campos como biomedicina, bioinformática y finanzas, entre muchos otros. Fue creado por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, Nueva Zelanda, en 1993.</p>
+<p>Algunas de las principales características de este lenguaje son:</p>
+<ul>
+<li>Es <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)">interpretado</a>: las instrucciones se traducen una por una a <a href="https://en.wikipedia.org/wiki/Machine_code">lenguaje máquina</a>, a diferencia de los <a href="https://en.wikipedia.org/wiki/Compiler">lenguajes compilados</a>, que traducen de manera conjunta las instrucciones de una unidad completa (ej. un programa o una biblioteca). Los lenguajes interpretados tienden a ser más lentos que los compilados, pero también son más flexibles.</li>
+<li>Es <a href="https://en.wikipedia.org/wiki/Cross-platform_software">multiplataforma</a>: puede ejecutarse en los sistemas operativos más populares (ej. Microsoft Windows, macOS, Linux).</li>
+<li>Tiene un <a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/">sistema de tipos de datos dinámico</a>: las variables pueden tomar diferentes tipos de datos (ej. textuales, numéricos) durante la ejecución del programa, a diferencia del caso de un sistema de tipos de datos estático, en el que las variables solo pueden tener un tipo de datos.</li>
+<li>Soporta varios <a href="https://en.wikipedia.org/wiki/Programming_paradigm">paradigmas de programación</a>: los paradigmas son estilos o enfoques teóricos de programación. R soporta los paradigmas de <a href="https://en.wikipedia.org/wiki/Functional_programming">programación funcional</a>, <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">programación orientada a objetos</a>, <a href="https://en.wikipedia.org/wiki/Imperative_programming">programación imperativa</a> y <a href="https://en.wikipedia.org/wiki/Procedural_programming">programación procedimental</a>.</li>
+</ul>
+<p>R es un proyecto de <a href="https://en.wikipedia.org/wiki/Free_software">software libre</a> que se comparte mediante una licencia <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU General Public Licence (GNU GPL)</a>. Esta característica permite que la funcionalidad original de R pueda ser ampliada mediante bibliotecas o paquetes desarrollados por la comunidad de programadores.</p>
+<p>Para programar en R, puede utilizarse una interfaz de línea de comandos, editores de texto (ej. <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="https://www.vim.org/">Vim</a>) y también ambientes de desarrollo integrados (IDE, <em>integrated development environment</em>) como <a href="https://jupyter.org/">Jupyter</a> o <a href="https://rstudio.com/">RStudio</a>.</p>
+</section>
+<section id="el-ambiente-de-desarrollo-integrado-rstudio" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="el-ambiente-de-desarrollo-integrado-rstudio"><span class="header-section-number">5.4</span> El ambiente de desarrollo integrado RStudio</h2>
+<p><a href="https://www.rstudio.com/">RStudio</a> es el IDE más popular para el lenguaje R. Está disponible en una versión de escritorio (RStudio Desktop) y en una versión para servidor (RStudio Server). Esta última permite la conexión de varios usuarios a través de un navegador web. RStudio se ofrece también como un servicio en la nube, a través de <a href="https://www.rstudio.com/products/cloud/">RStudio Cloud</a>.</p>
+<p>La <a href="#fig-rstudio-interfaz">Figure&nbsp;<span>5.1</span></a> muestra la interfaz de RStudio.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-rstudio-interfaz" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/rstudio.png" class="img-fluid figure-img" width="926"></p>
+<p></p><figcaption class="figure-caption">Figure 5.1: Interfaz del ambiente de desarrollo integrado RStudio.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Además de edición de código fuente en R (y otros lenguajes), RStudio contiene capacidades para depurar código y visualizar datos en formatos tabulares, gráficos y de mapas.</p>
+</section>
+<section id="conjuntos-de-datos-para-pruebas" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="conjuntos-de-datos-para-pruebas"><span class="header-section-number">5.5</span> Conjuntos de datos para pruebas</h2>
+<p>Para efectos de pruebas y ejemplos, la distribución base de R incorpora varios conjuntos de datos que pueden listarse con la función <a href="https://rdrr.io/r/utils/data.html">data()</a>. Para obtener información acerca de un conjunto de datos en particular, puede utilizarse el operador <code>?</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Información sobre todos los conjuntos de datos incorporados en la distribución base de R</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Información sobre el cojunto de datos "cars"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>?cars</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Información sobre el cojunto de datos "mtcars"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>?mtcars</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Información sobre el cojunto de datos "Iris"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>?iris</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="funciones" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="funciones"><span class="header-section-number">5.6</span> Funciones</h2>
+<p>R, al igual que otros lenguajes de programación, estructura su funcionalidad en unidades de <a href="https://en.wikipedia.org/wiki/Source_code">código fuente</a> llamadas <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Functions">funciones</a>. Cada función realiza una tarea específica como, por ejemplo, un cálculo matemático y, por lo general, retorna un valor como salida. Todas las funciones tienen un nombre y, opcionalmente, un conjunto de argumentos que especifican los datos de entrada que procesa la función. Los argumentos se escriben entre paréntesis redondos (<code>()</code>) y estos siempre deben incluirse, aún en el caso de que la función no tenga ningún argumento. Si la función tiene varios argumentos, deben separarse mediante comas (<code>,</code>).</p>
+<section id="ejemplos" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="ejemplos"><span class="header-section-number">5.6.1</span> Ejemplos</h3>
+<p>La función <a href="https://rdrr.io/r/base/print.html">print()</a> recibe como argumento un valor (ej. un texto o un número) para imprimirlo en la pantalla. En el siguiente fragmento de código en R, se utiliza <code>print()</code> para imprimir la hilera <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">“Hola mundo”</a>. Nótese el uso del símbolo <code>#</code> para comentarios (i.e.&nbsp;texto que no es código ejecutable).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de una hilera de caracteres</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hola mundo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Hola mundo"</code></pre>
+</div>
+</div>
+<p>La función <a href="https://rdrr.io/r/base/mean.html">mean()</a> retorna la media aritmética del argumento de entrada. En el siguiente ejemplo, se calcula la media de los números de un vector creado a su vez con la función <a href="https://rdrr.io/r/base/c.html">c()</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Media aritmética</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>La función <a href="https://rdrr.io/r/base/getwd.html">getwd()</a> (<em>get working directory</em>) retorna la ruta del directorio de trabajo de la sesión actual de R. Este es el directorio en el cual R espera encontrar, por ejemplo, archivos de datos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión del directorio de trabajo</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/home/mfvargas/pf0953-programacionr/2022-ii/github/2022-ii"</code></pre>
+</div>
+</div>
+<p>La función <a href="https://rdrr.io/r/base/getwd.html">setwd()</a> (<em>set working directory</em>) establece la ruta del directorio de trabajo de la sesión actual de R. Como argumento, recibe una hilera de texto con la ruta.</p>
+<p><strong>Note las barras utilizadas para separar los subdirectorios: / (no \)</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición del directorio de trabajo (la ruta debe existir)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mfvargas"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Directorio con espacios, tildes y eñes (deben usarse con mucho cuidado)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mfvargas/mi directorio con espacios y tildes áéíóúñ"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ejercicios" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="ejercicios"><span class="header-section-number">5.6.2</span> Ejercicios</h3>
+<ol type="1">
+<li>Obtenga la ruta de su directorio de trabajo con la función <code>getwd()</code>.<br>
+</li>
+<li>Si lo desea, cambie la ruta de su directorio de trabajo con la función <code>setwd()</code>. Verifique el cambio usando nuevamente <code>getwd()</code>.</li>
+</ol>
+</section>
+<section id="argumentos" class="level3" data-number="5.6.3">
+<h3 data-number="5.6.3" class="anchored" data-anchor-id="argumentos"><span class="header-section-number">5.6.3</span> Argumentos</h3>
+<p>Los argumentos de las funciones tienen nombres que pueden especificarse, en caso de ser necesario. En algunos casos, el orden y el tipo de datos de los argumentos permiten que el interpretador de R conozca cuál es cada uno, sin necesidad de escribir sus nombres.</p>
+<p>En el siguiente ejemplo, se utilizan los argumentos <code>x</code>, <code>xlab</code> y <code>ylab</code> de la función <a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a>, para especificar la fuente de datos y las etiquetas de los ejes x e y de un gráfico de dispersión.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de dispersón del conjunto de datos "cars" con etiquetas en los ejes x e y</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x=</span>cars, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab=</span><span class="st">"Velocidad (mph)"</span>, </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab=</span><span class="st">"Distancia requerida para frenar (pies)"</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="05-r-conceptos_basicos_files/figure-html/code-argumentos-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="ejercicios-1" class="level3" data-number="5.6.4">
+<h3 data-number="5.6.4" class="anchored" data-anchor-id="ejercicios-1"><span class="header-section-number">5.6.4</span> Ejercicios</h3>
+<ol type="1">
+<li>Estudie la documentación de la función <code>plot()</code> y agregue al gráfico anterior:
+<ol type="a">
+<li>Un título.<br>
+</li>
+<li>Un subtítulo.</li>
+</ol></li>
+</ol>
+</section>
+<section id="ayuda" class="level3" data-number="5.6.5">
+<h3 data-number="5.6.5" class="anchored" data-anchor-id="ayuda"><span class="header-section-number">5.6.5</span> Ayuda</h3>
+<p>Para obtener ayuda de una función desde la línea de comandos de R, puede utilizarse un signo de pregunta (<code>?</code>) seguido del nombre de la función o bien la función <a href="https://rdrr.io/r/utils/help.html">help()</a>. Por ejemplo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ayuda de la función setwd()</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>?setwd</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(setwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Adicionalmente, puede utilizarse la función <a href="https://rdrr.io/r/utils/apropos.html">apropos()</a>, para buscar funciones por palabras clave.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Búsqueda, por palabras clave, de funciones relacionadas con "mean" (media aritmética). Note las comillas ("").</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] ".colMeans"     ".rowMeans"     "colMeans"      "kmeans"       
+ [5] "mean"          "mean.Date"     "mean.default"  "mean.difftime"
+ [9] "mean.POSIXct"  "mean.POSIXlt"  "rowMeans"      "weighted.mean"</code></pre>
+</div>
+</div>
+<p>La función <a href="https://rdrr.io/r/utils/example.html">example()</a> presenta ejemplos sobre el uso de una función.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplos de uso de la función mean()</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(<span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+mean&gt; x &lt;- c(0:10, 50)
+
+mean&gt; xm &lt;- mean(x)
+
+mean&gt; c(xm, mean(x, trim = 0.10))
+[1] 8.75 5.50</code></pre>
+</div>
+</div>
+<p>Por otra parte, el sitio <a href="https://rdrr.io/r/">All R Documentation</a> reúne documentación de funciones de una gran cantidad de paquetes de R. También puede obtenerse ayuda sobre una función en los buscadores de Internet (ej. Google), además de ejemplos, tutoriales y otros materiales de apoyo.</p>
+</section>
+</section>
+<section id="paquetes" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="paquetes"><span class="header-section-number">5.7</span> Paquetes</h2>
+<p>Las funciones de R se distribuyen en <a href="https://en.wikipedia.org/wiki/R_package">paquetes</a>. Cada paquete contiene un conjunto de funciones y estructuras de datos relacionadas entre sí. También hay paquetes que contienen datos.</p>
+<p>Para utilizar un paquete, primero debe cargarse (en la memoria del computador) con la función <a href="https://rdrr.io/r/base/library.html">library()</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga del paquete stats</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Algunos paquetes están contenidos en la distribución base de R. Otros deben instalarse con la función <a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a>.</p>
+<p>En el siguiente ejemplo, se instala el paquete <a href="https://cran.r-project.org/package=PASWR2">PASWR2</a>, el cual contiene el conjunto de datos <a href="https://rdrr.io/cran/PASWR2/man/TITANIC3.html">TITANIC3</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalación del paquete PASWR2 (note las comillas)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"PASWR2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Seguidamente, el paquete <code>PASWR2</code> se carga con la función <code>library()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de PASWR2</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PASWR2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>El conjunto de datos <code>TITANIC3</code> puede visualizarse con la función <a href="https://rdrr.io/r/utils/View.html">View()</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización del conjunto de datos TITANIC3</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(TITANIC3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>El siguiente gráfico de barras muestra la distribución de pasajeros por clase, mediante la función <a href="https://rdrr.io/r/graphics/barplot.html">barplot()</a>. También se utiliza la función <a href="https://rdrr.io/r/base/table.html">table()</a> para generar una tabla con las cantidades de pasajeros que viajaban en cada clase.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cantidades de pasajeros por clase</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(TITANIC3<span class="sc">$</span>pclass)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1st 2nd 3rd </span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 323 277 709</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de barras por clase de pasajero</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">height=</span><span class="fu">table</span>(TITANIC3<span class="sc">$</span>pclass),</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">main=</span><span class="st">"Distribución de pasajeros del Titanic por clase"</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Clase"</span>,</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Cantidad de pasajeros"</span>  </span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="05-r-conceptos_basicos_files/figure-html/code-titanic-barplot-clase-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>La distribución por cada clase puede dividirse en fallecidos y sobrevivientes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cantidades de pasajeros fallecidos y sobrevivientes por clase</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (0 corresponde a fallecidos y 1 a sobrevivientes)</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(TITANIC3<span class="sc">$</span>survived, TITANIC3<span class="sc">$</span>pclass)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="do">##    </span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="do">##     1st 2nd 3rd</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   0 123 158 528</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   1 200 119 181</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>El siguiente gráfico muestra en un gráfico de barras apiladas la distribución de pasajeros sobrevivientes y fallecidos en cada clase.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de barras apiladas</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="fu">table</span>(TITANIC3<span class="sc">$</span>survived, TITANIC3<span class="sc">$</span>pclass),</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Distribución de pasajeros fallecidos y sobrevivientes por clase"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Clase"</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Cantidad de pasajeros"</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">topo.colors</span>(<span class="dv">2</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyenda</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">"topleft"</span>,</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">inset =</span> <span class="fl">0.03</span>,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Fallecidos"</span>, <span class="st">"Sobrevivientes"</span>),</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="fu">topo.colors</span>(<span class="dv">2</span>),</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">horiz =</span> <span class="cn">TRUE</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="05-r-conceptos_basicos_files/figure-html/code-titanic-barplot-stacked-sobrevivientes-clase-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>La misma información se muestra seguidamente en un gráfico de barras agrupadas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de barras agrupadas</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="fu">table</span>(TITANIC3<span class="sc">$</span>survived, TITANIC3<span class="sc">$</span>pclass),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Distribución de pasajeros fallecidos y sobrevivientes por clase"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Clase"</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Cantidad de pasajeros"</span>,  </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">topo.colors</span>(<span class="dv">2</span>),</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">beside =</span> <span class="cn">TRUE</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyenda</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">"topleft"</span>,</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">inset =</span> <span class="fl">0.03</span>,</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Fallecidos"</span>, <span class="st">"Sobrevivientes"</span>),</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="fu">topo.colors</span>(<span class="dv">2</span>),</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">horiz =</span> <span class="cn">TRUE</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="05-r-conceptos_basicos_files/figure-html/code-titanic-barplot-grouped-sobrevivientes-clase-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="ejercicios-2" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="ejercicios-2"><span class="header-section-number">5.7.1</span> Ejercicios</h3>
+<ol type="1">
+<li>Muestre la distribución de pasajeros fallecidos y sobrevivientes por sexo en un gráfico de barras apiladas.<br>
+</li>
+<li>Muestre la distribución de pasajeros fallecidos y sobrevivientes por sexo en un gráfico de barras agrupadas.</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04-pensamiento_computacional-arquitectura_computadoras.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pensamiento computacional y arquitectura de computadoras</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./part-06-evaluaciones.html" class="pagination-link">
+        <span class="nav-page-text">Evaluaciones</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

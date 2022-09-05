@@ -16,6 +16,7 @@ book:
     - part: part-02-lenguaje-programacion-r.qmd    
       chapters:
         - 04-pensamiento_computacional-arquitectura_computadoras.qmd    
+        - 05-r-conceptos_basicos.qmd
     - part: part-06-evaluaciones.qmd
       chapters:
         - examen_corto-01.qmd    
