@@ -298,3 +298,139 @@ legend(
 1. Muestre la distribución de pasajeros fallecidos y sobrevivientes por sexo en un gráfico de barras apiladas.  
 2. Muestre la distribución de pasajeros fallecidos y sobrevivientes por sexo en un gráfico de barras agrupadas.
 
+## Tipos de datos
+R puede trabajar con varios [tipos de datos básicos](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Basic-types), entre los que están números, caracteres (i.e. textos) y lógicos. También puede trabajar con [tipos compuestos](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Special-compound-objects), como factores y _data frames_.
+
+R proporciona acceso a los datos a través de objetos. Un objeto es una entidad que tiene asociadas propiedades (i.e. datos) y métodos (i.e. funciones) para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, una hilera de texto, un vector o una matriz.
+
+Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son `=` y `<-` (o `->`). Por ejemplo, las siguientes sentencias crean un número, un texto y un vector.
+
+```{r}
+#| label: code-asignacion
+#| collapse: true
+
+# Número
+x <- 10
+x
+
+# Otro número
+20 -> y
+y
+
+# Hilera de caracteres
+nombre <- 'Manuel'
+nombre
+
+# Vector de hileras de caracteres
+dias <- c('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado')
+dias
+```
+
+Tanto `x`, como `nombre` como `dias` son variables. Una variable es una etiqueta que se le asigna a un objeto. Una variable debe comenzar con una letra.
+
+El tipo de una variable puede consultarse con la función [typeof()](https://rdrr.io/r/base/typeof.html). Por ejemplo:
+
+```{r}
+#| label: code-typeof
+#| collapse: true
+
+typeof(x)
+typeof(y)
+typeof(nombre)
+typeof(dias)
+```
+
+A continuación, se describen con más detalle algunos de los tipos de datos utilizados en el lenguaje R.
+
+### Tipos básicos
+R define [seis tipos de datos básicos](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Basic-types). En esta sección, se describen los más utilizados durante este curso.
+
+#### Números
+Pueden ser enteros (`integer`) o decimales (`double`). Se utilizan en diversos tipos de operaciones, incluyendo las aritméticas (ej. suma, resta, multiplicación, división).
+
+```{r}
+#| label: code-tipos-numericos
+#| collapse: true
+
+# Declaración de variables numéricas
+x <- 5
+y <- 0.5
+
+# Suma
+x + y
+
+# Tipos de datos numéricos
+typeof(x)
+typeof(y)
+typeof(x + y)
+```
+
+Nótese que al declararse una variable numérica, ya sea que tenga o no punto decimal, R la considera por defecto de tipo `double`. Para que se considere de tipo `integer`, debe utilizarse el sufijo  `L` o la función  `as.integer()`.
+
+```{r}
+#| label: code-tipos-enteros
+#| collapse: true
+
+# Números enteros
+x <- 10L
+y <- as.integer(15)
+
+# Multiplicación
+x * y
+
+# Tipos de datos enteros
+typeof(x)
+typeof(y)
+typeof(x * y)
+```
+
+#### Caracteres
+Se utilizan para representar textos. Deben estar entre comillas simples (`''`) o dobles (`""`).
+
+```{r}
+#| label: code-tipos-caracteres
+#| collapse: true
+
+# Hileras de caracteres
+nombre <- "María"
+apellido <- "Pérez"
+
+# Concatenación mediante la función paste()
+paste(nombre, apellido)
+```
+
+#### Lógicos
+Los objetos lógicos (también llamados _booleanos_) tienen dos posibles valores: verdadero (`TRUE`) o falso (`FALSE`).
+
+```{r}
+#| label: code-tipos-logicos
+#| collapse: true
+
+# Variable lógica
+a <- 1 < 2
+a
+
+# Variable lógica
+b <- 1 > 2
+b
+```
+
+Las expresiones lógicas pueden combinarse con operadores como: 
+
+* ```&``` (Y, en inglés _AND_)
+* ```|``` (O, en inglés _OR_)
+* ```!``` (NO, en inglés _NOT_)
+
+```{r}
+#| label: code-operadores-logicos
+#| collapse: true
+
+# Operador lógico AND
+(1 < 2) & (3 < 4)
+
+# Operador lógico OR
+(2 + 2 == 5) | (20 <= 10)
+
+# Operador lógico NOT
+!(2 + 2 == 5)
+```
