@@ -285,7 +285,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="5.1" class="anchored" data-anchor-id="trabajo-previo"><span class="header-section-number">5.1</span> Trabajo previo</h2>
 <section id="lecturas" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="lecturas"><span class="header-section-number">5.1.1</span> Lecturas</h3>
-<p>Grolemund, G., &amp; Wickham, H. (2014). <em>Hands-On Programming with R: Write Your Own Functions And Simulations</em> (capítulos 1 - 12). O’Reilly Media. <a href="https://rstudio-education.github.io/hopr/">https://rstudio-education.github.io/hopr/</a></p>
+<p>Grolemund, G., &amp; Wickham, H. (2014). <em>Hands-On Programming with R: Write Your Own Functions And Simulations</em> (capítulos 1 - 12). O’Reilly Media. <a href="https://rstudio-education.github.io/hopr/" class="uri">https://rstudio-education.github.io/hopr/</a></p>
 </section>
 </section>
 <section id="resumen" class="level2" data-number="5.2">
@@ -379,11 +379,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>La función <a href="https://rdrr.io/r/base/getwd.html">setwd()</a> (<em>set working directory</em>) establece la ruta del directorio de trabajo de la sesión actual de R. Como argumento, recibe una hilera de texto con la ruta.</p>
 <p><strong>Note las barras utilizadas para separar los subdirectorios: / (no \)</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición del directorio de trabajo (la ruta debe existir)</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mfvargas"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Directorio con espacios, tildes y eñes (deben usarse con mucho cuidado)</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mfvargas/mi directorio con espacios y tildes áéíóúñ"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Especificación del directorio de trabajo (la ruta debe existir)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mfvargas"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="ejercicios" class="level3" data-number="5.6.2">
@@ -397,7 +394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="argumentos" class="level3" data-number="5.6.3">
 <h3 data-number="5.6.3" class="anchored" data-anchor-id="argumentos"><span class="header-section-number">5.6.3</span> Argumentos</h3>
 <p>Los argumentos de las funciones tienen nombres que pueden especificarse, en caso de ser necesario. En algunos casos, el orden y el tipo de datos de los argumentos permiten que el interpretador de R conozca cuál es cada uno, sin necesidad de escribir sus nombres.</p>
-<p>En el siguiente ejemplo, se utilizan los argumentos <code>x</code>, <code>xlab</code> y <code>ylab</code> de la función <a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a>, para especificar la fuente de datos y las etiquetas de los ejes x e y de un gráfico de dispersión.</p>
+<p>En el siguiente ejemplo, se utilizan los argumentos <code>x</code>, <code>xlab</code> y <code>ylab</code> de la función <a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a>, para especificar la fuente de datos y las etiquetas de los ejes <code>x</code> e <code>y</code> de un <a href="https://es.wikipedia.org/wiki/Diagrama_de_dispersi%C3%B3n">gráfico de dispersión</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de dispersón del conjunto de datos "cars" con etiquetas en los ejes x e y</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
@@ -415,21 +412,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Estudie la documentación de la función <code>plot()</code> y agregue al gráfico anterior:
 <ol type="a">
-<li>Un título.<br>
-</li>
+<li>Un título.</li>
 <li>Un subtítulo.</li>
 </ol></li>
 </ol>
 </section>
 <section id="ayuda" class="level3" data-number="5.6.5">
 <h3 data-number="5.6.5" class="anchored" data-anchor-id="ayuda"><span class="header-section-number">5.6.5</span> Ayuda</h3>
-<p>Para obtener ayuda de una función desde la línea de comandos de R, puede utilizarse un signo de pregunta (<code>?</code>) seguido del nombre de la función o bien la función <a href="https://rdrr.io/r/utils/help.html">help()</a>. Por ejemplo:</p>
+<p>Para obtener ayuda sobre una función desde la línea de comandos de R, puede utilizarse un signo de pregunta (<code>?</code>) seguido del nombre de la función o bien la función <a href="https://rdrr.io/r/utils/help.html">help()</a>. Por ejemplo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ayuda de la función setwd()</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>?setwd</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(setwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Adicionalmente, puede utilizarse la función <a href="https://rdrr.io/r/utils/apropos.html">apropos()</a>, para buscar funciones por palabras clave.</p>
+<p>También puede utilizarse la función <a href="https://rdrr.io/r/utils/apropos.html">apropos()</a>, para buscar funciones por palabras clave.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Búsqueda, por palabras clave, de funciones relacionadas con "mean" (media aritmética). Note las comillas ("").</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -465,7 +461,7 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Algunos paquetes están contenidos en la distribución base de R. Otros deben instalarse con la función <a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a>.</p>
-<p>En el siguiente ejemplo, se instala el paquete <a href="https://cran.r-project.org/package=PASWR2">PASWR2</a>, el cual contiene el conjunto de datos <a href="https://rdrr.io/cran/PASWR2/man/TITANIC3.html">TITANIC3</a>.</p>
+<p>En el siguiente ejemplo, se instala el paquete <a href="https://cran.r-project.org/package=PASWR2">PASWR2</a>, el cual contiene el conjunto de datos <a href="https://rdrr.io/cran/PASWR2/man/TITANIC3.html">TITANIC3</a> con una lista de pasajeros del <a href="https://es.wikipedia.org/wiki/RMS_Titanic">Titanic</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalación del paquete PASWR2 (note las comillas)</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"PASWR2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -480,7 +476,7 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización del conjunto de datos TITANIC3</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(TITANIC3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>El siguiente gráfico de barras muestra la distribución de pasajeros por clase, mediante la función <a href="https://rdrr.io/r/graphics/barplot.html">barplot()</a>. También se utiliza la función <a href="https://rdrr.io/r/base/table.html">table()</a> para generar una tabla con las cantidades de pasajeros que viajaban en cada clase.</p>
+<p>El siguiente <a href="https://es.wikipedia.org/wiki/Diagrama_de_barras">gráfico de barras</a> muestra la distribución de pasajeros por clase, mediante la función <a href="https://rdrr.io/r/graphics/barplot.html">barplot()</a>. También se utiliza la función <a href="https://rdrr.io/r/base/table.html">table()</a> para generar una tabla con las cantidades de pasajeros que viajaban en cada clase.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cantidades de pasajeros por clase</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(TITANIC3<span class="sc">$</span>pclass)</span>
@@ -532,7 +528,7 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <p><img src="05-r-conceptos_basicos_files/figure-html/code-titanic-barplot-stacked-sobrevivientes-clase-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>La misma información se muestra seguidamente en un gráfico de barras agrupadas.</p>
+<p>La misma información se muestra seguidamente en un gráfico de barras agrupadas. Note el uso del argumento <code>beside</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de barras agrupadas</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
@@ -559,8 +555,7 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <section id="ejercicios-2" class="level3" data-number="5.7.1">
 <h3 data-number="5.7.1" class="anchored" data-anchor-id="ejercicios-2"><span class="header-section-number">5.7.1</span> Ejercicios</h3>
 <ol type="1">
-<li>Muestre la distribución de pasajeros fallecidos y sobrevivientes por sexo en un gráfico de barras apiladas.<br>
-</li>
+<li>Muestre la distribución de pasajeros fallecidos y sobrevivientes por sexo en un gráfico de barras apiladas.</li>
 <li>Muestre la distribución de pasajeros fallecidos y sobrevivientes por sexo en un gráfico de barras agrupadas.</li>
 </ol>
 </section>
@@ -568,7 +563,7 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <section id="tipos-de-datos" class="level2" data-number="5.8">
 <h2 data-number="5.8" class="anchored" data-anchor-id="tipos-de-datos"><span class="header-section-number">5.8</span> Tipos de datos</h2>
 <p>R puede trabajar con varios <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Basic-types">tipos de datos básicos</a>, entre los que están números, caracteres (i.e.&nbsp;textos) y lógicos. También puede trabajar con <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Special-compound-objects">tipos compuestos</a>, como factores y <em>data frames</em>.</p>
-<p>R proporciona acceso a los datos a través de objetos. Un objeto es una entidad que tiene asociadas propiedades (i.e.&nbsp;datos) y métodos (i.e.&nbsp;funciones) para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, una hilera de texto, un vector o una matriz.</p>
+<p>R proporciona acceso a los datos a través de objetos. Un objeto es una entidad que tiene asociadas propiedades (i.e.&nbsp;datos) y métodos (i.e.&nbsp;funciones) para manipular esas propiedades. Un objeto puede ser, por ejemplo, un número, una hilera de texto, un vector o una matriz. R también permite que el programador defina sus propios objetos.</p>
 <p>Hay muchas formas de crear objetos en R. Una de las más sencillas es con los operadores de asignación. Estos son <code>=</code> y <code>&lt;-</code> (o <code>-&gt;</code>). Por ejemplo, las siguientes sentencias crean un número, un texto y un vector.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Número</span></span>
@@ -593,7 +588,7 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="do">## [7] "Sábado"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Tanto <code>x</code>, como <code>nombre</code> como <code>dias</code> son variables. Una variable es una etiqueta que se le asigna a un objeto. Una variable debe comenzar con una letra.</p>
-<p>El tipo de una variable puede consultarse con la función <a href="https://rdrr.io/r/base/typeof.html">typeof()</a>. Por ejemplo:</p>
+<p>El tipo de un objeto puede consultarse con la función <a href="https://rdrr.io/r/base/typeof.html">typeof()</a>. Por ejemplo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "double"</span></span>
@@ -693,8 +688,121 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(<span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">5</span>)</span>
 <span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="vectores" class="level4" data-number="5.8.1.4">
+<h4 data-number="5.8.1.4" class="anchored" data-anchor-id="vectores"><span class="header-section-number">5.8.1.4</span> Vectores</h4>
+<p>Un <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Vector-objects">vector</a> es una estructura unidimensional que combina objetos del mismo tipo.</p>
+<section id="definición" class="level5" data-number="5.8.1.4.1">
+<h5 data-number="5.8.1.4.1" class="anchored" data-anchor-id="definición"><span class="header-section-number">5.8.1.4.1</span> Definición</h5>
+<p>Los vectores pueden definirse de varias formas como, por ejemplo, con la función <a href="https://rdrr.io/r/base/c.html">c()</a> (del inglés <em>combine</em>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de un vector de números</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>vector_numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">32</span>, <span class="dv">45</span>, <span class="dv">57</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>vector_numeros</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1]  1  7 32 45 57</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de un vector de hileras de caracteres</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>vector_nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Álvaro"</span>, <span class="st">"Ana"</span>, <span class="st">"Berta"</span>, <span class="st">"Bernardo"</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>vector_nombres</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Álvaro"   "Ana"      "Berta"    "Bernardo"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Los vectores también pueden crearse con el operador <code>:</code>, el cual especifica una secuencia (i.e.&nbsp;una lista ordenada):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de un vector de números con la secuencia de 1 a 10</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>vector_secuencia <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>vector_secuencia</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1]  1  2  3  4  5  6  7  8  9 10</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de un vector de números con la secuencia de -5 a 5</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>vector_secuencia <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">5</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>vector_secuencia</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] -5 -4 -3 -2 -1  0  1  2  3  4  5</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de un vector de números con la secuencia de -0.5 a 3.7</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>vector_secuencia <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.5</span><span class="sc">:</span><span class="fl">3.7</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>vector_secuencia</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5  0.5  1.5  2.5  3.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La función <a href="https://rdrr.io/r/base/seq.html">seq()</a> también crea un vector con base en una secuencia y permite especificar argumentos como un valor de incremento y la longitud de la secuencia.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de un vector de números en secuencia de 1 a 10</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>vector_secuencia <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>vector_secuencia</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1]  1  2  3  4  5  6  7  8  9 10</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de un vector de números en secuencia de 0.5 a 15.3, con incremento de 2</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>vector_secuencia <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="fl">0.5</span>, <span class="at">to=</span><span class="fl">15.3</span>, <span class="at">by=</span><span class="dv">2</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>vector_secuencia</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1]  0.5  2.5  4.5  6.5  8.5 10.5 12.5 14.5</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de un vector de números en secuencia de 1.5 a 9.4, con longitud de 4</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>vector_secuencia <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="fl">1.5</span>, <span class="at">to=</span><span class="fl">9.4</span>, <span class="at">length.out=</span><span class="dv">4</span>)</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>vector_secuencia</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1.500000 4.133333 6.766667 9.400000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="indexación" class="level5" data-number="5.8.1.4.2">
+<h5 data-number="5.8.1.4.2" class="anchored" data-anchor-id="indexación"><span class="header-section-number">5.8.1.4.2</span> Indexación</h5>
+<p>Los elementos de un vector se acceden a través de sus <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Indexing">índices</a> (i.e.&nbsp;posiciones). La primera posición corresponde al índice 1, la segunda al índice 2 y así sucesivamente. Los índices se especifican entre paréntesis cuadrados (<code>[]</code>), ya sea para una posición específica o para un rango de posiciones. También es posible especificar los índices que se desea excluir.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector de nombres de países</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>paises <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Argentina"</span>, <span class="st">"Francia"</span>, <span class="st">"China"</span>, <span class="st">"Australia"</span>, <span class="st">"México"</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>paises</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Argentina" "Francia"   "China"     "Australia" "México"</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Elemento en el índice 3</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>paises[<span class="dv">3</span>]</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "China"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>El operador <code>:</code> puede utilizarse para especificar un rango de índices:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elementos entre los índices 2 y 4 (2, 3 y 4)</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>paises[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Francia"   "China"     "Australia"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Con la función <code>c()</code>, es posible especificar un conjunto de índices particulares:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elementos entre los índices 1, 4 y 5</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>paises[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>)]</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Argentina" "Australia" "México"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Los números negativos pueden usarse para excluir índices:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclusión de los índices 3 y 4</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>paises[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">4</span>)]</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Argentina" "Francia"   "México"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Los valores lógicos <code>TRUE</code> y <code>FALSE</code> también pueden usarse para incluir y excluir índices de un vector:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se incluyen los índices 1, 2 y 4; y se excluyen los índices 3 y 5</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>paises[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Argentina" "Francia"   "Australia"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="operaciones" class="level5" data-number="5.8.1.4.3">
+<h5 data-number="5.8.1.4.3" class="anchored" data-anchor-id="operaciones"><span class="header-section-number">5.8.1.4.3</span> Operaciones</h5>
+<p>En los vectores pueden aplicarse operaciones aritméticas:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Suma de vectores</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> b</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1]  3  7 11 15</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplicación de vectores</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>a <span class="sc">*</span> b</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1]  2 12 30 56</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Y también pueden realizarse operaciones relacionales:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación con el operador &lt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;</span> b</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] TRUE TRUE TRUE TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 </section>
 </section>
