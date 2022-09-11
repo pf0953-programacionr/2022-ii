@@ -956,7 +956,7 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector de nombres de países</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>paises <span class="ot">&lt;-</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Pánama"</span>,</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Panamá"</span>,</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Costa Rica"</span>,</span>
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Nicaragua"</span>,</span>
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"El Salvador"</span>,</span>
@@ -977,7 +977,7 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión del data frame</span></span>
 <span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>poblaciones_paises</span>
 <span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a><span class="do">##          pais poblacion</span></span>
-<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      Pánama       4.1</span></span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      Panamá       4.1</span></span>
 <span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  Costa Rica       5.0</span></span>
 <span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a><span class="do">## 3   Nicaragua       6.2</span></span>
 <span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 El Salvador       6.4</span></span>
@@ -993,12 +993,12 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fila 1</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>poblaciones_paises[<span class="dv">1</span>, ]</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="do">##     pais poblacion</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Pánama       4.1</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Panamá       4.1</span></span>
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filas 1, 5 y 7</span></span>
 <span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>poblaciones_paises[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">7</span>), ]</span>
 <span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="do">##       pais poblacion</span></span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 1   Pánama       4.1</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 1   Panamá       4.1</span></span>
 <span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Honduras       9.2</span></span>
 <span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 7   Belice       0.3</span></span>
 <span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -1018,14 +1018,14 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Columna de nombres de países</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>poblaciones_paises<span class="sc">$</span>pais</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Pánama"      "Costa Rica"  "Nicaragua"   "El Salvador" "Honduras"   </span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Panamá"      "Costa Rica"  "Nicaragua"   "El Salvador" "Honduras"   </span></span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [6] "Guatemala"   "Belice"</span></span>
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Modificación de los valores de toda una columna</span></span>
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>poblaciones_paises<span class="sc">$</span>poblacion <span class="ot">=</span> poblaciones_paises<span class="sc">$</span>poblacion<span class="sc">*</span><span class="dv">2</span></span>
 <span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>poblaciones_paises</span>
 <span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="do">##          pais poblacion</span></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      Pánama       8.2</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      Panamá       8.2</span></span>
 <span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  Costa Rica      10.0</span></span>
 <span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 3   Nicaragua      12.4</span></span>
 <span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 El Salvador      12.8</span></span>
@@ -1040,9 +1040,21 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <p>La función <a href="https://rdrr.io/r/utils/read.table.html">read.table()</a> lee los datos contenidos en un archivo de texto y los retorna en un data frame. <a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a> es una función derivada, con valores por defecto orientados a los archivos de valores separados por comas (CSV, <em>Comma Separated Values</em>). Como argumento principal, <code>read.csv()</code> recibe la ruta del archivo CSV, el cual puede encontrarse en un disco local, en la Web o en otra ubicación.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lectura de archivo CSV ubicado en la Web</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># covid &lt;- read.csv("https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/cepredenac/covid/covid-20210422.csv")</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># covid</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>covid <span class="ot">&lt;-</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read.csv</span>(</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/cepredenac/covid/covid-20210422.csv"</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Despliegue de los datos del data frame</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>covid</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="do">##          pais fallecidos recuperados activos positivos</span></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      Pánama       6198      351949    3845    361992</span></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  Costa Rica       3125      199779   32370    235274</span></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 3   Guatemala       7345      194075   16725    218145</span></span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 4    Honduras       4981       77020  121358    203359</span></span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 El Salvador       2089       64208    1864     68161</span></span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 6      Belice        318       12164     114     12596</span></span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 7   Nicaragua        181        5212      57      5450</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

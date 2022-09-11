@@ -694,7 +694,7 @@ La función [data.frame()](https://rdrr.io/r/base/data.frame.html) crea un data 
 
 # Vector de nombres de países
 paises <-
-  c("Pánama",
+  c("Panamá",
     "Costa Rica",
     "Nicaragua",
     "El Salvador",
@@ -763,7 +763,11 @@ La función [read.table()](https://rdrr.io/r/utils/read.table.html) lee los dato
 #| collapse: true
 
 # Lectura de archivo CSV ubicado en la Web
-# covid <- read.csv("https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/cepredenac/covid/covid-20210422.csv")
+covid <-
+  read.csv(
+    "https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/cepredenac/covid/covid-20210422.csv"
+  )
 
-# covid
+# Despliegue de los datos del data frame
+covid
 ```
