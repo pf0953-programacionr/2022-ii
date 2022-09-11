@@ -65,6 +65,13 @@ data()
 ?iris
 ```
 
+Además, existen muchos sitios en Internet que brindan acceso a conjuntos de datos que pueden utilizarse para pruebas. Por ejemplo:
+
+- [Kaggle - conjuntos de datos](https://www.kaggle.com/datasets)
+- [Banco Mundial - indicadores](https://data.worldbank.org/indicator)
+- [Papers with Code - conjuntos de datos](https://paperswithcode.com/datasets)
+
+
 ## Funciones
 R, al igual que otros lenguajes de programación, estructura su funcionalidad en unidades de [código fuente](https://en.wikipedia.org/wiki/Source_code) llamadas [funciones](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Functions). Cada función realiza una tarea específica como, por ejemplo, un cálculo matemático y, por lo general, retorna un valor como salida. Todas las funciones tienen un nombre y, opcionalmente, un conjunto de argumentos que especifican los datos de entrada que procesa la función. Los argumentos se escriben entre paréntesis redondos (`()`) y estos siempre deben incluirse, aún en el caso de que la función no tenga ningún argumento. Si la función tiene varios argumentos, deben separarse mediante comas (`,`).
 
@@ -1350,6 +1357,12 @@ Utilice código vectorizado para implementar una función que reciba como argume
 ## Recursos de interés
 *Find Open Datasets and Machine Learning Projects | Kaggle*. (s. f.). Recuperado 24 de abril de 2022, de [https://www.kaggle.com/datasets](https://www.kaggle.com/datasets)
 
+*Indicators | Data*. (s.f.). Recuperado 11 de septiembre de 2022, de [https://data.worldbank.org/indicator](https://data.worldbank.org/indicator)
+
 *Newest «r» Questions*. (s. f.). Stack Overflow. Recuperado 24 de abril de 2022, de [https://stackoverflow.com/questions/tagged/r](https://stackoverflow.com/questions/tagged/r)
 
+*Papers with Code—Machine Learning Datasets*. (s.f.). Recuperado 11 de septiembre de 2022, de [https://paperswithcode.com/datasets](https://paperswithcode.com/datasets)
+
 *R Language Definition*. (s. f.). Recuperado 24 de abril de 2022, de [https://cran.r-project.org/doc/manuals/r-release/R-lang.html](https://cran.r-project.org/doc/manuals/r-release/R-lang.html)
+
+*R Package Documentation*. (s.f.). Recuperado 11 de septiembre de 2022, de [https://rdrr.io/](https://rdrr.io/)
