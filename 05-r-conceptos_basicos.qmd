@@ -1155,7 +1155,7 @@ repeat {
 }
 ```
 
-#### Las sentencias `break` y `next`
+### Las sentencias `break` y `next`
 La sentencia `break` interrumpe un ciclo. La ejecución del programa continúa con la instrucción siguiente al bloque del ciclo.
 
 En el siguiente ciclo `for`, se suman uno a uno los números de un vector, pero se usa un `break` para interrumpir el ciclo cuando el acumulado es mayor que 100.
@@ -1203,3 +1203,153 @@ for (x in vector_numeros) {
 cat("Suma de los números pares:", suma_pares)
 ```
 
+### La familia de funciones `apply()`
+Esta es una familia de funciones que manipulan subconjuntos de datos obtenidos a partir de matrices, listas y data frames, los cuales son recorridos de una forma repetitiva. Pueden funcionar como una alternativa a los ciclos y aplicar funciones en los subconjuntos de datos como, por ejemplo, funciones estadísticas en las columnas de una matriz o de un data frame. Su uso es muy recomendado por su eficiencia, flexibilidad y simplicidad.
+
+Entre estas funciones, pueden mencionarse [apply()](https://rdrr.io/r/base/apply.html), [lapply()](https://rdrr.io/r/base/lapply.html), [sapply()](https://rdrr.io/cran/functools/man/Sapply.html), [vapply()](https://rdrr.io/cran/functools/man/Vapply.html), [mapply()](https://rdrr.io/r/base/mapply.html), [rapply()](https://rdrr.io/r/base/rapply.html) y [tapply()](https://rdrr.io/r/base/tapply.html).
+
+#### La función `apply()`
+La función [apply()](https://rdrr.io/r/base/apply.html) toma como entrada un arreglo o una matriz y aplica alguna función sobre sus filas o columnas.
+
+La sintaxis de la función es:
+
+```{r}
+#| label: code-apply
+#| eval: false
+
+# Sintaxis de la función apply()
+apply(X, MARGIN, FUN, ...)
+```
+
+En donde:  
+- `X`: es un arreglo o matriz.  
+- `MARGIN`: `MARGIN = 1` significa que la función actúa en las filas, `MARGIN = 2` significa que la función actúa en las columnas y `MARGIN = c(1, 2)` significa que la función actúa en las filas y en las columnas.  
+- `FUN`: es la función que se aplicará a cada uno de los elementos de `X`.
+
+En el siguiente ejemplo, se utiliza la función `apply()` para sumar los elementos de las columnas de una matriz.
+
+```{r}
+#| label: code-apply-ejemplo
+
+m <- matrix(1:12, nrow=3, ncol=4)
+m
+
+# Suma de las columnas
+apply(m, 2, sum)
+```
+
+##### Ejercicios
+Utilice la función `apply()` para obtener el promedio de los elementos de cada columna de la matriz del ejemplo anterior.
+
+#### La función `lapply()`
+La función [lapply()](https://rdrr.io/r/base/lapply.html) toma como entrada un vector o lista y retorna una lista de la misma longitud en la que cada uno de sus elementos es el resultado de aplicar una función al vector o lista de entrada.
+
+La sintaxis de la función es:
+
+```{r}
+#| label: code-lapply
+#| eval: false
+
+# Sintaxis de la función lapply()
+lapply(X, FUN, ...)
+```
+
+En donde:  
+- `X`: es un vector o lista.  
+- `FUN`: es la función que se aplicará a cada elemento de X. Algunas funciones predefinidas que pueden utilizarse incluyen `mean()`, `median()`, `sum()`, `min()` y `max()`. También pueden usarse funciones definidas por el usuario.
+
+En los siguientes ejemplos, se utiliza `lapply()` para aplicar diferentes funciones a un vector de nombres de personas.
+
+```{r}
+#| label: code-lapply-ejemplo
+
+nombres <- c("Andrés", "Beatriz", "Carlos", "Marta", "Pedro", "Sara")
+
+# Los nombres de la lista se transforman a minúscula
+nombres_en_minuscula <- lapply(nombres, tolower)
+nombres_en_minuscula
+
+# Se genera un saludo para cada nombre
+nombres_con_saludo <- lapply(nombres, function(arg1, arg2) paste(arg1, arg2), arg1="Hola")
+nombres_con_saludo
+```
+
+#### La función `tapply()`
+La función [tapply()](https://rdrr.io/r/base/tapply.html) aplica una función a cada nivel de un factor.
+
+La sintaxis de la función es:
+
+```{r}
+#| label: code-tapply
+#| eval: false
+
+# Sintaxis de la función tapply()
+tapply(X, INDEX, FUN)
+```
+
+En donde:  
+- `X`: es un objeto, tipicamente un vector.  
+- `INDEX`: es una lista que contiene un factor.  
+- `FUN`: es la función que se aplicará a cada elemento de `X`.
+
+En el siguiente ejemplo, se utiliza `tapply()` para calcular la mediana del ancho del sépalo para cada especie del conjunto de datos `iris`.
+
+```{r}
+#| label: code-tapply-ejemplo
+
+data(iris)
+tapply(iris$Sepal.Width, iris$Species, median)
+```
+
+##### Ejercicios
+Utilice la función `tapply()` para obtener el promedio de las longitudes de los pétalos para cada especie del conjunto de datos `iris`.
+
+
+### Vectorización
+En R, muchas operaciones y funciones pueden ser vectorizadas, lo que significa que pueden aplicarse a los elementos de un vector sin necesidad de iterar uno por uno en estos. 
+
+Por ejemplo, considérese el siguiente fragmento de código no vectorizado, que utiliza un ciclo para convertir los números de un vector a sus valores absolutos:
+
+```{r}
+#| label: code-vectorizacion-ejemplo-01
+#| collapse: true
+
+vector_numeros <- c(23, -17, 34, 0, -12, 55)
+
+for (i in 1:length(vector_numeros)) {
+  if (vector_numeros[i] < 0) {
+    vector_numeros[i] <- -vector_numeros[i]
+  }
+}
+
+vector_numeros
+```
+
+El siguiente fragmento de código realiza la misma tarea, pero de forma vectorizada:
+
+```{r}
+#| label: code-vectorizacion-ejemplo-02
+#| collapse: true
+
+vector_numeros <- c(23, -17, 34, 0, -12, 55)
+
+# Se usa una expresión lógica para seleccionar los elementos del vector < 0
+negativos <- vector_numeros < 0
+negativos
+
+# Se cambian los elementos seleccionados en el paso anterior sin utilizar el for
+vector_numeros[negativos] <- vector_numeros[negativos] * -1
+
+vector_numeros
+```
+
+#### Ejercicios
+Utilice código vectorizado para implementar una función que reciba como argumento un vector de números y retorne el mismo vector con los elementos impares (solo los impares) elevados al cuadrado.
+
+
+## Recursos de interés
+*Find Open Datasets and Machine Learning Projects | Kaggle*. (s. f.). Recuperado 24 de abril de 2022, de [https://www.kaggle.com/datasets](https://www.kaggle.com/datasets)
+
+*Newest «r» Questions*. (s. f.). Stack Overflow. Recuperado 24 de abril de 2022, de [https://stackoverflow.com/questions/tagged/r](https://stackoverflow.com/questions/tagged/r)
+
+*R Language Definition*. (s. f.). Recuperado 24 de abril de 2022, de [https://cran.r-project.org/doc/manuals/r-release/R-lang.html](https://cran.r-project.org/doc/manuals/r-release/R-lang.html)

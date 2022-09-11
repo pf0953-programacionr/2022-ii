@@ -277,7 +277,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#la-sentencia-for" id="toc-la-sentencia-for" class="nav-link" data-scroll-target="#la-sentencia-for"> <span class="header-section-number">5.11.1</span> La sentencia <code>for</code></a></li>
   <li><a href="#la-sentencia-while" id="toc-la-sentencia-while" class="nav-link" data-scroll-target="#la-sentencia-while"> <span class="header-section-number">5.11.2</span> La sentencia <code>while</code></a></li>
   <li><a href="#la-sentencia-repeat" id="toc-la-sentencia-repeat" class="nav-link" data-scroll-target="#la-sentencia-repeat"> <span class="header-section-number">5.11.3</span> La sentencia <code>repeat</code></a></li>
+  <li><a href="#las-sentencias-break-y-next" id="toc-las-sentencias-break-y-next" class="nav-link" data-scroll-target="#las-sentencias-break-y-next"> <span class="header-section-number">5.11.4</span> Las sentencias <code>break</code> y <code>next</code></a></li>
+  <li><a href="#la-familia-de-funciones-apply" id="toc-la-familia-de-funciones-apply" class="nav-link" data-scroll-target="#la-familia-de-funciones-apply"> <span class="header-section-number">5.11.5</span> La familia de funciones <code>apply()</code></a></li>
+  <li><a href="#vectorización" id="toc-vectorización" class="nav-link" data-scroll-target="#vectorización"> <span class="header-section-number">5.11.6</span> Vectorización</a></li>
   </ul></li>
+  <li><a href="#recursos-de-interés" id="toc-recursos-de-interés" class="nav-link" data-scroll-target="#recursos-de-interés"> <span class="header-section-number">5.12</span> Recursos de interés</a></li>
   </ul>
 </nav>
     </div>
@@ -1433,8 +1437,9 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <span id="cb77-15"><a href="#cb77-15" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb77-16"><a href="#cb77-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="las-sentencias-break-y-next" class="level4" data-number="5.11.3.1">
-<h4 data-number="5.11.3.1" class="anchored" data-anchor-id="las-sentencias-break-y-next"><span class="header-section-number">5.11.3.1</span> Las sentencias <code>break</code> y <code>next</code></h4>
+</section>
+<section id="las-sentencias-break-y-next" class="level3" data-number="5.11.4">
+<h3 data-number="5.11.4" class="anchored" data-anchor-id="las-sentencias-break-y-next"><span class="header-section-number">5.11.4</span> Las sentencias <code>break</code> y <code>next</code></h3>
 <p>La sentencia <code>break</code> interrumpe un ciclo. La ejecución del programa continúa con la instrucción siguiente al bloque del ciclo.</p>
 <p>En el siguiente ciclo <code>for</code>, se suman uno a uno los números de un vector, pero se usa un <code>break</code> para interrumpir el ciclo cuando el acumulado es mayor que 100.</p>
 <div class="cell">
@@ -1476,10 +1481,176 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Suma de los números pares:"</span>, suma_pares)</span>
 <span id="cb79-16"><a href="#cb79-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Suma de los números pares: 116</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-
-
+</section>
+<section id="la-familia-de-funciones-apply" class="level3" data-number="5.11.5">
+<h3 data-number="5.11.5" class="anchored" data-anchor-id="la-familia-de-funciones-apply"><span class="header-section-number">5.11.5</span> La familia de funciones <code>apply()</code></h3>
+<p>Esta es una familia de funciones que manipulan subconjuntos de datos obtenidos a partir de matrices, listas y data frames, los cuales son recorridos de una forma repetitiva. Pueden funcionar como una alternativa a los ciclos y aplicar funciones en los subconjuntos de datos como, por ejemplo, funciones estadísticas en las columnas de una matriz o de un data frame. Su uso es muy recomendado por su eficiencia, flexibilidad y simplicidad.</p>
+<p>Entre estas funciones, pueden mencionarse <a href="https://rdrr.io/r/base/apply.html">apply()</a>, <a href="https://rdrr.io/r/base/lapply.html">lapply()</a>, <a href="https://rdrr.io/cran/functools/man/Sapply.html">sapply()</a>, <a href="https://rdrr.io/cran/functools/man/Vapply.html">vapply()</a>, <a href="https://rdrr.io/r/base/mapply.html">mapply()</a>, <a href="https://rdrr.io/r/base/rapply.html">rapply()</a> y <a href="https://rdrr.io/r/base/tapply.html">tapply()</a>.</p>
+<section id="la-función-apply" class="level4" data-number="5.11.5.1">
+<h4 data-number="5.11.5.1" class="anchored" data-anchor-id="la-función-apply"><span class="header-section-number">5.11.5.1</span> La función <code>apply()</code></h4>
+<p>La función <a href="https://rdrr.io/r/base/apply.html">apply()</a> toma como entrada un arreglo o una matriz y aplica alguna función sobre sus filas o columnas.</p>
+<p>La sintaxis de la función es:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sintaxis de la función apply()</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, MARGIN, FUN, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En donde:<br>
+- <code>X</code>: es un arreglo o matriz.<br>
+- <code>MARGIN</code>: <code>MARGIN = 1</code> significa que la función actúa en las filas, <code>MARGIN = 2</code> significa que la función actúa en las columnas y <code>MARGIN = c(1, 2)</code> significa que la función actúa en las filas y en las columnas.<br>
+- <code>FUN</code>: es la función que se aplicará a cada uno de los elementos de <code>X</code>.</p>
+<p>En el siguiente ejemplo, se utiliza la función <code>apply()</code> para sumar los elementos de las columnas de una matriz.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    1    4    7   10
+[2,]    2    5    8   11
+[3,]    3    6    9   12</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Suma de las columnas</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(m, <span class="dv">2</span>, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  6 15 24 33</code></pre>
+</div>
+</div>
+<section id="ejercicios-8" class="level5" data-number="5.11.5.1.1">
+<h5 data-number="5.11.5.1.1" class="anchored" data-anchor-id="ejercicios-8"><span class="header-section-number">5.11.5.1.1</span> Ejercicios</h5>
+<p>Utilice la función <code>apply()</code> para obtener el promedio de los elementos de cada columna de la matriz del ejemplo anterior.</p>
 </section>
 </section>
+<section id="la-función-lapply" class="level4" data-number="5.11.5.2">
+<h4 data-number="5.11.5.2" class="anchored" data-anchor-id="la-función-lapply"><span class="header-section-number">5.11.5.2</span> La función <code>lapply()</code></h4>
+<p>La función <a href="https://rdrr.io/r/base/lapply.html">lapply()</a> toma como entrada un vector o lista y retorna una lista de la misma longitud en la que cada uno de sus elementos es el resultado de aplicar una función al vector o lista de entrada.</p>
+<p>La sintaxis de la función es:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sintaxis de la función lapply()</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(X, FUN, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En donde:<br>
+- <code>X</code>: es un vector o lista.<br>
+- <code>FUN</code>: es la función que se aplicará a cada elemento de X. Algunas funciones predefinidas que pueden utilizarse incluyen <code>mean()</code>, <code>median()</code>, <code>sum()</code>, <code>min()</code> y <code>max()</code>. También pueden usarse funciones definidas por el usuario.</p>
+<p>En los siguientes ejemplos, se utiliza <code>lapply()</code> para aplicar diferentes funciones a un vector de nombres de personas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Andrés"</span>, <span class="st">"Beatriz"</span>, <span class="st">"Carlos"</span>, <span class="st">"Marta"</span>, <span class="st">"Pedro"</span>, <span class="st">"Sara"</span>)</span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Los nombres de la lista se transforman a minúscula</span></span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>nombres_en_minuscula <span class="ot">&lt;-</span> <span class="fu">lapply</span>(nombres, tolower)</span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>nombres_en_minuscula</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "andrés"
+
+[[2]]
+[1] "beatriz"
+
+[[3]]
+[1] "carlos"
+
+[[4]]
+[1] "marta"
+
+[[5]]
+[1] "pedro"
+
+[[6]]
+[1] "sara"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se genera un saludo para cada nombre</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>nombres_con_saludo <span class="ot">&lt;-</span> <span class="fu">lapply</span>(nombres, <span class="cf">function</span>(arg1, arg2) <span class="fu">paste</span>(arg1, arg2), <span class="at">arg1=</span><span class="st">"Hola"</span>)</span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>nombres_con_saludo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "Hola Andrés"
+
+[[2]]
+[1] "Hola Beatriz"
+
+[[3]]
+[1] "Hola Carlos"
+
+[[4]]
+[1] "Hola Marta"
+
+[[5]]
+[1] "Hola Pedro"
+
+[[6]]
+[1] "Hola Sara"</code></pre>
+</div>
+</div>
+</section>
+<section id="la-función-tapply" class="level4" data-number="5.11.5.3">
+<h4 data-number="5.11.5.3" class="anchored" data-anchor-id="la-función-tapply"><span class="header-section-number">5.11.5.3</span> La función <code>tapply()</code></h4>
+<p>La función <a href="https://rdrr.io/r/base/tapply.html">tapply()</a> aplica una función a cada nivel de un factor.</p>
+<p>La sintaxis de la función es:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sintaxis de la función tapply()</span></span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(X, INDEX, FUN)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En donde:<br>
+- <code>X</code>: es un objeto, tipicamente un vector.<br>
+- <code>INDEX</code>: es una lista que contiene un factor.<br>
+- <code>FUN</code>: es la función que se aplicará a cada elemento de <code>X</code>.</p>
+<p>En el siguiente ejemplo, se utiliza <code>tapply()</code> para calcular la mediana del ancho del sépalo para cada especie del conjunto de datos <code>iris</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Width, iris<span class="sc">$</span>Species, median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    setosa versicolor  virginica 
+       3.4        2.8        3.0 </code></pre>
+</div>
+</div>
+<section id="ejercicios-9" class="level5" data-number="5.11.5.3.1">
+<h5 data-number="5.11.5.3.1" class="anchored" data-anchor-id="ejercicios-9"><span class="header-section-number">5.11.5.3.1</span> Ejercicios</h5>
+<p>Utilice la función <code>tapply()</code> para obtener el promedio de las longitudes de los pétalos para cada especie del conjunto de datos <code>iris</code>.</p>
+</section>
+</section>
+</section>
+<section id="vectorización" class="level3" data-number="5.11.6">
+<h3 data-number="5.11.6" class="anchored" data-anchor-id="vectorización"><span class="header-section-number">5.11.6</span> Vectorización</h3>
+<p>En R, muchas operaciones y funciones pueden ser vectorizadas, lo que significa que pueden aplicarse a los elementos de un vector sin necesidad de iterar uno por uno en estos.</p>
+<p>Por ejemplo, considérese el siguiente fragmento de código no vectorizado, que utiliza un ciclo para convertir los números de un vector a sus valores absolutos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>vector_numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="sc">-</span><span class="dv">17</span>, <span class="dv">34</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="dv">12</span>, <span class="dv">55</span>)</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vector_numeros)) {</span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (vector_numeros[i] <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>    vector_numeros[i] <span class="ot">&lt;-</span> <span class="sc">-</span>vector_numeros[i]</span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb93-7"><a href="#cb93-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb93-8"><a href="#cb93-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-9"><a href="#cb93-9" aria-hidden="true" tabindex="-1"></a>vector_numeros</span>
+<span id="cb93-10"><a href="#cb93-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 23 17 34  0 12 55</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>El siguiente fragmento de código realiza la misma tarea, pero de forma vectorizada:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>vector_numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="sc">-</span><span class="dv">17</span>, <span class="dv">34</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="dv">12</span>, <span class="dv">55</span>)</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Se usa una expresión lógica para seleccionar los elementos del vector &lt; 0</span></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>negativos <span class="ot">&lt;-</span> vector_numeros <span class="sc">&lt;</span> <span class="dv">0</span></span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>negativos</span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] FALSE  TRUE FALSE FALSE  TRUE FALSE</span></span>
+<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Se cambian los elementos seleccionados en el paso anterior sin utilizar el for</span></span>
+<span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a>vector_numeros[negativos] <span class="ot">&lt;-</span> vector_numeros[negativos] <span class="sc">*</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb94-10"><a href="#cb94-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-11"><a href="#cb94-11" aria-hidden="true" tabindex="-1"></a>vector_numeros</span>
+<span id="cb94-12"><a href="#cb94-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 23 17 34  0 12 55</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="ejercicios-10" class="level4" data-number="5.11.6.1">
+<h4 data-number="5.11.6.1" class="anchored" data-anchor-id="ejercicios-10"><span class="header-section-number">5.11.6.1</span> Ejercicios</h4>
+<p>Utilice código vectorizado para implementar una función que reciba como argumento un vector de números y retorne el mismo vector con los elementos impares (solo los impares) elevados al cuadrado.</p>
+</section>
+</section>
+</section>
+<section id="recursos-de-interés" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="recursos-de-interés"><span class="header-section-number">5.12</span> Recursos de interés</h2>
+<p><em>Find Open Datasets and Machine Learning Projects | Kaggle</em>. (s. f.). Recuperado 24 de abril de 2022, de <a href="https://www.kaggle.com/datasets">https://www.kaggle.com/datasets</a></p>
+<p><em>Newest «r» Questions</em>. (s. f.). Stack Overflow. Recuperado 24 de abril de 2022, de <a href="https://stackoverflow.com/questions/tagged/r">https://stackoverflow.com/questions/tagged/r</a></p>
+<p><em>R Language Definition</em>. (s. f.). Recuperado 24 de abril de 2022, de <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html">https://cran.r-project.org/doc/manuals/r-release/R-lang.html</a></p>
+
+
 </section>
 
 </main> <!-- /main -->
