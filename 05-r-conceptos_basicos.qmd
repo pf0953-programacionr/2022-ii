@@ -771,3 +771,77 @@ covid <-
 # Despliegue de los datos del data frame
 covid
 ```
+
+La función [str()](https://rdrr.io/r/utils/str.html) despliega la estructura de un data frame u otro objeto R.
+
+```{r}
+#| label: code-str
+
+# Estructura del data frame
+str(poblaciones_paises)
+```
+
+La función [summary()](https://rdrr.io/r/base/summary.html) proporciona un resumen de los contenidos de un data frame:
+
+```{r}
+#| label: code-summary
+
+# Resumen de los contenidos del data frame
+summary(poblaciones_paises)
+```
+
+La función [View()](https://rdrr.io/r/utils/View.html) invoca un visor de datos que permite visualizar un objeto R en un formato de tabla en una hoja de cálculo. Ejecute en su computadora la siguiente línea de código para apreciar el funcionamiento de ```View()```.
+
+```{r}
+#| label: code-view2
+
+# Vista de los casos de COVID-19
+View(covid, "Casos de COVID-19 en Centramérica")
+```
+
+###### Ejercicios
+1. Descargue el archivo de datos de covid de Centroamérica (https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/cepredenac/covid/covid-20210422.csv) en su computadora y cárguelo en otro data frame mediante `read.csv()`, accediendo a la dirección en su disco (ej. C:/Usuarios/...).
+
+### Otros
+
+#### Fechas
+Las fechas se manejan en R mediante un tipo especial que permite realizar operaciones como diferencias, agrupamientos y otras. Internamente, una fecha en R se almacena como un número que representa la cantidad de días transcurridos desde el 1 de enero de 1970 (1970-01-01).
+
+##### Operaciones
+La función [Sys.Date()](https://rdrr.io/r/base/Sys.time.html) retorna la fecha actual.
+
+```{r}
+#| label: code-fechas
+#| collapse: true
+
+# Fecha actual
+fecha_actual <- Sys.Date()
+fecha_actual
+
+# Tipo de datos
+typeof(fecha_actual)
+
+# Clase
+class(fecha_actual)
+```
+
+La función [as.Date()](https://rdrr.io/r/base/as.Date.html) convierte datos entre los tipos fecha y carácter, de acuerdo con un formato. El formato que se usa por defecto (y el recomendado) es el que corresponde a la norma [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) (ej. 2023-12-03).
+
+```{r}
+#| label: code-asdate
+
+# Conversión de fecha en formato año-mes-día
+fecha_caracter_01 <- "2020-01-01"
+fecha_01 <- as.Date(fecha_caracter_01, format="%Y-%m-%d")
+fecha_01
+
+# Conversión de fecha en formato día/mes/año
+fecha_caracter_02 <- "31/01/2020"
+fecha_02 <- as.Date(fecha_caracter_02, format="%d/%m/%Y")
+fecha_02
+
+# Diferencia entre fechas
+fecha_02 - fecha_01
+```
+
+Hay una lista de formatos de fechas en [Date Formats in R - R-bloggers](https://www.r-bloggers.com/date-formats-in-r/).
