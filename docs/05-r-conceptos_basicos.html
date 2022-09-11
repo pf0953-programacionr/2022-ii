@@ -265,6 +265,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#ejercicios-4" id="toc-ejercicios-4" class="nav-link" data-scroll-target="#ejercicios-4"> <span class="header-section-number">5.9.1</span> Ejercicios</a></li>
   </ul></li>
+  <li><a href="#condicionales" id="toc-condicionales" class="nav-link" data-scroll-target="#condicionales"> <span class="header-section-number">5.10</span> Condicionales</a>
+  <ul class="collapse">
+  <li><a href="#la-sentencia-if" id="toc-la-sentencia-if" class="nav-link" data-scroll-target="#la-sentencia-if"> <span class="header-section-number">5.10.1</span> La sentencia <code>if</code></a></li>
+  <li><a href="#la-claúsula-else" id="toc-la-claúsula-else" class="nav-link" data-scroll-target="#la-claúsula-else"> <span class="header-section-number">5.10.2</span> La claúsula <code>else</code></a></li>
+  <li><a href="#la-cláusula-else-if" id="toc-la-cláusula-else-if" class="nav-link" data-scroll-target="#la-cláusula-else-if"> <span class="header-section-number">5.10.3</span> La cláusula <code>else if</code></a></li>
+  <li><a href="#ejercicios-5" id="toc-ejercicios-5" class="nav-link" data-scroll-target="#ejercicios-5"> <span class="header-section-number">5.10.4</span> Ejercicios</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1179,13 +1186,15 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <p>La función <a href="https://rdrr.io/r/base/function.html">return()</a> es la que define el valor de retorno de la función. Si no se incluye, la función retorna la última expresión evaluada.</p>
 <p>Ahora que está definida, la función <code>nota_final()</code> puede ser “llamada”, con diferentes argumentos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Si ni se incluyen los nombres de los argumentos, la función asume que se ingresan en el mismo orden en el que fueron definidos</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nota_final</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">0</span>)</span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 70</span></span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="co"># El uso de los nombres de argumentos permite modificar su orden</span></span>
-<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nota_final</span>(<span class="at">promedio_examenes =</span>  <span class="dv">100</span>, <span class="at">promedio_tareas =</span>  <span class="dv">0</span>, <span class="at">promedio_proyectos =</span> <span class="dv">50</span>)</span>
-<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 70</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Si ni se incluyen los nombres de los argumentos, </span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="co"># la función asume que se ingresan en el mismo orden en el que fueron definidos</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nota_final</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">0</span>)</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 70</span></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="co"># El uso de los nombres de argumentos </span></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="co"># permite modificar su orden</span></span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="fu">nota_final</span>(<span class="at">promedio_examenes =</span>  <span class="dv">100</span>, <span class="at">promedio_tareas =</span>  <span class="dv">0</span>, <span class="at">promedio_proyectos =</span> <span class="dv">50</span>)</span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 70</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Si se desea darle al usuario la opción de omitir algunos argumentos, se les puede asignar un valor por defecto.</p>
 <p>Seguidamente, la función <code>nota_final()</code> se redefine asignando valores por defecto a algunos de los argumentos:</p>
@@ -1217,6 +1226,73 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <li>Defina una función con nombre <code>fahrenheit_a_celsius()</code> que reciba como argumento una cantidad en grados Fahrenheit y retorne el equivalente en grados Celsius.<br>
 </li>
 <li>Defina una función con nombre <code>imc()</code> para calcular el <a href="https://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal">índice de masa corporal (IMC)</a> de una persona con base en su peso (en kilogramos) y su estatura (en metros).</li>
+</ol>
+</section>
+</section>
+<section id="condicionales" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="condicionales"><span class="header-section-number">5.10</span> Condicionales</h2>
+<p>Las sentencias condicionales evalúan una expresión lógica (i.e.&nbsp;condición) y ejecutan, o no, un bloque de intrucciones dependiendo de si la expresión es verdadera (<code>TRUE</code>) o falsa (<code>FALSE</code>). Permiten que los programas “tomen decisiones” y varíen su curso de acción.</p>
+<p><a href="https://cran.r-project.org/doc/manuals/r-devel/R-lang.html#if">Los condicionales en R</a> se implementa mediante la sentencia <code>if</code> y sus cláusulas <code>else</code> y <code>else if</code>.</p>
+<section id="la-sentencia-if" class="level3" data-number="5.10.1">
+<h3 data-number="5.10.1" class="anchored" data-anchor-id="la-sentencia-if"><span class="header-section-number">5.10.1</span> La sentencia <code>if</code></h3>
+<p>La sentencia <a href="https://cran.r-project.org/doc/manuals/r-devel/R-lang.html#if">if</a> evalúa una condición (i.e.&nbsp;una expresión lógica) y ejecuta un bloque de instrucciones, si es verdadera. El bloque se delimita con los caracteres de “llaves”: <code>{}</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condicion) {</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># bloque de instrucciones a ejecutar si la condicion es verdadera</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Por ejemplo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (edad <span class="sc">&gt;=</span> <span class="dv">18</span>) {</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Adulto"</span>)</span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Adulto"</code></pre>
+</div>
+</div>
+<p>Ya sea que se ejecute o no el bloque del <code>if</code>, el programa continúa con las instrucciones que siguen al bloque, si las hay.</p>
+</section>
+<section id="la-claúsula-else" class="level3" data-number="5.10.2">
+<h3 data-number="5.10.2" class="anchored" data-anchor-id="la-claúsula-else"><span class="header-section-number">5.10.2</span> La claúsula <code>else</code></h3>
+<p>Una sentencia <code>if</code> puede ir seguida de una cláusula <code>else</code>, la cual define un bloque que se ejecuta si la condición es falsa. Por ejemplo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (edad <span class="sc">&gt;=</span> <span class="dv">18</span>) {</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Adulto"</span>)</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Menor"</span>)</span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Menor"</code></pre>
+</div>
+</div>
+</section>
+<section id="la-cláusula-else-if" class="level3" data-number="5.10.3">
+<h3 data-number="5.10.3" class="anchored" data-anchor-id="la-cláusula-else-if"><span class="header-section-number">5.10.3</span> La cláusula <code>else if</code></h3>
+<p>Una sentencia <code>if</code> también puede ir seguida de una o varias cláusulas <code>else if</code>, las cuales evalúan condiciones adicionales.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (edad <span class="sc">&lt;</span> <span class="dv">18</span>) {</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Menor"</span>)</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (edad <span class="sc">&lt;</span> <span class="dv">65</span>) {</span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Adulto"</span>)</span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Adulto mayor"</span>)</span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Adulto mayor"</code></pre>
+</div>
+</div>
+<p>Las cláusulas <code>else if</code> deben escribirse antes de la cláusula <code>else</code>, la cual es siempre la última, si es que está presente. Tanto las cláusulas <code>else if</code> como la cláusula <code>else</code> son opcionales.</p>
+</section>
+<section id="ejercicios-5" class="level3" data-number="5.10.4">
+<h3 data-number="5.10.4" class="anchored" data-anchor-id="ejercicios-5"><span class="header-section-number">5.10.4</span> Ejercicios</h3>
+<ol type="1">
+<li>Defina una función con nombre <code>interpretacion_imc()</code> que reciba como argumento un número correspondiente al índice de masa corporal (IMC) de una persona. Debe retornar una hilera de caracteres correspondiente a la interpretación del IMC (“Bajo peso”, “Normal”, “Sobrepeso”, “Obesidad”), de acuerdo con la tabla disponible en <a href="https://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal#Interpretaci%C3%B3n">Índice de masa corporal - Wikipedia</a>.</li>
 </ol>
 
 

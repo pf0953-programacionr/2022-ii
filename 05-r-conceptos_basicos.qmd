@@ -891,10 +891,12 @@ Ahora que está definida, la función `nota_final()` puede ser "llamada", con di
 #| label: code-notafinal-argumentos
 #| collapse: true
 
-# Si ni se incluyen los nombres de los argumentos, la función asume que se ingresan en el mismo orden en el que fueron definidos
+# Si ni se incluyen los nombres de los argumentos, 
+# la función asume que se ingresan en el mismo orden en el que fueron definidos
 nota_final(100, 50, 0)
 
-# El uso de los nombres de argumentos permite modificar su orden
+# El uso de los nombres de argumentos 
+# permite modificar su orden
 nota_final(promedio_examenes =  100, promedio_tareas =  0, promedio_proyectos = 50)
 ```
 
@@ -928,3 +930,73 @@ nota_final(100, promedio_proyectos = 50)
 1. Defina una función con nombre `celsius_a_fahrenheit()` que reciba como argumento una cantidad en grados Celsius y retorne el equivalente en grados Fahrenheit.  
 2. Defina una función con nombre `fahrenheit_a_celsius()` que reciba como argumento una cantidad en grados Fahrenheit y retorne el equivalente en grados Celsius.  
 3. Defina una función con nombre `imc()` para calcular el [índice de masa corporal (IMC)](https://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal) de una persona con base en su peso (en kilogramos) y su estatura (en metros).
+
+
+## Condicionales
+Las sentencias condicionales evalúan una expresión lógica (i.e. condición) y ejecutan, o no, un bloque de intrucciones dependiendo de si la expresión es verdadera (`TRUE`) o falsa (`FALSE`). Permiten que los programas "tomen decisiones" y varíen su curso de acción.
+
+[Los condicionales en R](https://cran.r-project.org/doc/manuals/r-devel/R-lang.html#if) se implementa mediante la sentencia `if` y sus cláusulas `else` y `else if`.
+
+### La sentencia `if`
+La sentencia [if](https://cran.r-project.org/doc/manuals/r-devel/R-lang.html#if) evalúa una condición (i.e. una expresión lógica) y ejecuta un bloque de instrucciones, si es verdadera. El bloque se delimita con los caracteres de "llaves": `{}`. 
+
+```{r}
+#| label: code-if
+#| eval: false
+
+if (condicion) {
+  # bloque de instrucciones a ejecutar si la condicion es verdadera
+}
+```
+
+Por ejemplo:
+
+```{r}
+#| label: code-if-ejemplo
+
+edad <- 25
+
+if (edad >= 18) {
+  print("Adulto")
+}
+```
+
+Ya sea que se ejecute o no el bloque del `if`, el programa continúa con las instrucciones que siguen al bloque, si las hay.
+
+### La claúsula `else`
+Una sentencia `if` puede ir seguida de una cláusula `else`, la cual define un bloque que se ejecuta si la condición es falsa. Por ejemplo:
+
+```{r}
+#| label: code-else
+
+edad <- 15
+
+if (edad >= 18) {
+  print("Adulto")
+} else {
+  print("Menor")
+}
+```
+
+### La cláusula `else if`
+Una sentencia `if` también puede ir seguida de una o varias cláusulas `else if`, las cuales evalúan condiciones adicionales.
+
+```{r}
+#| label: code-else-if
+
+edad <- 70
+
+if (edad < 18) {
+  print("Menor")
+} else if (edad < 65) {
+  print("Adulto")
+} else {
+  print("Adulto mayor")
+}
+```
+
+Las cláusulas `else if` deben escribirse antes de la cláusula `else`, la cual es siempre la última, si es que está presente. Tanto las cláusulas `else if` como la cláusula `else` son opcionales.
+
+### Ejercicios
+1. Defina una función con nombre `interpretacion_imc()` que reciba como argumento un número correspondiente al índice de masa corporal (IMC) de una persona.  Debe retornar una hilera de caracteres correspondiente a la interpretación del IMC ("Bajo peso", "Normal", "Sobrepeso", "Obesidad"), de acuerdo con la tabla disponible en [Índice de masa corporal - Wikipedia](https://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal#Interpretaci%C3%B3n).
+
