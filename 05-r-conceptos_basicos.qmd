@@ -857,21 +857,13 @@ Toda función tiene tres partes esenciales:
 
 Para programar una función, debe definirse cada una de esas partes por medio de la palabra reservada `function` [function()](https://rdrr.io/r/base/function.html).
 
-```{r}
-#| label: code-function
-
-# Definición de una función llamada mi_funcion, con tres argumentos
-mi_funcion <- function(argumento_1, argumento_2, argumento_n) {
-  # Cuerpo de la función
-}
-```
-
-Por ejemplo, la siguiente función calcula la nota final de un curso con base en los promedios de exámenes, proyectos y tareas.
+Por ejemplo, la siguiente función calcula la nota final de un curso con base en los argumentos correspondientes a los promedios de exámenes, proyectos y tareas.
 
 ```{r}
 #| label: code-notafinal
 #| collapse: true
 
+# Función que calcula la nota final de un curso
 nota_final <- function(promedio_examenes,
                        promedio_proyectos,
                        promedio_tareas) {
@@ -908,6 +900,8 @@ Seguidamente, la función `nota_final()` se redefine asignando valores por defec
 #| label: code-notafinal-argumentos-defecto
 #| collapse: true
 
+# Redefinición de la función nota final,
+# con valores por defecto para los argumentos
 nota_final <- function(promedio_examenes,
                        promedio_proyectos = 0,
                        promedio_tareas = 0) {
@@ -944,6 +938,7 @@ La sentencia [if](https://cran.r-project.org/doc/manuals/r-devel/R-lang.html#if)
 #| label: code-if
 #| eval: false
 
+# Sintaxis de la sentencia if
 if (condicion) {
   # bloque de instrucciones a ejecutar si la condicion es verdadera
 }
@@ -953,9 +948,13 @@ Por ejemplo:
 
 ```{r}
 #| label: code-if-ejemplo
+#| collapse: true
 
+# Edad de una persona
 edad <- 25
 
+# Se utiliza la sentencia if para determinar 
+# si la persona es adulta
 if (edad >= 18) {
   print("Adulto")
 }
@@ -963,7 +962,7 @@ if (edad >= 18) {
 
 Ya sea que se ejecute o no el bloque del `if`, el programa continúa con las instrucciones que siguen al bloque, si las hay.
 
-### La claúsula `else`
+### La cláusula `else`
 Una sentencia `if` puede ir seguida de una cláusula `else`, la cual define un bloque que se ejecuta si la condición es falsa. Por ejemplo:
 
 ```{r}
@@ -999,4 +998,208 @@ Las cláusulas `else if` deben escribirse antes de la cláusula `else`, la cual 
 
 ### Ejercicios
 1. Defina una función con nombre `interpretacion_imc()` que reciba como argumento un número correspondiente al índice de masa corporal (IMC) de una persona.  Debe retornar una hilera de caracteres correspondiente a la interpretación del IMC ("Bajo peso", "Normal", "Sobrepeso", "Obesidad"), de acuerdo con la tabla disponible en [Índice de masa corporal - Wikipedia](https://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal#Interpretaci%C3%B3n).
+
+
+## Ciclos
+Los ciclos permiten ejecutar tareas de manera repetitiva en un programa. Algunos ciclos se ejecutan una cantidad definida de veces, mientras que otros lo hacen mientras se cumple una condición lógica. Pueden usarse en combinación con sentencias que terminan anticipadamente el ciclo o que omiten algunas de sus iteraciones.
+
+[Los ciclos en R](https://cran.r-project.org/doc/manuals/r-devel/R-lang.html#Looping) se implementan mediante las sentencias `for`, `while` y `repeat`, en combinación con las sentencias `break` y `next`.
+
+R provee varias funciones que implementan ciclos de manera implícita, tales como [apply()](https://rdrr.io/r/base/apply.html), [tapply()](https://rdrr.io/r/base/tapply.html) y [lapply()](https://rdrr.io/r/base/lapply.html). Adicionalmente, hay muchas operaciones (ej. las aritméticas) que están "vectorizadas", por lo que no es necesario utilizarlas en ciclos. El uso de código vectorizado es muy recomendado en R, por ser muy eficiente.
+
+### La sentencia `for`
+La sentencia [for](https://cran.r-project.org/doc/manuals/r-devel/R-lang.html#for) repite las instrucciones contenidas en un bloque para cada uno de los elementos de un vector o lista. En cada iteración (i.e. cada "vuelta" del ciclo), el valor del elemento que está siendo procesado se almacena en una variable.
+
+```{r}
+#| label: code-for
+#| eval: false
+
+# Sintaxis de la sentencia for
+for (variable in vector) {
+  # bloque de instrucciones
+}
+```
+
+Por ejemplo, el siguiente bloque de código utiliza un ciclo de tipo `for` para recorrer un vector de nombres e imprimir un saludo para cada uno.
+
+```{r}
+#| label: code-for-ejemplo
+#| collapse: true
+
+# Vector con nombres de personas
+vector_nombres <- c("Andrés", "Beatriz", "Carlos", "Marta", "Pedro", "Sara")
+
+# Recorrido del vector
+for (nombre in vector_nombres) {
+  cat("Hola", nombre, "\n")
+}
+```
+
+En el siguiente ejemplo, se utiliza otro ciclo `for` para recorrer un vector de números y sumar sus elementos.
+
+```{r}
+#| label: code-for-ejemplo-2
+#| collapse: true
+
+# Vector de números
+vector_numeros <- c(29.6, -36.81, 31.85, 25.71, 90.2, 0.4)
+
+# Variable para la suma de los números
+suma <- 0
+
+# Recorrido del vector
+for (x in vector_numeros) {
+  suma <- suma + x
+}
+
+# Impresión de la suma
+cat("Suma:", suma)
+```
+
+Seguidamente, se utiliza dos `for` "anidados" para sumar los elementos de cada una de las columnas de una matriz.
+
+```{r}
+#| label: code-for-ejemplo-3
+#| collapse: true
+
+# Matriz de números
+matriz_numeros <- matrix(1:12, nrow=3, ncol=4)
+matriz_numeros
+
+# Ciclo externo para recorrer las columnas de la matriz
+for (j in 1:ncol(matriz_numeros)) {
+  suma_columna <- 0
+  # Ciclo interno para recorrer las elementos de cada columna
+  for (i in 1:nrow(matriz_numeros)) {
+    suma_columna <- suma_columna + matriz_numeros[i, j]
+  }
+  print(suma_columna)
+}
+```
+
+#### Ejercicios
+Utilice un ciclo `for` para recorrer el vector `vector_numeros` y calcular el promedio de sus elementos.
+
+Utilice dos ciclos `for` anidados para recorrer la matriz `vector_numeros` y calcular el promedio de cada una de sus columnas.
+
+### La sentencia `while`
+La sentencia [while](https://cran.r-project.org/doc/manuals/r-devel/R-lang.html#while) evalúa una condición (i.e. una expresión lógica) en cada iteración de un ciclo y ejecuta las intrucciones del bloque mientras la condición sea verdadera. Generalmente, en algún momento la condición se vuelve falsa y así finaliza el ciclo.
+
+```{r}
+#| label: code-while
+#| eval: false
+
+# Sintaxis de la sentencia while
+while (condicion) {
+  # bloque de instrucciones 
+}
+```
+
+En el siguiente ejemplo, se utiliza un ciclo `while` para preguntarle al usuario cuál es la [respuesta definitiva al sentido de la vida, el universo y todo lo demás](https://en.wikipedia.org/wiki/42_(number)#The_Hitchhiker's_Guide_to_the_Galaxy) y se continúa haciendo la pregunta hasta que responda correctamente:
+
+```{r}
+#| label: code-readline
+#| eval: false
+
+# Función para leer una respuesta desde la pantalla
+leer_respuesta <- function() {
+  readline(prompt="¿Cual es la respuesta definitiva al sentido de la vida, el universo y todo lo demás? ")
+}
+
+# Si la respuesta es incorrecta, se repite la pregunta hasta que el usuario conteste correctamente
+while (leer_respuesta() != "42") {   
+  print("¡Su respuesta es incorrecta!")
+}
+```
+
+#### Ejercicios
+Utilice un ciclo `while` para implementar el cálculo del promedio de los elementos de un vector. Sugerencia: utilice la función [length()](https://rdrr.io/r/base/length.html) para obtener la longitud del vector y así saber cuando terminar de recorrerlo.
+
+### La sentencia `repeat`
+La sentencia [repeat](https://cran.r-project.org/doc/manuals/r-devel/R-lang.html#repeat) implementa un ciclo que se repite indefinidamente. Puede interrumpirse con una sentencia  `break`.
+
+```{r}
+#| label: code-repeat
+#| eval: false
+
+# Sintaxis de la sentencia repeat
+repeat {
+  # bloque de instrucciones 
+}
+```
+
+Los ciclos `repeat` tienen una estructura más sencilla que los `while`. Algo que los diferencia es que los bloques de los ciclos `repeat` se ejecutan al menos una vez.
+
+En el siguiente ejemplo, se utiliza un ciclo `repeat` para implementar la pregunta y lectura de la respuesta que anteriormente se implementó con un ciclo `while`.
+
+```{r}
+#| label: code-repeat-ejemplo
+#| collapse: true
+#| eval: false
+
+# Función para leer una respuesta desde la pantalla
+leer_respuesta <- function() {
+  readline(prompt="¿Cual es la respuesta definitiva al sentido de la vida, el universo y todo lo demás? ")
+}
+
+# Ciclo para imprimir la pregunta y leer la respuesta hasta que esta sea correcta
+repeat {
+  respuesta <- leer_respuesta()
+  if (respuesta != "42") {
+    # Respuesta incorrecta
+    print("¡Su respuesta es incorrecta!")
+  } else {
+    # Respuesta correcta. Se interrumpe el ciclo.
+    break
+  }
+}
+```
+
+#### Las sentencias `break` y `next`
+La sentencia `break` interrumpe un ciclo. La ejecución del programa continúa con la instrucción siguiente al bloque del ciclo.
+
+En el siguiente ciclo `for`, se suman uno a uno los números de un vector, pero se usa un `break` para interrumpir el ciclo cuando el acumulado es mayor que 100.
+
+```{r}
+#| label: code-break
+#| collapse: true
+
+vector_numeros <- c(17, 23, 37, 41, 52, 64, 75)
+
+acumulado <- 0
+
+for (x in vector_numeros) {
+  acumulado <- acumulado + x
+  cat("Acumulado:", acumulado, "\n")
+  if (acumulado >= 100) {
+    cat("Se superó el límite de 100 en el acumulado")
+    break
+  }
+}
+```
+
+Por su parte, la sentencia `next` retorna el control al principio del bloque.  Las instrucciones que hay después del `next` no se ejecutan. La siguiente iteración del ciclo (si la hay), se inicia entonces.
+
+El siguiente ciclo recorre un vector de números. Se utiliza la sentencia `next` para "saltar" los números impares y sumar solo los pares.
+
+```{r}
+#| label: code-next
+#| collapse: true
+
+vector_numeros <- c(17, 23, 37, 41, 52, 64, 75)
+
+suma_pares <- 0
+
+for (x in vector_numeros) {
+  if (x %% 2 == 0) {
+    # Número par: se suma
+    suma_pares <- suma_pares + x
+  } else {
+    # Número impar: se "salta" al siguiente número
+    next
+  }
+}
+
+cat("Suma de los números pares:", suma_pares)
+```
 
