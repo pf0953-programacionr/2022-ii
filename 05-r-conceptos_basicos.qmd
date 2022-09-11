@@ -168,7 +168,9 @@ La función [example()](https://rdrr.io/r/utils/example.html) presenta ejemplos 
 example("mean")
 ```
 
-Por otra parte, el sitio [All R Documentation](https://rdrr.io/r/) reúne documentación de funciones de una gran cantidad de paquetes de R. También puede obtenerse ayuda sobre una función en los buscadores de Internet (ej. Google), además de ejemplos, tutoriales y otros materiales de apoyo.
+Por otra parte, el sitio [All R Documentation](https://rdrr.io/r/) reúne documentación de funciones de una gran cantidad de paquetes de R. 
+
+También puede obtenerse ayuda en buscadores de Internet, como [Google](https://www.google.com/), o en sitios de preguntas y respuestas para programadores, como [Stack Overflow](https://stackoverflow.com/).
 
 ## Paquetes
 Las funciones de R se distribuyen en [paquetes](https://en.wikipedia.org/wiki/R_package). Cada paquete contiene un conjunto de funciones y estructuras de datos relacionadas entre sí. También hay paquetes que contienen datos.
