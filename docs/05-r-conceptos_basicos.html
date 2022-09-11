@@ -261,6 +261,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#tipos-compuestos" id="toc-tipos-compuestos" class="nav-link" data-scroll-target="#tipos-compuestos"> <span class="header-section-number">5.8.2</span> Tipos compuestos</a></li>
   <li><a href="#otros" id="toc-otros" class="nav-link" data-scroll-target="#otros"> <span class="header-section-number">5.8.3</span> Otros</a></li>
   </ul></li>
+  <li><a href="#definición-de-funciones" id="toc-definición-de-funciones" class="nav-link" data-scroll-target="#definición-de-funciones"> <span class="header-section-number">5.9</span> Definición de funciones</a>
+  <ul class="collapse">
+  <li><a href="#ejercicios-4" id="toc-ejercicios-4" class="nav-link" data-scroll-target="#ejercicios-4"> <span class="header-section-number">5.9.1</span> Ejercicios</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1117,7 +1121,7 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fecha_actual)</span>
 <span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Date"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>La función <a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a> convierte datos entre los tipos fecha y carácter, de acuerdo con un formato. El formato que se usa por defecto (y el recomendado) es el que corresponde a la norma <a href="https://es.wikipedia.org/wiki/ISO_8601">ISO 8601</a> (ej. 2023-12-03).</p>
+<p>La función <a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a> convierte datos entre los tipos fecha y carácter, de acuerdo con un formato. El formato que se usa por defecto (y el recomendado) es el que corresponde a la norma <a href="https://es.wikipedia.org/wiki/ISO_8601">ISO 8601</a> (ej. 2023-12-03), pero pueden emplearse otros también.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversión de fecha en formato año-mes-día</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>fecha_caracter_01 <span class="ot">&lt;-</span> <span class="st">"2020-01-01"</span></span>
@@ -1140,10 +1144,82 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 </div>
 </div>
 <p>Hay una lista de formatos de fechas en <a href="https://www.r-bloggers.com/date-formats-in-r/">Date Formats in R - R-bloggers</a>.</p>
-
-
 </section>
 </section>
+</section>
+</section>
+<section id="definición-de-funciones" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="definición-de-funciones"><span class="header-section-number">5.9</span> Definición de funciones</h2>
+<p>Además de todas las funciones disponibles en la distribución base de R y en sus diferentes paquetes, R permite que los programadores definan sus propias funciones.</p>
+<p>Toda función tiene tres partes esenciales:</p>
+<ul>
+<li>Un nombre.</li>
+<li>Un conjunto de argumentos.</li>
+<li>Un conjunto de líneas de código, también llamado <em>el cuerpo</em> de la función.</li>
+</ul>
+<p>Para programar una función, debe definirse cada una de esas partes por medio de la palabra reservada <code>function</code> <a href="https://rdrr.io/r/base/function.html">function()</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de una función llamada mi_funcion, con tres argumentos</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>mi_funcion <span class="ot">&lt;-</span> <span class="cf">function</span>(argumento_1, argumento_2, argumento_n) {</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cuerpo de la función</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Por ejemplo, la siguiente función calcula la nota final de un curso con base en los promedios de exámenes, proyectos y tareas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>nota_final <span class="ot">&lt;-</span> <span class="cf">function</span>(promedio_examenes,</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>                       promedio_proyectos,</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>                       promedio_tareas) {</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>  factor_examenes <span class="ot">&lt;-</span> promedio_examenes <span class="sc">*</span> <span class="fl">0.5</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  factor_proyectos <span class="ot">&lt;-</span> promedio_proyectos <span class="sc">*</span> <span class="fl">0.4</span></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>  factor_tareas <span class="ot">&lt;-</span> promedio_tareas <span class="sc">*</span> <span class="fl">0.1</span></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(factor_examenes <span class="sc">+</span> factor_proyectos <span class="sc">+</span> factor_tareas)</span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La función <a href="https://rdrr.io/r/base/function.html">return()</a> es la que define el valor de retorno de la función. Si no se incluye, la función retorna la última expresión evaluada.</p>
+<p>Ahora que está definida, la función <code>nota_final()</code> puede ser “llamada”, con diferentes argumentos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Si ni se incluyen los nombres de los argumentos, la función asume que se ingresan en el mismo orden en el que fueron definidos</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nota_final</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">0</span>)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 70</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="co"># El uso de los nombres de argumentos permite modificar su orden</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nota_final</span>(<span class="at">promedio_examenes =</span>  <span class="dv">100</span>, <span class="at">promedio_tareas =</span>  <span class="dv">0</span>, <span class="at">promedio_proyectos =</span> <span class="dv">50</span>)</span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 70</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Si se desea darle al usuario la opción de omitir algunos argumentos, se les puede asignar un valor por defecto.</p>
+<p>Seguidamente, la función <code>nota_final()</code> se redefine asignando valores por defecto a algunos de los argumentos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>nota_final <span class="ot">&lt;-</span> <span class="cf">function</span>(promedio_examenes,</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">promedio_proyectos =</span> <span class="dv">0</span>,</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">promedio_tareas =</span> <span class="dv">0</span>) {</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  factor_examenes <span class="ot">&lt;-</span> promedio_examenes <span class="sc">*</span> <span class="fl">0.5</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  factor_proyectos <span class="ot">&lt;-</span> promedio_proyectos <span class="sc">*</span> <span class="fl">0.4</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  factor_tareas <span class="ot">&lt;-</span> promedio_tareas <span class="sc">*</span> <span class="fl">0.1</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Al no llamarse a la función return(), se retorna la última expresión:</span></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>  factor_examenes <span class="sc">+</span> factor_proyectos <span class="sc">+</span> factor_tareas</span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Se utiliza el valor por defecto (0) para el argumento promedio_tareas</span></span>
+<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a><span class="fu">nota_final</span>(<span class="at">promedio_examenes =</span> <span class="dv">100</span>, <span class="at">promedio_proyectos =</span> <span class="dv">50</span>)</span>
+<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 70</span></span>
+<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-16"><a href="#cb64-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Se llama la función usando la posición del primer argumento y el nombre del segundo</span></span>
+<span id="cb64-17"><a href="#cb64-17" aria-hidden="true" tabindex="-1"></a><span class="fu">nota_final</span>(<span class="dv">100</span>, <span class="at">promedio_proyectos =</span> <span class="dv">50</span>)</span>
+<span id="cb64-18"><a href="#cb64-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 70</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="ejercicios-4" class="level3" data-number="5.9.1">
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="ejercicios-4"><span class="header-section-number">5.9.1</span> Ejercicios</h3>
+<ol type="1">
+<li>Defina una función con nombre <code>celsius_a_fahrenheit()</code> que reciba como argumento una cantidad en grados Celsius y retorne el equivalente en grados Fahrenheit.<br>
+</li>
+<li>Defina una función con nombre <code>fahrenheit_a_celsius()</code> que reciba como argumento una cantidad en grados Fahrenheit y retorne el equivalente en grados Celsius.<br>
+</li>
+<li>Defina una función con nombre <code>imc()</code> para calcular el <a href="https://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal">índice de masa corporal (IMC)</a> de una persona con base en su peso (en kilogramos) y su estatura (en metros).</li>
+</ol>
+
+
 </section>
 </section>
 
