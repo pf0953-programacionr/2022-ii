@@ -258,6 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#tipos-de-datos" id="toc-tipos-de-datos" class="nav-link" data-scroll-target="#tipos-de-datos"> <span class="header-section-number">5.8</span> Tipos de datos</a>
   <ul class="collapse">
   <li><a href="#tipos-básicos" id="toc-tipos-básicos" class="nav-link" data-scroll-target="#tipos-básicos"> <span class="header-section-number">5.8.1</span> Tipos básicos</a></li>
+  <li><a href="#tipos-compuestos" id="toc-tipos-compuestos" class="nav-link" data-scroll-target="#tipos-compuestos"> <span class="header-section-number">5.8.2</span> Tipos compuestos</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -799,6 +800,249 @@ mean&gt; c(xm, mean(x, trim = 0.10))
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación con el operador &lt;</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&lt;</span> b</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] TRUE TRUE TRUE TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="matrices" class="level4" data-number="5.8.1.5">
+<h4 data-number="5.8.1.5" class="anchored" data-anchor-id="matrices"><span class="header-section-number">5.8.1.5</span> Matrices</h4>
+<p>Una matriz es una estructura bidimensional de filas y columnas.</p>
+<section id="definición-1" class="level5" data-number="5.8.1.5.1">
+<h5 data-number="5.8.1.5.1" class="anchored" data-anchor-id="definición-1"><span class="header-section-number">5.8.1.5.1</span> Definición</h5>
+<p>Las matrices se definen mediante la función <a href="https://rdrr.io/r/base/matrix.html">matrix()</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de una matriz de 3 x 3 con elementos de la secuencia 1:9 distribuidos en las columnas</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>m</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    4    7</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    2    5    8</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]    3    6    9</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de una matriz de 3 x 3 con elementos de la secuencia 1:9 distribuidos en las filas</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>m</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    2    3</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    4    5    6</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]    7    8    9</span></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de una matriz de 3 x 2 con nombres para las filas y las columnas</span></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">500</span>, <span class="dv">25</span>, <span class="dv">1000</span>, <span class="dv">30</span>, <span class="dv">2000</span>)</span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>filas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Mario"</span>, <span class="st">"Laura"</span>)</span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>columnas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Edad"</span>, <span class="st">"Salario"</span>)</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(datos, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>, <span class="at">dimnames=</span><span class="fu">list</span>(filas, columnas))</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>m</span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="do">##       Edad Salario</span></span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a><span class="do">## Ana     18     500</span></span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Mario   25    1000</span></span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a><span class="do">## Laura   30    2000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La función <a href="https://rdrr.io/r/base/list.html">list()</a> se utiliza, en este caso, para combinar vectores. En general, se usa para combinar datos de cualquier tipo.</p>
+</section>
+<section id="indexación-1" class="level5" data-number="5.8.1.5.2">
+<h5 data-number="5.8.1.5.2" class="anchored" data-anchor-id="indexación-1"><span class="header-section-number">5.8.1.5.2</span> Indexación</h5>
+<p>La indexación de matrices es similar a la de vectores, pero deben especificarse índices tanto para filas como para columnas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elemento en la posición [2,2] (segunda fila, segunda columna)</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>m[<span class="dv">2</span>, <span class="dv">2</span>]</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1000</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Elementos de la primera fila</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>m[<span class="dv">1</span>,]</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="do">##    Edad Salario </span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="do">##      18     500</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Elementos de la segunda columna</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>m[, <span class="dv">2</span>]</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="do">##   Ana Mario Laura </span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="do">##   500  1000  2000</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Elementos de las filas 1 y 2</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>m[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ]</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a><span class="do">##       Edad Salario</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Ana     18     500</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Mario   25    1000</span></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Elementos de la fila "Mario"</span></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>m[<span class="st">"Mario"</span>, ]</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a><span class="do">##    Edad Salario </span></span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a><span class="do">##      25    1000</span></span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Elementos de la columna "Salario"</span></span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>m[, <span class="st">"Salario"</span>]</span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a><span class="do">##   Ana Mario Laura </span></span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a><span class="do">##   500  1000  2000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="operaciones-1" class="level5" data-number="5.8.1.5.3">
+<h5 data-number="5.8.1.5.3" class="anchored" data-anchor-id="operaciones-1"><span class="header-section-number">5.8.1.5.3</span> Operaciones</h5>
+<p>De manera similar a los vectores, en las matrices pueden realizarse operaciones aritméticas y relacionales.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    3</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    2    4</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>b</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    5    7</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    6    8</span></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Suma de matrices</span></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> b</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    6   10</span></span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    8   12</span></span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplicación de matrices</span></span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>a <span class="sc">*</span> b</span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    5   21</span></span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   12   32</span></span>
+<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación de matrices con el operador &gt;</span></span>
+<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&gt;</span> b</span>
+<span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a><span class="do">##       [,1]  [,2]</span></span>
+<span id="cb42-28"><a href="#cb42-28" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,] FALSE FALSE</span></span>
+<span id="cb42-29"><a href="#cb42-29" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,] FALSE FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="tipos-compuestos" class="level3" data-number="5.8.2">
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="tipos-compuestos"><span class="header-section-number">5.8.2</span> Tipos compuestos</h3>
+<section id="factores" class="level4" data-number="5.8.2.1">
+<h4 data-number="5.8.2.1" class="anchored" data-anchor-id="factores"><span class="header-section-number">5.8.2.1</span> Factores</h4>
+<p>Los <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Factors">factores</a> se utilizan para representar <a href="https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica">datos categóricos</a>. Un factor corresponde a un conjunto de categorías correspondientes a un concepto (ej. [“Sí”, “No”], [“Casado”, “Soltero”], [“Alto”, “Medio”, “Bajo”]).</p>
+<p>Internamente, los factores se representan en R como números enteros con etiquetas asociadas. A pesar de que los factores parecen (y pueden funcionar como) hileras de caracteres, en realidad son números y debe tenerse cuidado de no manejarlos como caracteres.</p>
+<p>Los elementos de un factor se denominan niveles (<em>levels</em>) y, por defecto, se almacenan en orden alfabético.</p>
+<section id="definición-2" class="level5" data-number="5.8.2.1.1">
+<h5 data-number="5.8.2.1.1" class="anchored" data-anchor-id="definición-2"><span class="header-section-number">5.8.2.1.1</span> Definición</h5>
+<p>Un factor se crea con la función <a href="https://rdrr.io/r/base/factor.html">factor()</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor de valores de sexo</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Masculino"</span>, <span class="st">"Femenino"</span>, <span class="st">"Femenino"</span>, <span class="st">"Masculino"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="operaciones-2" class="level5" data-number="5.8.2.1.2">
+<h5 data-number="5.8.2.1.2" class="anchored" data-anchor-id="operaciones-2"><span class="header-section-number">5.8.2.1.2</span> Operaciones</h5>
+<p>R proporciona una gran variedad de funciones para manejar factores. Seguidamente, se ejemplifican algunas de estas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiquetas de los niveles</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sexo)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Femenino"  "Masculino"</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cantidad de niveles</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nlevels</span>(sexo)</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Conteo de elementos de cada uno de los niveles del factor</span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sexo)</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="do">## sexo</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  Femenino Masculino </span></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="do">##         2         2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="data-frames" class="level4" data-number="5.8.2.2">
+<h4 data-number="5.8.2.2" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">5.8.2.2</span> Data Frames</h4>
+<p>Un <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Data-frame-objects">data frame</a> es una estructura bidimensional similar a lo que comúnmente se conoce como una tabla. Sus filas corresponden a las <a href="https://es.wikipedia.org/wiki/Observaci%C3%B3n">observaciones</a> de un conjunto de datos y sus columnas a las <a href="https://es.wikipedia.org/wiki/Variable_estad%C3%ADstica">variables</a>. Internamente, se componen de varios vectores, factores y/o matrices de la misma longitud. La definición de un data frame puede incluir nombres para cada observación y para cada variable. Los data frames implementan un conjunto de funciones similares a las de una hoja electrónica o una tabla de una base de datos relacional. Son fundamentales para el manejo de datos en R.</p>
+<section id="definición-3" class="level5" data-number="5.8.2.2.1">
+<h5 data-number="5.8.2.2.1" class="anchored" data-anchor-id="definición-3"><span class="header-section-number">5.8.2.2.1</span> Definición</h5>
+<p>La función <a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a> crea un data frame a partir de vectores que serán las columnas del data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector de nombres de países</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>paises <span class="ot">&lt;-</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Pánama"</span>,</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Costa Rica"</span>,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Nicaragua"</span>,</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"El Salvador"</span>,</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Honduras"</span>,</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Guatemala"</span>,</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Belice"</span>)</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector de cantidades de habitantes de cada país (en millones)</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>poblaciones <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.1</span>, <span class="fl">5.0</span>, <span class="fl">6.2</span>, <span class="fl">6.4</span>, <span class="fl">9.2</span>, <span class="fl">16.9</span>, <span class="fl">0.3</span>)</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Creación de un data frame a partir de los dos vectores</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>poblaciones_paises <span class="ot">&lt;-</span> </span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">pais =</span> paises, </span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">poblacion =</span> poblaciones</span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión del data frame</span></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>poblaciones_paises</span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a><span class="do">##          pais poblacion</span></span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      Pánama       4.1</span></span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  Costa Rica       5.0</span></span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a><span class="do">## 3   Nicaragua       6.2</span></span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 El Salvador       6.4</span></span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a><span class="do">## 5    Honduras       9.2</span></span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a><span class="do">## 6   Guatemala      16.9</span></span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a><span class="do">## 7      Belice       0.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="indexación-2" class="level5" data-number="5.8.2.2.2">
+<h5 data-number="5.8.2.2.2" class="anchored" data-anchor-id="indexación-2"><span class="header-section-number">5.8.2.2.2</span> Indexación</h5>
+<p>Los datos de un data frame pueden accederse principalmente de dos formas. La primera es mediante la misma sintaxis <code>[fila, columna]</code> que se utiliza en las matrices.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fila 1</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>poblaciones_paises[<span class="dv">1</span>, ]</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="do">##     pais poblacion</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Pánama       4.1</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filas 1, 5 y 7</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>poblaciones_paises[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">7</span>), ]</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="do">##       pais poblacion</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 1   Pánama       4.1</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Honduras       9.2</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 7   Belice       0.3</span></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Columna 2</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>poblaciones_paises[, <span class="dv">2</span>]</span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1]  4.1  5.0  6.2  6.4  9.2 16.9  0.3</span></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Fila 1, columna 2</span></span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>poblaciones_paises[<span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.1</span></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Filas 1:4, columna 2</span></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a>poblaciones_paises[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">2</span>]</span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.1 5.0 6.2 6.4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Además, mediante el operador <code>$</code>, es posible acceder a las columnas (i.e.&nbsp;variables) del data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Columna de nombres de países</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>poblaciones_paises<span class="sc">$</span>pais</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Pánama"      "Costa Rica"  "Nicaragua"   "El Salvador" "Honduras"   </span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [6] "Guatemala"   "Belice"</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Modificación de los valores de toda una columna</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>poblaciones_paises<span class="sc">$</span>poblacion <span class="ot">=</span> poblaciones_paises<span class="sc">$</span>poblacion<span class="sc">*</span><span class="dv">2</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>poblaciones_paises</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="do">##          pais poblacion</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      Pánama       8.2</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  Costa Rica      10.0</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 3   Nicaragua      12.4</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 El Salvador      12.8</span></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 5    Honduras      18.4</span></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 6   Guatemala      33.8</span></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 7      Belice       0.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="operaciones-3" class="level5" data-number="5.8.2.2.3">
+<h5 data-number="5.8.2.2.3" class="anchored" data-anchor-id="operaciones-3"><span class="header-section-number">5.8.2.2.3</span> Operaciones</h5>
+<p>R proporciona una gran variedad de funciones para manejar data frames. Las siguientes son algunas de las más utilizadas.</p>
+<p>La función <a href="https://rdrr.io/r/utils/read.table.html">read.table()</a> lee los datos contenidos en un archivo de texto y los retorna en un data frame. <a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a> es una función derivada, con valores por defecto orientados a los archivos de valores separados por comas (CSV, <em>Comma Separated Values</em>). Como argumento principal, <code>read.csv()</code> recibe la ruta del archivo CSV, el cual puede encontrarse en un disco local, en la Web o en otra ubicación.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lectura de archivo CSV ubicado en la Web</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># covid &lt;- read.csv("https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/cepredenac/covid/covid-20210422.csv")</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># covid</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

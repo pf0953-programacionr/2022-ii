@@ -567,3 +567,203 @@ Y también pueden realizarse operaciones relacionales:
 a < b
 ```
 
+#### Matrices
+Una matriz es una estructura bidimensional de filas y columnas.
+
+##### Definición
+Las matrices se definen mediante la función [matrix()](https://rdrr.io/r/base/matrix.html).
+
+```{r}
+#| label: code-definicion-matrices
+#| collapse: true
+
+# Definición de una matriz de 3 x 3 con elementos de la secuencia 1:9 distribuidos en las columnas
+m <- matrix(1:9, nrow=3, ncol=3)
+m
+
+# Definición de una matriz de 3 x 3 con elementos de la secuencia 1:9 distribuidos en las filas
+m <- matrix(1:9, nrow=3, ncol=3, byrow=TRUE)
+m
+
+# Definición de una matriz de 3 x 2 con nombres para las filas y las columnas
+datos <- c(18, 500, 25, 1000, 30, 2000)
+filas <- c("Ana", "Mario", "Laura")
+columnas <- c("Edad", "Salario")
+
+m <- matrix(datos, nrow=3, ncol=2, byrow=TRUE, dimnames=list(filas, columnas))
+m
+```
+
+La función [list()](https://rdrr.io/r/base/list.html) se utiliza, en este caso, para combinar vectores. En general, se usa para combinar datos de cualquier tipo.
+
+##### Indexación
+La indexación de matrices es similar a la de vectores, pero deben especificarse índices tanto para filas como para columnas.
+
+```{r}
+#| label: code-indexacion-matrices
+#| collapse: true
+
+# Elemento en la posición [2,2] (segunda fila, segunda columna)
+m[2, 2]
+
+# Elementos de la primera fila
+m[1,]
+
+# Elementos de la segunda columna
+m[, 2]
+
+# Elementos de las filas 1 y 2
+m[1:2, ]
+
+# Elementos de la fila "Mario"
+m["Mario", ]
+
+# Elementos de la columna "Salario"
+m[, "Salario"]
+```
+
+##### Operaciones
+De manera similar a los vectores, en las matrices pueden realizarse operaciones aritméticas y relacionales.
+
+```{r}
+#| label: code-operaciones-matrices
+#| collapse: true
+
+a <- matrix(1:4, nrow=2, ncol=2)
+a
+
+b <- matrix(5:8, nrow=2, ncol=2)
+b
+
+# Suma de matrices
+a + b
+
+# Multiplicación de matrices
+a * b
+
+# Comparación de matrices con el operador >
+a > b
+```
+
+### Tipos compuestos
+
+#### Factores
+Los [factores](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Factors) se utilizan para representar [datos categóricos](https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica). Un factor corresponde a un conjunto de categorías correspondientes a un concepto (ej. ["Sí", "No"], ["Casado", "Soltero"], ["Alto", "Medio", "Bajo"]). 
+
+Internamente, los factores se representan en R como números enteros con etiquetas asociadas. A pesar de que los factores parecen (y pueden funcionar como) hileras de caracteres, en realidad son números y debe tenerse cuidado de no manejarlos como caracteres.
+
+Los elementos de un factor se denominan niveles (*levels*) y, por defecto, se almacenan en orden alfabético.
+
+##### Definición
+Un factor se crea con la función [factor()](https://rdrr.io/r/base/factor.html).
+
+```{r}
+#| label: code-definicion-factores
+#| collapse: true
+
+# Factor de valores de sexo
+sexo <- factor(c("Masculino", "Femenino", "Femenino", "Masculino"))
+```
+
+##### Operaciones
+R proporciona una gran variedad de funciones para manejar factores. Seguidamente, se ejemplifican algunas de estas.
+
+```{r}
+#| label: code-operaciones-factores
+#| collapse: true
+
+# Etiquetas de los niveles
+levels(sexo)
+
+# Cantidad de niveles
+nlevels(sexo)
+
+# Conteo de elementos de cada uno de los niveles del factor
+table(sexo)
+```
+
+#### Data Frames
+Un [data frame](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Data-frame-objects) es una estructura bidimensional similar a lo que comúnmente se conoce como una tabla. Sus filas corresponden a las [observaciones](https://es.wikipedia.org/wiki/Observaci%C3%B3n) de un conjunto de datos y sus columnas a las [variables](https://es.wikipedia.org/wiki/Variable_estad%C3%ADstica). Internamente, se componen de varios vectores, factores y/o matrices de la misma longitud.  La definición de un data frame puede incluir nombres para cada observación y para cada variable. Los data frames implementan un conjunto de funciones similares a las de una hoja electrónica o una tabla de una base de datos relacional. Son fundamentales para el manejo de datos en R.
+
+##### Definición
+La función [data.frame()](https://rdrr.io/r/base/data.frame.html) crea un data frame a partir de vectores que serán las columnas del data frame.
+
+```{r}
+#| label: code-definicion-dataframes
+#| collapse: true
+
+# Vector de nombres de países
+paises <-
+  c("Pánama",
+    "Costa Rica",
+    "Nicaragua",
+    "El Salvador",
+    "Honduras",
+    "Guatemala",
+    "Belice")
+
+# Vector de cantidades de habitantes de cada país (en millones)
+poblaciones <- c(4.1, 5.0, 6.2, 6.4, 9.2, 16.9, 0.3)
+
+# Creación de un data frame a partir de los dos vectores
+poblaciones_paises <- 
+  data.frame(
+    pais = paises, 
+    poblacion = poblaciones
+  )
+
+# Impresión del data frame
+poblaciones_paises
+```
+
+##### Indexación
+Los datos de un data frame pueden accederse principalmente de dos formas. La primera es mediante la misma sintaxis `[fila, columna]` que se utiliza en las matrices.
+
+```{r}
+#| label: code-indexacion-dataframes
+#| collapse: true
+
+# Fila 1
+poblaciones_paises[1, ]
+
+# Filas 1, 5 y 7
+poblaciones_paises[c(1, 5, 7), ]
+
+# Columna 2
+poblaciones_paises[, 2]
+
+# Fila 1, columna 2
+poblaciones_paises[1, 2]
+
+# Filas 1:4, columna 2
+poblaciones_paises[1:4, 2]
+```
+
+Además, mediante el operador `$`, es posible acceder a las columnas (i.e. variables) del data frame.
+
+```{r}
+#| label: code-indexacion-dataframes-columnas
+#| collapse: true
+
+# Columna de nombres de países
+poblaciones_paises$pais
+
+# Modificación de los valores de toda una columna
+poblaciones_paises$poblacion = poblaciones_paises$poblacion*2
+poblaciones_paises
+```
+
+##### Operaciones
+R proporciona una gran variedad de funciones para manejar data frames. Las siguientes son algunas de las más utilizadas.
+
+La función [read.table()](https://rdrr.io/r/utils/read.table.html) lee los datos contenidos en un archivo de texto y los retorna en un data frame. [read.csv()](https://rdrr.io/r/utils/read.table.html) es una función derivada, con valores por defecto orientados a los archivos de valores separados por comas (CSV, *Comma Separated Values*). Como argumento principal, `read.csv()` recibe la ruta del archivo CSV, el cual puede encontrarse en un disco local, en la Web o en otra ubicación.
+
+```{r}
+#| label: code-readcsv
+#| collapse: true
+
+# Lectura de archivo CSV ubicado en la Web
+# covid <- read.csv("https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/cepredenac/covid/covid-20210422.csv")
+
+# covid
+```
