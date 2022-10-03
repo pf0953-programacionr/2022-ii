@@ -21,6 +21,7 @@ book:
       chapters:
         - examen_corto-01.qmd    
         - tarea-01.qmd
+        - examen_corto-02.qmd            
     - references.qmd
 
 bibliography: references.bib

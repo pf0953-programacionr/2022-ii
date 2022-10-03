@@ -1,0 +1,9 @@
+# Examen corto 02 {.unnumbered}
+
+## Fecha {.unnumbered}
+
+Lunes 10 de octubre de 2022
+
+## Temas a evaluar {.unnumbered}
+
+-   [R - conceptos básicos](https://pf0953-programacionr.github.io/2022-ii/05-r-conceptos_basicos.html)
