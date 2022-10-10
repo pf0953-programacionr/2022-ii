@@ -84,12 +84,34 @@ Los bloques (*chunks*) de código en R se identifican con `{r}` y diferentes opc
 
 El siguiente es un ejemplo de bloque de código en R y su salida:
 
+````md
+```{r}`r ''`
+#| label: graficar-cars
+#| include: true
+#| echo: false
+
+plot(
+  x = cars$speed,
+  y = cars$dist,
+  main = "Velocidad vs distancia de frenado",
+  xlab = "Velocidad (MPH)",
+  ylab = "Distancia (pies)"
+)
+```
+````
+
 ```{r}
 #| label: graficar-cars
 #| include: true
+#| echo: false
 
-library(stats)
-plot(cars)
+plot(
+  x = cars$speed,
+  y = cars$dist,
+  main = "Velocidad vs distancia de frenado",
+  xlab = "Velocidad (MPH)",
+  ylab = "Distancia (pies)"
+)
 ```
 
 La opción `label` se utiliza para etiquetar el bloque y la de `include` para especificar si se desea que el bloque y sus resultados se incluyan en el documento de salida.
