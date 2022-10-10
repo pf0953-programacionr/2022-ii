@@ -86,7 +86,7 @@ El siguiente es un ejemplo de bloque de código en R y su salida:
 
 ````md
 ```{r}`r ''`
-#| label: graficar-cars
+#| label: graficacion-cars
 #| include: true
 #| echo: false
 
@@ -101,7 +101,7 @@ plot(
 ````
 
 ```{r}
-#| label: graficar-cars
+#| label: graficacion-cars
 #| include: true
 #| echo: false
 
