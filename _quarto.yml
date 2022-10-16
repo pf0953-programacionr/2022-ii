@@ -18,6 +18,7 @@ book:
         - 04-pensamiento_computacional-arquitectura_computadoras.qmd    
         - 05-r-conceptos_basicos.qmd
         - 06-quarto.qmd
+        - 07-tidyverse.qmd
     - part: part-06-evaluaciones.qmd
       chapters:
         - examen_corto-01.qmd    
