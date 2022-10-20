@@ -1,0 +1,10 @@
+# Examen corto 03 {.unnumbered}
+
+## Fecha {.unnumbered}
+
+Lunes 24 de octubre de 2022
+
+## Temas a evaluar {.unnumbered}
+
+- [Quarto](https://pf0953-programacionr.github.io/2022-ii/06-quarto.html)
+- [Visualización de datos con funciones de graficación del paquete base de R](https://pf0953-programacionr.github.io/2022-ii-graficacion-base/)
