@@ -5,6 +5,7 @@ title: "Tidyverse"
 ## Trabajo previo
 
 ### Lecturas
+
 Wickham, H., & Grolemund, G. (2017). *R for Data Science: Import, Tidy, Transform, Visualize, and Model Data (1st ed.)*. O'Reilly Media. <https://r4ds.had.co.nz/>
 
 Wickham, H., & Grolemund, G. (s. f.). *R para Ciencia de Datos (1era ed.)*. Recuperado 14 de mayo de 2022, de <https://es.r4ds.hadley.nz/>
@@ -12,9 +13,11 @@ Wickham, H., & Grolemund, G. (s. f.). *R para Ciencia de Datos (1era ed.)*. Recu
 Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (s. f.). *R for Data Science (2nd ed.)*. Recuperado 16 de octubre de 2022, de <https://r4ds.hadley.nz/>
 
 ## Resumen
+
 En este capítulo se estudia Tidyverse, una colección de paquetes para ciencia de datos. También se introducen los concepto de datos *tidy* y de *pipes*.
 
 ## Características generales
+
 [Tidyverse](https://www.tidyverse.org/) es una colección de paquetes de R enfocados en [ciencia de datos](https://es.wikipedia.org/wiki/Ciencia_de_datos). La ciencia de datos es una discipina que permite convertir datos no procesados en entendimiento, comprensión y conocimiento [@wickham_r_2017].
 
 La @fig-modelo-ciencia-datos ilustra el modelo de un proyecto típico de ciencia de datos, el cual incluye los procesos de importar, organizar, transformar, visualizar, modelar y comunicar.
@@ -38,6 +41,7 @@ Todos estos procesos se articulan mediante **programación** de computadoras.
 Los paquetes de Tidyverse *"comparten filosofía de diseño, gramática y estructuras de datos"* [@noauthor_tidyverse_nodate] para apoyar estos procesos del modelo de ciencia de datos. El concepto de Tidyverse fue introducido por Hadley Wickham, quien también ha programado varios de sus paquetes.
 
 ## Paquetes
+
 El núcleo de Tidyverse está compuesto por [ocho paquetes base](https://www.tidyverse.org/packages/#core-tidyverse), los cuales proveen las funcionalidades utilizadas más frecuentemente en análisis de datos:
 
 -   [ggplot2](https://ggplot2.tidyverse.org/): sistema para la creación declarativa de gráficos, basado en el libro [*The Grammar of Graphics*, de Wilkinson et al.](https://www.springer.com/gp/book/9780387245447).
@@ -52,6 +56,7 @@ El núcleo de Tidyverse está compuesto por [ocho paquetes base](https://www.tid
 Hay [otros paquetes](https://www.tidyverse.org/packages/) para tareas más especifícas relacionadas con importación, limpieza y modelado de datos, entre otras. Los paquetes de Tidyverse son de los [más descargados](https://www.r-pkg.org/downloaded), entre la totalidad de paquetes del lenguaje de programación R.
 
 ## Instalación y carga
+
 Los paquetes de Tidyverse pueden instalarse de manera conjunta o individualmente con la función `install.packages()`:
 
 ```{r}
@@ -90,6 +95,7 @@ dplyr::glimpse(iris)
 ```
 
 ## El conjunto de datos `palmerpenguins`
+
 [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) es un [paquete de datos de R](https://cloud.r-project.org/web/packages/palmerpenguins/) ampliamente utilizado para ejemplificar funciones de exploración y visualización, como las de Tidyverse. Es muy popular en ciencia de datos en general y también está disponible para otros lenguajes de programación (ej. Python, Julia). Se utiliza como una alternativa a otros conjuntos de datos como, por ejemplo, [iris](https://rdrr.io/r/datasets/iris.html).
 
 Los datos de `palmerpenguins` fueron recolectados entre 2007 y 2009 por la Dr. Kristen Gorman y el [Programa de Investigación Ecológica de Largo Plazo (LTER) de la Estación Palmer](https://pallter.marine.rutgers.edu/). Consisten de 344 observaciones de pingüinos de tres especies, las cuales habitan en tres islas del archipiélago Palmer, en la Antártida. Para cada individuo se registraron variables como especie, sexo, masa (peso), longitud de la aleta (*flipper*), longitud del pico (*bill*) y profundidad del pico, entre otras.
@@ -115,15 +121,17 @@ library(palmerpenguins)
 
 El paquete contiene dos conjuntos de datos:
 
-- [penguins_raw](https://allisonhorst.github.io/palmerpenguins/reference/penguins_raw.html): datos sin procesar.
-- [penguins](https://allisonhorst.github.io/palmerpenguins/reference/penguins.html): subconjunto curado de los datos sin procesar.
+-   [penguins_raw](https://allisonhorst.github.io/palmerpenguins/reference/penguins_raw.html): datos sin procesar.
+-   [penguins](https://allisonhorst.github.io/palmerpenguins/reference/penguins.html): subconjunto curado de los datos sin procesar.
 
 `palmerpinguins` se utilizará en este capítulo, y en los siguientes, para ejemplificar varias de las funcionalidades de Tidyverse.
 
 ### Ejemplos de visualizaciones
+
 Se muestran varios tipos de gráficos estadísticos generados con la función 'ggplot()'.
 
 #### Gráficos de dispersión
+
 Este tipo de gráficos muestra relaciones entre variables.
 
 ```{r}
@@ -160,6 +168,7 @@ penguins |>
 ```
 
 #### Histogramas
+
 Este tipo de gráficos muestra distribuciones de variables.
 
 ```{r ejemplo-palmerpenguins-03}
@@ -193,6 +202,7 @@ penguins |>
 ```
 
 #### Diagramas de caja
+
 Este tipo de gráficos muestra datos a través de sus cuartiles.
 
 ```{r}
@@ -220,13 +230,14 @@ penguins |>
 ```
 
 ## Datos *tidy*
+
 Los paquetes de Tidyverse trabajan con [datos *tidy*](https://www.jstatsoft.org/article/view/v059i10) (i.e. ordenados, organizados), un concepto también introducido por Hadley Wickham y que está relacionado con la organización de los datos en estructuras rectangulares de filas y columnas, similares a las tablas o matrices.
 
 Según Wickham, los datos *tidy* deben cumplir con tres características:
 
-1. Cada variable debe tener su propia columna.
-2. Cada observación debe tener su propia fila.
-3. Cada valor debe tener su propia celda.
+1.  Cada variable debe tener su propia columna.
+2.  Cada observación debe tener su propia fila.
+3.  Cada valor debe tener su propia celda.
 
 Estas características se ilustran en la @fig-datos-tidy.
 
@@ -241,7 +252,8 @@ knitr::include_graphics(rep("img/datos-tidy.png"))
 El empleo de este modelo de datos es común en todos los paquetes de Tidyverse, lo que posibilita aprender y usar sus funciones con mayor facilidad. Además, permite invertir menos esfuerzo en lidiar con diferentes modelos de datos y así dedicar más tiempo y esfuerzo en los problemas de análisis a resolver.
 
 ## *Pipes*
-Las funciones de Tidyverse pueden encadenarse a través del operador *pipe* (tubo), ya sea el del paquete magrittr [(%>%)](https://magrittr.tidyverse.org/reference/pipe.html) o el del paquete base de R [(|>)](https://michaelbarrowman.co.uk/post/the-new-base-pipe/). Los procesos se enlazan con *pipes* para formar *pipelines* (tuberías). En este contexto, un *pipeline* consiste de una cadena de procesos conectados de forma tal que la salida de cada proceso de la cadena es la entrada del próximo. Esto permite la comunicación y sincronización entre los procesos y evita la anidación (*nesting*) de llamados a funciones.
+
+Las funciones de Tidyverse pueden encadenarse a través del operador *pipe* (tubo), ya sea el del paquete magrittr [(%\>%)](https://magrittr.tidyverse.org/reference/pipe.html) o el del paquete base de R [(\|\>)](https://michaelbarrowman.co.uk/post/the-new-base-pipe/). Los procesos se enlazan con *pipes* para formar *pipelines* (tuberías). En este contexto, un *pipeline* consiste de una cadena de procesos conectados de forma tal que la salida de cada proceso de la cadena es la entrada del próximo. Esto permite la comunicación y sincronización entre los procesos y evita la anidación (*nesting*) de llamados a funciones.
 
 El siguiente ejemplo implementa un *pipeline* de dos funciones de Tidyverse:
 
@@ -268,12 +280,12 @@ select(filter(penguins, species == "Gentoo"),
 
 El uso de *pipes* permite un funcionamiento homogéneo de las funciones de Tidyverse:
 
-1. El primer argumento es un data frame. Puede omitirse si la función recibe el data frame a través del operador *pipe*.
-2. Los argumentos siguientes describen que hacer con el data frame, utilizando los nombres de las columnas (sin comillas).  
-3. El resultado es un nuevo data frame.
+1.  El primer argumento es un data frame. Puede omitirse si la función recibe el data frame a través del operador *pipe*.
+2.  Los argumentos siguientes describen que hacer con el data frame, utilizando los nombres de las columnas (sin comillas).\
+3.  El resultado es un nuevo data frame.
 
 ## Recursos de interés
-Canelón, S. (s.f.). *Slides | Silvia Canelón—An Antarctic Tour of the Tidyverse*. Recuperado 16 de octubre de 2022, de [https://slides.silviacanelon.com/tour-of-the-tidyverse-v2/#/title-slide](https://slides.silviacanelon.com/tour-of-the-tidyverse-v2/#/title-slide)
 
-Wickham, H. (2014). Tidy Data. *Journal of Statistical Software, 59*(1), 1-23. [https://doi.org/10.18637/jss.v059.i10](https://doi.org/10.18637/jss.v059.i10)
+Canelón, S. (s.f.). *Slides \| Silvia Canelón---An Antarctic Tour of the Tidyverse*. Recuperado 16 de octubre de 2022, de <https://slides.silviacanelon.com/tour-of-the-tidyverse-v2/#/title-slide>
 
+Wickham, H. (2014). Tidy Data. *Journal of Statistical Software, 59*(1), 1-23. <https://doi.org/10.18637/jss.v059.i10>
