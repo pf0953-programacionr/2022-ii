@@ -1,5 +1,5 @@
 ---
-title: "Quarto"
+title: "Quarto - sistema de publicación técnica y científica"
 ---
 
 ## Trabajo previo
@@ -84,7 +84,7 @@ Los bloques (*chunks*) de código en R se identifican con `{r}` y diferentes opc
 
 El siguiente es un ejemplo de bloque de código en R y su salida:
 
-````md
+```` md
 ```{r}`r ''`
 #| label: graficacion-cars
 #| include: true
@@ -132,5 +132,5 @@ knitr::include_graphics(rep("img/rstudio-qmd-how-it-works.png"))
 
 Visualización de datos con funciones del paquete base de R.
 
--   Sitio en GitHub Pages: [https://pf0953-programacionr.github.io/2022-ii-graficacion-base/](https://pf0953-programacionr.github.io/2022-ii-graficacion-base/)
--   Código fuente: [https://github.com/pf0953-programacionr/2022-ii-graficacion-base](https://github.com/pf0953-programacionr/2022-ii-graficacion-base)
+-   Sitio en GitHub Pages: <https://pf0953-programacionr.github.io/2022-ii-graficacion-base/>
+-   Código fuente: <https://github.com/pf0953-programacionr/2022-ii-graficacion-base>
