@@ -13,13 +13,16 @@ book:
         - 01-introduccion-ciencia-datos-geoespaciales.qmd
         - 02-markdown.qmd
         - 03-git.qmd
-    - part: part-02-lenguaje-programacion-r.qmd    
+    - part: part-02-lenguaje-programacion-r.qmd
       chapters:
         - 04-pensamiento_computacional-arquitectura_computadoras.qmd    
         - 05-r-conceptos_basicos.qmd
         - 06-quarto.qmd
         - 07-tidyverse.qmd
         - 08-dplyr.qmd
+    - part: part-03-graficacion-estadistica.qmd    
+      chapters:
+        - 09-ggplot2-plotly.qmd    
     - part: part-06-evaluaciones.qmd
       chapters:
         - examen_corto-01.qmd    
