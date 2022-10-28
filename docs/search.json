@@ -389,7 +389,7 @@
     "href": "08-dplyr.html#ejercicios",
     "title": "8  dplyr - gramática para manipulación de datos",
     "section": "8.7 Ejercicios",
-    "text": "8.7 Ejercicios\n\nEn el data frame penguins, cree:\n\nUna columna llamada “body_mass_g_mean_species_sex” con el promedio de masa para la especie y el sexo a los que pertenece cada individuo.\nUna columna llamada “body_mass_g_species_sex_normalized” con la proporción de la masa de cada individuo con respecto al promedio de masa para la especie y el sexo a los que pertenece.\n\nAgrupe el data frame penguins por especie y sexo y obtenga el promedio de masa y la cantidad de individuos para cada grupo."
+    "text": "8.7 Ejercicios\nUtilice las funciones de dplyr para responder a las siguientes preguntas sobre el conjunto de datos penguins:\n\n¿Cuántos individuos de cada sexo hay en cada especie?\n¿Cuál es el mínimo, máximo y promedio de masa corporal (peso) por especie y sexo?\n¿Cuántos individuos se observaron durante cada año?\n¿Cuántos individuos de cada especie se observaron durante cada año?\n¿Cuántos individuos de cada especie y cada sexo se observaron durante cada año?\n¿Cuál es el promedio de masa corporal (peso) por año?\n¿Cuál es el promedio de masa corporal (peso) por año para cada especie?"
   },
   {
     "objectID": "08-dplyr.html#recursos-de-interés",
