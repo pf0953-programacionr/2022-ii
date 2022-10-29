@@ -1,15 +1,17 @@
 ---
 title: "ggplot2 y plotly - creación declarativa de gráficos interactivos"
+toc-depth: 4
+toc-title: "Contenidos"
 ---
 
 ## Trabajo previo
 
 ### Lecturas
-Chang, W. (2018). *R graphics cookbook: Practical recipes for visualizing data*. O’Reilly. [https://r-graphics.org/](https://r-graphics.org/)
+Chang, W. (2018). *R graphics cookbook: Practical recipes for visualizing data*. O'Reilly. <https://r-graphics.org/>
 
-Wickham, H., & Grolemund, G. (2017). *R for Data Science: Import, Tidy, Transform, Visualize, and Model Data* (capítulo 3). O’Reilly Media. [https://r4ds.had.co.nz/](https://r4ds.had.co.nz/)
+Wickham, H., & Grolemund, G. (2017). *R for Data Science: Import, Tidy, Transform, Visualize, and Model Data* (capítulo 3). O'Reilly Media. <https://r4ds.had.co.nz/>
 
-Wickham, H., Navarro, D., & Pedersen, T. L. (s.f.). *ggplot2: Elegant graphics for data analysis*. [https://ggplot2-book.org/](https://ggplot2-book.org/)
+Wickham, H., Navarro, D., & Pedersen, T. L. (s.f.). *ggplot2: Elegant graphics for data analysis*. <https://ggplot2-book.org/>
 
 ## Resumen
 R proporciona una gran cantidad de funciones para la elaboración de gráficos estadísticos. En este capítulo, se describen algunos de los paquetes que contienen estas funciones y se ejemplifican varios tipos de gráficos. Específicamente, se estudia el paquete `ggplot2`, para la creación declarativa de gráficos y el paquete `plotly`, para graficación interactiva.
@@ -40,9 +42,7 @@ Por su parte, `plotly` también puede instalarse con la función `install.packag
 install.packages("plotly")
 ```
 
-`DT` también se instala con 
-
-`install.packages()`:
+`DT` también se instala con `install.packages()`:
 
 ```{r}
 #| label: instalacion-dt
@@ -71,6 +71,41 @@ library(plotly)
 library(DT)
 ```
 
+## Conjuntos de datos de ejemplo
+
+### mpg
+[mpg](https://ggplot2.tidyverse.org/reference/mpg.html) es uno de los conjuntos de datos de ejemplo que se incluyen junto con el paquete `ggplot2`. Contiene observaciones para 38 modelos de automóviles, recopiladas por la Agencia de Protección Ambiental de los Estados Unidos, y un conjunto de variables relacionadas con el consumo de combustible.
+
+En el siguiente bloque de código, se utiliza el paquete `DT`, para desplegar las observaciones de mpg en una tabla.
+
+```{r}
+#| label: tabla-mpg
+
+# Tabla de datos de mpg
+mpg %>%
+  datatable(options = list(
+    pageLength = 5,
+    language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
+  ))
+```
+
+### diamonds
+[diamonds](https://ggplot2.tidyverse.org/reference/diamonds.html) es otro de los conjuntos de datos de ejemplo de `ggplot2`. Contiene observaciones de más de 50000 diamantes, incluyendo su precio, color, claridad y otros atributos.
+
+En el siguiente bloque de código, se utiliza el paquete `DT`, para desplegar las observaciones de diamonds en una tabla.
+
+```{r}
+#| label: tabla-diamonds
+#| warning: false
+
+# Tabla de datos de diamonds
+diamonds %>%
+  datatable(options = list(
+    pageLength = 5,
+    language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
+  ))
+```
+
 ## Características generales
 
 ### ggplot2
@@ -79,42 +114,28 @@ library(DT)
 #### Principales componentes de un gráfico
 De acuerdo con *The Grammar of Graphics*, los tres principales componentes de un gráfico son:
 
-1. Datos (observaciones y variables).
-2. Conjunto de mapeos de las variables del conjunto de datos a propiedades visuales (*aesthetics*) del gráfico, tales como posición en el eje x, posición en el eje y, color, tamaño y forma, entre otras.
-3. Al menos una capa, la cual describe como graficar cada observación. Por lo general, las capas se crean con funciones de geometrías (ej. puntos, líneas, barras).
+1.  Datos (observaciones y variables).
+2.  Conjunto de mapeos de las variables del conjunto de datos a propiedades visuales (*aesthetics*) del gráfico, tales como posición en el eje x, posición en el eje y, color, tamaño y forma, entre otras.
+3.  Al menos una capa, la cual describe como graficar cada observación. Por lo general, las capas se crean con funciones de geometrías (ej. puntos, líneas, barras).
 
-`ggplot2` implementa este enfoque por medio de la función [ggplot()](https://ggplot2.tidyverse.org/reference/ggplot.html), cuya sintaxis puede resumirse de la siguiente forma:
+#### Sintaxis básica
+`ggplot2` implementa un gráfico estadístico por medio de la función [ggplot()](https://ggplot2.tidyverse.org/reference/ggplot.html), cuya sintaxis básica puede resumirse de la siguiente forma:
 
 ```
 ggplot(data = <DATOS>) + 
-  <FUNCION_GEOMETRIA>(mapping = aes(<MAPEOS>))
+    <FUNCION_GEOMETRIA>(mapping = aes(<MAPEOS>))
 ```
 
-`ggplot()` crea un sistema de coordenadas (un "canvas") al cual se le agregan capas. Su primer argumento es `<DATOS>`, el cual es usualmente un dataframe o un tibble. 
+El llamado a `ggplot()` crea un sistema de coordenadas (i.e. un "canvas"), al cual se le agregan capas. Su primer argumento es `<DATOS>`, el cual es usualmente un dataframe o un tibble.
 
 La función [aes()](https://ggplot2.tidyverse.org/reference/aes.html) realiza los mapeos (`<MAPEOS>`) de las variables del conjunto de datos a las propiedades visuales del gráfico. Las capas se crean con funciones de geometrías (`<FUNCION_GEOMETRIA>`) como [geom_point()](https://ggplot2.tidyverse.org/reference/geom_point.html), [geom_bar()](https://ggplot2.tidyverse.org/reference/geom_bar.html) o [geom_histogram()](https://ggplot2.tidyverse.org/reference/geom_histogram.html), entre muchas otras. Note el uso del operador `+` para agregar las capas al gráfico.
 
-Como ejemplo, se implementa un gráfico para el conjunto de datos [mpg](https://ggplot2.tidyverse.org/reference/mpg.html), el cual contiene observaciones para 38 modelos de automóviles, recopiladas por la Agencia de Protección Ambiental de los Estados Unidos.
-
-Primero, se despliegan los datos en formato tabular.
+Como ejemplo, se crea un [gráfico de dispersión](https://es.wikipedia.org/wiki/Diagrama_de_dispersi%C3%B3n) que muestra la variable `displ` (*engine displacement* o cilindrada, en litros) en el eje x, y la variable `hwy` (*highway miles per gallon* o millas por galón en autopista) en el eje y.
 
 ```{r}
-#| label: tabla-mpg
-#| code-fold: true
+#| label: grafico-dispersion-mpg-basico
 
-mpg %>%
-  datatable(options = list(
-    pageLength = 5,
-    language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
-  ))
-```
-
-Seguidamente, se crea un [gráfico de dispersión](https://es.wikipedia.org/wiki/Diagrama_de_dispersi%C3%B3n) que muestra la variable `displ` (*engine displacement* o cilindrada, en litros) en el eje x, y la variable `hwy` (*highway miles per gallon* o millas por galón en autopista) en el eje y.
-
-```{r}
-#| label: grafico-disperson-mpg-01
-
-# Gráfico de dispersión de cilindrada vs millas por galón en carretera
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy))
 ```
@@ -122,23 +143,23 @@ ggplot(data = mpg) +
 El bloque de código anterior puede reescribirse mediante un *pipe*, para pasar el conjunto de datos a `ggplot()`. También puede llamarse a `aes()` como un argumento de `ggplot()` y no de la función de geometría. Esto último acostumbra hacerse cuando los mapeos de las variables a las propiedades estéticas son los mismos en todas las capas del gráfico.
 
 ```{r}
-#| label: grafico-disperson-mpg-02
+#| label: grafico-dispersion-mpg-pipe
 
-# Gráfico de dispersión de cilindrada vs millas por galón en carretera
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
 mpg |>
   ggplot(aes(x = displ, y = hwy)) +
   geom_point()
 ```
 
-El gráfico muestra una relación negativa entre el tamaño del motor (`displ`) y la eficiencia en el uso del combustible (`hwy`). En otras palabras, los vehículos con motores grandes usan más combustible. 
+El gráfico muestra una relación negativa entre el tamaño del motor (`displ`) y la eficiencia en el uso del combustible (`hwy`). En otras palabras, los vehículos con motores grandes usan más combustible.
 
 #### Variables adicionales
 Se pueden incluir variables adicionales en el gráfico mediante su mapeo a otras propiedades visuales. En el siguiente bloque de código, la variable `class` (tipo de automóvil), se mapea a la propiedad `color`.
 
 ```{r}
-#| label: grafico-disperson-mpg-03
+#| label: grafico-dispersion-mpg-color
 
-# Gráfico de dispersión de cilindrada vs millas por galón en carretera
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
 # coloreado por tipo de automóvil
 mpg |>
   ggplot(aes(x = displ, y = hwy, color = class)) +
@@ -148,9 +169,9 @@ mpg |>
 La misma variable puede mapearse a la propiedad visual `shape` (forma). Los SUV no se incluyen en el gráfico debido a que `ggplot` solo muestra, por defecto, seis formas diferentes.
 
 ```{r}
-#| label: grafico-disperson-mpg-04
+#| label: grafico-dispersion-mpg-shape
 
-# Gráfico de dispersión de cilindrada vs millas por galón en carretera
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
 # con formas de puntos correspondientes al tipo de automóvil
 mpg |>
   ggplot(aes(x = displ, y = hwy, shape = class)) +
@@ -161,9 +182,9 @@ mpg |>
 Un mismo gráfico puede contener múltiples capas, cada una con su propia función de geometría. El siguiente bloque de código agrega una capa con la función [geom_smooth()](https://ggplot2.tidyverse.org/reference/geom_smooth.html), la cual muestra una curva de tendencia.
 
 ```{r}
-#| label: grafico-disperson-mpg-05
+#| label: grafico-dispersion-mpg-smooth
 
-# Gráfico de dispersión de cilindrada vs millas por galón en carretera
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
 # + curva de tendencia
 mpg |>
   ggplot(aes(x = displ, y = hwy)) +
@@ -174,9 +195,10 @@ mpg |>
 En el siguiente ejemplo, se mapea la variable `drv` (tipo de tracción) a la propiedad visual del color, tanto para la capa de puntos como para la de la curva de tendencia.
 
 ```{r}
-#| label: grafico-disperson-mpg-06
+#| label: grafico-dispersion-mpg-smooth-drv
 
-# Gráfico de dispersión de cilindrada vs millas por galón en carretera
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
+# coloreado por tipo de tracción
 # + curva de tendencia
 mpg |>
   ggplot(aes(x = displ, y = hwy, color = drv)) +
@@ -187,10 +209,10 @@ mpg |>
 El siguiente gráfico muestra varias capas, correspondientes a geometrías de puntos y curvas de tendencia. `aes()` se llama en las funciones de geometrías debido a que cada una realiza mapeos diferentes.
 
 ```{r}
-#| label: grafico-disperson-mpg-08
+#| label: grafico-dispersion-mpg-hwy-cty
 
-# Gráfico de dispersión de cilindrada vs millas por galón en carretera
-# y cilindrada vs millas por galón en ciudad
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
+# + gráfico de dispersión de cilindrada vs millas por galón en ciudad
 # + curvas de tendencias
 mpg |>
   ggplot(aes(x = displ)) +
@@ -198,5 +220,187 @@ mpg |>
   geom_smooth(aes(y = hwy), color = "green") +
   geom_point(aes(y = cty), color = "red") +
   geom_smooth(aes(y = cty), color = "red")  
+```
+
+#### *Facets*
+Como se mostró anteriormente, una forma de mostrar variables adicionales en un gráfico es mediante propiedades visuales (color, forma, tamaño, etc.). Otra forma es mediante el uso de *facets*, los cuales dividen un gráfico en subgráficos, de acuerdo con los valores de una variable. Este método es particularmente apropiado cuando la variable adicional es categórica o discreta.
+
+La función [facet_wrap()](https://ggplot2.tidyverse.org/reference/facet_wrap.html) divide un gráfico de acuerdo con una sola variable. El primer argumento es una [fórmula](https://www.datacamp.com/tutorial/r-formula-tutorial), la cual se crea con el caracter `~` seguido por el nombre de una variable.
+
+En el siguiente bloque de código, se generan *facets* para el gráfico de dispersión de cilindrada vs millas por galón en autopista, de acuerdo con el tipo de automóvil. Es decir, un *facet* (subgráfico) por cada tipo de automóvil.
+
+```{r}
+#| label: grafico-dispersion-mpg-facet_wrap
+
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
+# + facets por tipo de automóvil
+mpg |>
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point() +
+  facet_wrap(~ class, nrow = 2)
+```
+
+La función [facet_grid()](https://ggplot2.tidyverse.org/reference/facet_grid.html) genera los subgráficos con la combinación de dos variables. El primer argumento es también una fórmula, la cual contiene dos variables separadas por `~`.
+
+En el siguiente bloque de código, se generan *facets* para el gráfico de dispersión de cilindrada vs millas por galón en autopista, de acuerdo con el tipo de automóvil y el tipo de tracción.
+
+```{r}
+#| label: grafico-dispersion-mpg-facet_grid
+
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
+# + facets por tipo de automóvil y tipo de tracción
+mpg |>
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point() +
+  facet_grid(class ~ drv)
+```
+
+#### Títulos, etiquetas y estilos
+`ggplot2` incluye la función [ggtitle()](https://ggplot2.tidyverse.org/reference/labs.html), [xlab()](https://ggplot2.tidyverse.org/reference/labs.html), [ylab()](https://ggplot2.tidyverse.org/reference/labs.html) y [labs()](https://ggplot2.tidyverse.org/reference/labs.html) permiten agregar títulos, subtítulos, etiquetas en los ejes y otros tipos de etiquetas a un gráfico.
+
+Algunas de las opciones que ofrecen estas funciones se ilustran en el siguiente gráfico.
+
+```{r}
+#| label: grafico-dispersion-mpg-etiquetas
+#| message: false
+
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
+# coloreado por tipo de tracción
+# con título, subtítulo y etiquetas
+mpg |>
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point() +
+  geom_smooth() +
+  ggtitle("Cilindrada vs rendimiento en autopista") +
+  xlab("Cilindrada (l)") +
+  ylab("Rendimiento en autopista (mpg)") +
+  labs(subtitle = "Datos de 38 modelos de automóviles de años entre 1999 y 2008", 
+       caption = "Fuente: United States Environmental Protection Agency (EPA)",
+       color = "Tipo de tracción")
+```
+
+El títulos y las etiquetas de los ejes se pueden agregar también mediante argumentos de `labs()`.
+
+Además, `ggplot2` incluye un conjunto de [temas](https://ggplot2.tidyverse.org/reference/ggtheme.html) (estilos) que pueden mejorar el aspecto visual de los gráficos.
+
+```{r}
+#| label: grafico-dispersion-mpg-etiquetas-tema
+#| message: false
+
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
+# coloreado por tipo de tracción
+# con título, subtítulo, etiquetas y tema
+mpg |>
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point() +
+  geom_smooth() +
+  ggtitle("Cilindrada vs rendimiento en autopista") +
+  xlab("Cilindrada (l)") +
+  ylab("Rendimiento en autopista (mpg)") +
+  labs(subtitle = "Datos de 38 modelos de automóviles de años entre 1999 y 2008", 
+       caption = "Fuente: United States Environmental Protection Agency (EPA)",
+       color = "Tipo de tracción") +
+  theme_bw()
+```
+
+Existen paquetes que ofrecen temas adicionales como, por ejemplo, [ggthemes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/).
+
+```{r}
+#| label: ggthemes-instalacion
+#| eval: false
+
+# Instalación de ggthemes
+install.packages("ggthemes")
+```
+
+```{r}
+#| label: ggthemes-carga
+
+# Carga de ggthemes
+library(ggthemes)
+```
+
+```{r}
+#| label: grafico-dispersion-mpg-ggthemes
+#| message: false
+
+# Gráfico de dispersión de cilindrada vs millas por galón en autopista
+# coloreado por tipo de tracción
+# con título, subtítulo, etiquetas y tema de ggthemes
+mpg |>
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point() +
+  geom_smooth() +
+  ggtitle("Cilindrada vs rendimiento en autopista") +
+  xlab("Cilindrada (l)") +
+  ylab("Rendimiento en autopista (mpg)") +
+  labs(subtitle = "Datos de 38 modelos de automóviles de años entre 1999 y 2008", 
+       caption = "Fuente: United States Environmental Protection Agency (EPA)",
+       color = "Tipo de tracción") +
+  theme_economist()
+```
+
+Para más información sobre etiquetas, estilos y otros temas relacionados (ej. colores), se recomienda leer [ggplot2: Elegant Graphics for Data Analysis - Themes](https://ggplot2-book.org/polishing.html).
+
+#### Opciones avanzadas
+En las secciones y ejemplos anteriores, se han estudiado las opciones básicas para crear un gráfico en `ggplot2`: datos, mapeos de variables a propiedades visuales y capas. También se mostró la forma de implementar *facets*, como un mecanismo para visualizar variables adicionales.
+
+`ggplot2` incluye otras opciones para la creación de gráficos:
+
+```
+ggplot(data = <DATOS>) + 
+  <FUNCION_GEOMETRIA>(
+    mapping = aes(<MAPEOS>),
+    stat = <ESTADISTICA>,
+    position = <POSICION>
+  ) +
+  <FUNCION_COORDENADAS> +
+  <FUNCION_FACET>
+```
+
+El llamado a `ggplot()` crea un sistema de coordenadas (i.e. un "canvas"), al cual se le agregan capas. Su primer argumento es `<DATOS>`, el cual es usualmente un dataframe o un tibble.
+
+...
+
+`ggplot2` provee más de 40 tipos de geometrías para gráficos (puntos, líneas, barras, histogramas, cajas, etc.) y los paquetes de extensión proporcionan aún más (ej. [https://exts.ggplot2.tidyverse.org/gallery/](https://exts.ggplot2.tidyverse.org/gallery/)). Para una explicación resumida de `ggplot2`, se recomienda [Data visualization with ggplot2::Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf).
+
+### plotly
+[Plotly R](https://plotly.com/r/) es una biblioteca para gráficos interactivos que forma parte del [grupo de bibliotecas de graficación de Plotly](https://plotly.com/graphing-libraries/), el cual también incluye bibliotecas para otros lenguajes como Python, Julia, F# y MATLAB. Plotly fue originalmente escrita en JavaScript, por lo que es particularmente adecuada para gráficos interactivos en la Web.
+
+Plotly implementa la función [ggplotly()](https://rdrr.io/cran/plotly/man/ggplotly.html), la cual convierte graficos de `ggplot2` a `plotly`, haciéndolos interactivos.
+
+```{r}
+#| label: grafico-dispersion-mpg-plotly
+#| warning: false
+#| message: false
+
+# Gráfico ggplot2
+grafico_ggplot2 <-
+  mpg |>
+  ggplot(aes(x = displ, y = hwy, color = drv)) +
+  geom_point(aes(
+    text = paste0( # se especifican los datos que se muestran al pasar el ratón
+      "Cilindrada: ",
+      displ,
+      "\n",
+      "Rendimiento en autopista: ",
+      hwy,
+      "\n",
+      "Tipo de tracción: ",
+      drv
+    )
+  )) +
+  geom_smooth() +
+  ggtitle("Cilindrada vs rendimiento en autopista") +
+  xlab("Cilindrada (l)") +
+  ylab("Rendimiento en autopista (mpg)") +
+  labs(subtitle = "Datos de 38 modelos de automóviles de años entre 1999 y 2008",
+       caption = "Fuente: United States Environmental Protection Agency (EPA)",
+       color = "Tipo de tracción") +
+  theme_economist()
+
+# Gráfico plotly
+ggplotly(grafico_ggplot2, tooltip = "text") |> 
+  config(locale = 'es') # para mostrar los controles en español
 ```
 
