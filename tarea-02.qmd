@@ -1,0 +1,86 @@
+# Tarea 02 {.unnumbered}
+
+## Fecha y hora límite de entrega {.unnumbered}
+Lunes 7 de noviembre de 2022, 02:59 p.m.
+
+La entrega debe realizarse a través de la plataforma Mediación Virtual.
+
+## Objetivos {.unnumbered}
+Cada estudiante debe mostrar que es capaz de:
+
+1. Desarrollar programas en el lenguaje R y documentos en el sistema de publicación científica y técnica Quarto.
+2. Implementar tablas y gráficos con las bibliotecas DT, ggplot2 y plotly.
+3. Publicar resultados en la Web, junto con el código y los datos que los generan.
+
+## Entregables {.unnumbered}
+Dirección de un repositorio en GitHub que contenga código, datos y documentación. También debe publicar el repositorio como un sitio GitHub Pages.
+
+Específicamente, el repositorio debe contener:
+
+1. Un documento Quarto con el código en R necesario para generar las salidas especificadas en la sección Desarrollo.
+2. Un directorio con archivos de datos.
+3. Un archivo `README.md` con:
+    1. Una breve descripción (no mayor a 200 palabras) del contenido del repositorio. Si lo desea, puede incluir su interpretación de los resultados.
+    2. Una mención y un enlace a la fuente de los datos.
+    3. Un enlace a un sitio en GitHub Pages con el documento Quarto publicado como una página HTML.
+
+La entrega debe realizarse a través de la plataforma Mediación Virtual.
+
+## Consideraciones adicionales {.unnumbered}
+Esta tarea puede realizarse en parejas o de manera individual. Si es en pareja, solo un integrante debe realizar la entrega e indicar el nombre del otro integrante en Mediación Virtual.
+
+## Desarrollo {.unnumbered}
+Debe desarrollar un documento en Quarto, con bloques de código en R, que utilice los datos de COVID en Costa Rica al 30 de mayo de 2022, disponibles en [https://oges.ministeriodesalud.go.cr/](https://oges.ministeriodesalud.go.cr/). Los archivos necesarios son:
+
+- Cantidades diarias de casos a nivel nacional: `05_30_22_CSV_GENERAL.csv`
+- Cantidades de casos por cantón: `05_30_22_CSV_POSITIVOS.csv`
+
+Alternativamente, puede descargar los archivos de los siguientes enlaces:
+
+- [05_30_22_CSV_GENERAL.csv](https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/ministerio-salud/covid/05_30_22_CSV_GENERAL.csv)
+- [05_30_22_CSV_POSITIVOS.csv](https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/ministerio-salud/covid/05_30_22_CSV_POSITIVOS.csv)
+
+Debe cargar los datos en los archivos CSV a data frames de R y prepararlos mediante:
+
+- Conversiones de tipos (ej. fechas).
+- Manejo de codificaciones de caracteres (*locales*).
+- Eliminación de columnas no necesarias.
+- Eliminación de filas no necesarias.
+- Cambio de nombres de columnas.
+
+Luego, debe implementar las siguientes salidas:
+
+1. Una tabla que muestre datos diarios de COVID (del archivo `05_30_22_CSV_GENERAL.csv`). Incluya las columnas: fecha, casos positivos acumulados de hombres (`hom_posi`), casos positivos acumulados de mujeres (`muj_posi`), casos positivos acumulados de menores (`menor_posi`), casos positivos acumulados de adultos (`adul_posi`), casos positivos acumulados de adultos mayores (`am_posi`) y casos positivos nuevos (`nue_posi`).
+
+2. Un gráfico de barras que muestre la cantidad de casos positivos nuevos por día. Es decir, debe contener una barra por cada día, desde el 2020-06-03 hasta el 2022-05-30.
+
+3. Un gráfico de líneas que muestre la evolución a través del tiempo de los casos positivos acumulados de hombres y de los casos positivos acumulados de mujeres.
+
+4. Un gráfico de líneas que muestre la evolución a través del tiempo de los casos positivos acumulados de menores, los casos positivos acumulados de adultos y de los casos positivos acumulados de adultos mayores.
+
+5. Una tabla que muestre la cantidad casos positivos en cantones. Incluya las columnas provincia (`provincia`), cantón (`canton`) y casos al 2022-05-30 (`30/05/2022`). No incluya la fila de "Otros" o la que contiene valores nulos. 
+
+6. Un histograma que muestre la distribución de los casos positivos en cantones.
+
+Las tablas deben generarse con DT. Los gráficos deben generarse con ggplot2 y convertirse a plotly con la función ggplotly(), para que sean interactivos en la página web que se entregue.
+
+Considere este proyecto como un breve artículo de análisis de datos y siga los siguientes lineamientos:
+
+- El código en R y sus salidas deben ser **legibles y bien presentados**. 
+- Procure incluir solamente el código necesario para generar los resultados.
+- Agregue texto en Markdown para darle estructura al documento e incluir las explicaciones que considere necesarias.
+- Para cada gráfico, incluya un título y etiquetas para los ejes x e y.
+
+## Calificación {.unnumbered}
+Entre paréntesis, se muestra el porcentaje correspondiente a cada aspecto que se calificará:
+
+- Estructura y legibilidad del documento Quarto (5%).
+- Inclusión de los archivos de datos en el repositorio (5%).
+- Inclusión del archivo `README.md`, con el contenido descrito en la sección Entregables (5%).
+- Preparación de los archivos de datos (5%).
+- Tabla con datos de casos por día (10%).
+- Tabla con datos de casos por cantón (10%).
+- Gráfico de barras (15%).
+- Gráfico de líneas de casos por sexo (15%).
+- Gráfico de líneas de casos por edad (15%).
+- Histograma (15%).
