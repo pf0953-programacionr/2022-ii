@@ -12,7 +12,7 @@ Error: package or namespace load failed for ‘sf’ in dyn.load(file, DLLpath =
   /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.30' not found (required by /home/mfvargas/miniconda3/envs/pf0953-2022-ii-b/lib/R/library/sf/libs/../../../../libgdal.so.31)
 ```
 
-Parece que el error se corrige al instalar `sf=1.0_6` (que instala a su vez una versión menor de `libdal`).
+Parece que el error se corrige al instalar `sf=1.0_6` (que instala a su vez una versión menor de `libgdal`). Se creó el ambiente `pf0953-2022-ii-b` para implementar este cambio.
 
 
 ```shell
