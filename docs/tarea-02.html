@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>PF 0953 Programación en R 2022-II - Tarea 02</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./examen_corto-03.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Tarea 02</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">PF 0953 Programación en R 2022-II</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Bienvenida</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-01-introduccion.html" class="sidebar-item-text sidebar-link">I - Introducción</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-introduccion-ciencia-datos-geoespaciales.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la ciencia de datos geoespaciales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown - lenguaje de marcado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git - sistema de control de versiones</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-02-lenguaje-programacion-r.html" class="sidebar-item-text sidebar-link">II - El lenguaje de programación R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-pensamiento_computacional-arquitectura_computadoras.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pensamiento computacional y arquitectura de computadoras</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-r-conceptos_basicos.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R - conceptos básicos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Quarto - sistema de publicación técnica y científica</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-tidyverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tidyverse - paquetes para ciencia de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-dplyr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">dplyr - gramática para manipulación de datos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-03-graficacion-estadistica.html" class="sidebar-item-text sidebar-link">III - Graficación estadística en R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-ggplot2-plotly.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">ggplot2 y plotly - creación declarativa de gráficos interactivos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-04-ecosistema-geoespacial.html" class="sidebar-item-text sidebar-link">IV - El ecosistema geoespacial de R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-introduccion-manejo-datos-geoespaciales.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción al manejo de datos geoespaciales en R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-06-evaluaciones.html" class="sidebar-item-text sidebar-link">Evaluaciones</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examen_corto-01.html" class="sidebar-item-text sidebar-link">Examen corto 01</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tarea-01.html" class="sidebar-item-text sidebar-link">Tarea 01</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examen_corto-02.html" class="sidebar-item-text sidebar-link">Examen corto 02</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examen_corto-03.html" class="sidebar-item-text sidebar-link">Examen corto 03</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tarea-02.html" class="sidebar-item-text sidebar-link active">Tarea 02</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Referencias bibliográficas</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#fecha-y-hora-límite-de-entrega" id="toc-fecha-y-hora-límite-de-entrega" class="nav-link active" data-scroll-target="#fecha-y-hora-límite-de-entrega">Fecha y hora límite de entrega</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
+  <li><a href="#entregables" id="toc-entregables" class="nav-link" data-scroll-target="#entregables">Entregables</a></li>
+  <li><a href="#consideraciones-adicionales" id="toc-consideraciones-adicionales" class="nav-link" data-scroll-target="#consideraciones-adicionales">Consideraciones adicionales</a></li>
+  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">Desarrollo</a></li>
+  <li><a href="#calificación" id="toc-calificación" class="nav-link" data-scroll-target="#calificación">Calificación</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Tarea 02</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="fecha-y-hora-límite-de-entrega" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="fecha-y-hora-límite-de-entrega">Fecha y hora límite de entrega</h2>
+<p>Lunes 7 de noviembre de 2022, 02:59 p.m.</p>
+<p>La entrega debe realizarse a través de la plataforma Mediación Virtual.</p>
+</section>
+<section id="objetivos" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="objetivos">Objetivos</h2>
+<p>Cada estudiante debe mostrar que es capaz de:</p>
+<ol type="1">
+<li>Desarrollar programas en el lenguaje R y documentos en el sistema de publicación científica y técnica Quarto.</li>
+<li>Implementar tablas y gráficos con las bibliotecas DT, ggplot2 y plotly.</li>
+<li>Publicar resultados en la Web, junto con el código y los datos que los generan.</li>
+</ol>
+</section>
+<section id="entregables" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="entregables">Entregables</h2>
+<p>Dirección de un repositorio en GitHub que contenga código, datos y documentación. También debe publicar el repositorio como un sitio GitHub Pages.</p>
+<p>Específicamente, el repositorio debe contener:</p>
+<ol type="1">
+<li>Un documento Quarto con el código en R necesario para generar las salidas especificadas en la sección Desarrollo.</li>
+<li>Un directorio con archivos de datos.</li>
+<li>Un archivo <code>README.md</code> con:
+<ol type="1">
+<li>Una breve descripción (no mayor a 200 palabras) del contenido del repositorio. Si lo desea, puede incluir su interpretación de los resultados.</li>
+<li>Una mención y un enlace a la fuente de los datos.</li>
+<li>Un enlace a un sitio en GitHub Pages con el documento Quarto publicado como una página HTML.</li>
+</ol></li>
+</ol>
+<p>La entrega debe realizarse a través de la plataforma Mediación Virtual.</p>
+</section>
+<section id="consideraciones-adicionales" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="consideraciones-adicionales">Consideraciones adicionales</h2>
+<p>Esta tarea puede realizarse en parejas o de manera individual. Si es en pareja, solo un integrante debe realizar la entrega e indicar el nombre del otro integrante en Mediación Virtual.</p>
+</section>
+<section id="desarrollo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="desarrollo">Desarrollo</h2>
+<p>Debe desarrollar un documento en Quarto, con bloques de código en R, que utilice los datos de COVID en Costa Rica al 30 de mayo de 2022, disponibles en <a href="https://oges.ministeriodesalud.go.cr/">https://oges.ministeriodesalud.go.cr/</a>. Los archivos necesarios son:</p>
+<ul>
+<li>Cantidades diarias de casos a nivel nacional: <code>05_30_22_CSV_GENERAL.csv</code></li>
+<li>Cantidades de casos por cantón: <code>05_30_22_CSV_POSITIVOS.csv</code></li>
+</ul>
+<p>Alternativamente, puede descargar los archivos de los siguientes enlaces:</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/ministerio-salud/covid/05_30_22_CSV_GENERAL.csv">05_30_22_CSV_GENERAL.csv</a></li>
+<li><a href="https://raw.githubusercontent.com/pf0953-programacionr/2022-ii/main/datos/ministerio-salud/covid/05_30_22_CSV_POSITIVOS.csv">05_30_22_CSV_POSITIVOS.csv</a></li>
+</ul>
+<p>Debe cargar los datos en los archivos CSV a data frames de R y prepararlos mediante:</p>
+<ul>
+<li>Conversiones de tipos (ej. fechas).</li>
+<li>Manejo de codificaciones de caracteres (<em>locales</em>).</li>
+<li>Eliminación de columnas no necesarias.</li>
+<li>Eliminación de filas no necesarias.</li>
+<li>Cambio de nombres de columnas.</li>
+</ul>
+<p>Luego, debe implementar las siguientes salidas:</p>
+<ol type="1">
+<li><p>Una tabla que muestre datos diarios de COVID (del archivo <code>05_30_22_CSV_GENERAL.csv</code>). Incluya las columnas: fecha, casos positivos acumulados de hombres (<code>hom_posi</code>), casos positivos acumulados de mujeres (<code>muj_posi</code>), casos positivos acumulados de menores (<code>menor_posi</code>), casos positivos acumulados de adultos (<code>adul_posi</code>), casos positivos acumulados de adultos mayores (<code>am_posi</code>) y casos positivos nuevos (<code>nue_posi</code>).</p></li>
+<li><p>Un gráfico de barras que muestre la cantidad de casos positivos nuevos por día. Es decir, debe contener una barra por cada día, desde el 2020-06-03 hasta el 2022-05-30.</p></li>
+<li><p>Un gráfico de líneas que muestre la evolución a través del tiempo de los casos positivos acumulados de hombres y de los casos positivos acumulados de mujeres.</p></li>
+<li><p>Un gráfico de líneas que muestre la evolución a través del tiempo de los casos positivos acumulados de menores, los casos positivos acumulados de adultos y de los casos positivos acumulados de adultos mayores.</p></li>
+<li><p>Una tabla que muestre la cantidad casos positivos en cantones. Incluya las columnas provincia (<code>provincia</code>), cantón (<code>canton</code>) y casos al 2022-05-30 (<code>30/05/2022</code>). No incluya la fila de “Otros” o la que contiene valores nulos.</p></li>
+<li><p>Un histograma que muestre la distribución de los casos positivos en cantones.</p></li>
+</ol>
+<p>Las tablas deben generarse con DT. Los gráficos deben generarse con ggplot2 y convertirse a plotly con la función ggplotly(), para que sean interactivos en la página web que se entregue.</p>
+<p>Considere este proyecto como un breve artículo de análisis de datos y siga los siguientes lineamientos:</p>
+<ul>
+<li>El código en R y sus salidas deben ser <strong>legibles y bien presentados</strong>.</li>
+<li>Procure incluir solamente el código necesario para generar los resultados.</li>
+<li>Agregue texto en Markdown para darle estructura al documento e incluir las explicaciones que considere necesarias.</li>
+<li>Para cada gráfico, incluya un título y etiquetas para los ejes x e y.</li>
+</ul>
+</section>
+<section id="calificación" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="calificación">Calificación</h2>
+<p>Entre paréntesis, se muestra el porcentaje correspondiente a cada aspecto que se calificará:</p>
+<ul>
+<li>Estructura y legibilidad del documento Quarto (5%).</li>
+<li>Inclusión de los archivos de datos en el repositorio (5%).</li>
+<li>Inclusión del archivo <code>README.md</code>, con el contenido descrito en la sección Entregables (5%).</li>
+<li>Preparación de los archivos de datos (5%).</li>
+<li>Tabla con datos de casos por día (10%).</li>
+<li>Tabla con datos de casos por cantón (10%).</li>
+<li>Gráfico de barras (15%).</li>
+<li>Gráfico de líneas de casos por sexo (15%).</li>
+<li>Gráfico de líneas de casos por edad (15%).</li>
+<li>Histograma (15%).</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./examen_corto-03.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Examen corto 03</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">Referencias bibliográficas</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
