@@ -24,5 +24,5 @@ conda config --env --set channel_priority strict
 
 conda install -c conda-forge mamba
 
-mamba install r-base r-essentials r-ggplot2 r-ggthemes r-hrbrthemes r-plotly r-dt r-sf=1.0_6 r-rmapshaper r-terra r-raster r-rgdal r-leaflet r-leaflet.providers r-leaflet.extras r-leaflet.minicharts r-leafem r-gapminder
+mamba install r-base r-essentials r-ggplot2 r-ggthemes r-hrbrthemes r-plotly r-dt r-sf=1.0_6 r-rmapshaper r-terra r-raster r-rgdal r-leaflet r-leaflet.providers r-leaflet.extras r-leaflet.minicharts r-leafem r-palmerpenguins r-gapminder
 ```

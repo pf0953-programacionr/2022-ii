@@ -1,0 +1,14 @@
+---
+title: "Introducción al manejo de datos geoespaciales en R"
+toc-title: "Contenidos"
+---
+
+# Trabajo previo
+
+## Lecturas
+
+Lovelace, R., Nowosad, J., & Münchow, J. (2019). *Geocomputation with R* (capítulos 1 y 2). CRC Press. \[https://geocompr.robinlovelace.net/\]
+
+# Resumen
+
+El lenguaje de programación R cuenta con varios paquetes para manejo de datos geoespaciales, entre los que están el paquete `sf` para datos vectoriales, el paquete `terra` para datos raster y el paquete `leaflet` para mapas en la Web.
