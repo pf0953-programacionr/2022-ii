@@ -1,0 +1,11 @@
+# Examen corto 04 {.unnumbered}
+
+## Fecha {.unnumbered}
+
+Lunes 14 de noviembre de 2022
+
+## Temas a evaluar {.unnumbered}
+
+- [Tidyverse - paquetes para ciencia de datos](https://pf0953-programacionr.github.io/2022-ii/07-tidyverse.html)
+- [dplyr - gramática para manipulación de datos](https://pf0953-programacionr.github.io/2022-ii/08-dplyr.html)
+- [ggplot2 y plotly - creación declarativa de gráficos interactivos](https://pf0953-programacionr.github.io/2022-ii/09-ggplot2-plotly.html)

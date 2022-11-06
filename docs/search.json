@@ -623,6 +623,20 @@
     "text": "Calificación\nEntre paréntesis, se muestra el porcentaje correspondiente a cada aspecto que se calificará:\n\nEstructura y legibilidad del documento Quarto (5%).\nInclusión de los archivos de datos en el repositorio (5%).\nInclusión del archivo README.md, con el contenido descrito en la sección Entregables (5%).\nPreparación de los archivos de datos (5%).\nTabla con datos de casos por día (10%).\nTabla con datos de casos por cantón (10%).\nGráfico de barras (15%).\nGráfico de líneas de casos por sexo (15%).\nGráfico de líneas de casos por edad (15%).\nHistograma (15%)."
   },
   {
+    "objectID": "examen_corto-04.html",
+    "href": "examen_corto-04.html",
+    "title": "Examen corto 04",
+    "section": "",
+    "text": "Lunes 14 de noviembre de 2022"
+  },
+  {
+    "objectID": "examen_corto-04.html#temas-a-evaluar",
+    "href": "examen_corto-04.html#temas-a-evaluar",
+    "title": "Examen corto 04",
+    "section": "Temas a evaluar",
+    "text": "Temas a evaluar\n\nTidyverse - paquetes para ciencia de datos\ndplyr - gramática para manipulación de datos\nggplot2 y plotly - creación declarativa de gráficos interactivos"
+  },
+  {
     "objectID": "references.html",
     "href": "references.html",
     "title": "Referencias bibliográficas",
