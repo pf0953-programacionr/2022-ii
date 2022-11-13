@@ -1,0 +1,85 @@
+# Tarea 03 {.unnumbered}
+
+## Fecha y hora límite de entrega {.unnumbered}
+
+Lunes 21 de noviembre de 2022, 02:59 p.m.
+
+La entrega debe realizarse a través de la plataforma Mediación Virtual.
+
+## Objetivos {.unnumbered}
+
+Cada estudiante debe mostrar que es capaz de:
+
+1.  Desarrollar programas en el lenguaje R y documentos en el sistema de publicación científica y técnica Quarto.
+2.  Implementar tablas, gráficos y mapas con las bibliotecas DT, ggplot2, plotly y sf.
+3.  Publicar resultados en la Web, junto con el código y los datos que los generan.
+
+## Entregables {.unnumbered}
+
+Dirección de un repositorio en GitHub que contenga código, datos y documentación. También debe publicar el repositorio como un sitio GitHub Pages.
+
+Específicamente, el repositorio debe contener:
+
+1.  Un documento Quarto con el código en R necesario para generar las salidas especificadas en la sección Desarrollo.
+2.  Un directorio con archivos de datos.
+3.  Un archivo `README.md` con:
+    1.  Una breve descripción (no mayor a 200 palabras) del contenido del repositorio. Si lo desea, puede incluir su interpretación de los resultados.
+    2.  Una mención y un enlace a las fuentes de los datos (ej. DOI de las consultas al portal de GBIF, fuentes de datos geoespaciales).
+    3.  Un enlace a un sitio en GitHub Pages con el documento Quarto publicado como una página HTML.
+
+La entrega debe realizarse a través de la plataforma Mediación Virtual.
+
+## Consideraciones adicionales {.unnumbered}
+
+Esta tarea puede realizarse en parejas o de manera individual. Si es en pareja, solo un integrante debe realizar la entrega e indicar el nombre del otro integrante en Mediación Virtual.
+
+## Desarrollo {.unnumbered}
+
+Debe desarrollar un documento en Quarto, con bloques de código en R, que utilicen los siguientes conjuntos de datos:
+
+- [Registros de presencia de felinos de Costa Rica, agrupados por la Infraestructura Mundial de Información en Biodiversidad (GBIF)](https://doi.org/10.15468/dl.dwpgps).
+- [Áreas silvestres protegidas (ASP) de Costa Rica, publicadas por el Sistema Nacional de Áreas de Conservación (Sinac) en el Sistema Nacional de Información Territorial (SNIT)](https://www.snitcr.go.cr/ico_servicios_ogc_info?k=bm9kbzo6NDA=&nombre=SINAC).
+- [Capa raster de WorldClim de altitud de Costa Rica en resolución de 30 x 30 segundos](https://github.com/pf0953-programacionr/2022-ii/blob/main/datos/worldclim/altitud.tif). ([Enlace al sitio de WorldClim](https://www.worldclim.org/)).
+
+Debe cargar los datos en R y realizar las conversiones y preparaciones necesarias, por ejemplo:
+
+-   Conversiones de tipos (ej. fechas).
+-   Manejo de codificaciones de caracteres (*locales*).
+-   Eliminación de columnas no necesarias.
+-   Eliminación de filas no necesarias.
+-   Cambio de nombres de columnas.
+
+Luego, debe implementar las siguientes salidas:
+
+1.  Una tabla que muestre los registros de presencia de felinos. Incluya las columnas: especie (`species`), provincia (`stateProvince`), localidad (`locality`), fecha (`eventDate`).
+
+2.  Un gráfico de barras apiladas que muestre la cantidad de registros por especie en cada mes del año. El gráfico debe tener 12 barras (una por mes) y cada barra debe estar dividida en un máximo de seis partes (una por especie). Las barras deben estar ordenadas de enero a diciembre.
+
+3.  Un mapa que muestre las siguientes cinco capas:
+
+-   Dos capas base (ej. OpenStreetMap).
+-   Capa raster de altitud de Costa Rica.
+-   Capa de polígonos de ASP de Costa Rica. La ventana emergente (*popup*) debe mostrar el nombre del ASP al hacer clic sobre el polígono.
+-   Capa de puntos de registros de presencia de felinos. La ventana emergente (*popup*) debe mostrar el nombre de la especie, la provincia, la localidad y la fecha.
+
+Las tablas deben generarse con DT. Los gráficos deben generarse con ggplot2 y convertirse a plotly con la función ggplotly(), para que sean interactivos en la página web que se entregue. Los mapas deben implementarse con leaflet.
+
+Considere este proyecto como un breve artículo de análisis de datos y siga los siguientes lineamientos:
+
+-   El código en R y sus salidas deben ser **legibles y bien presentados**.
+-   **Incluya solamente el código necesario para generar los resultados. No incluya pruebas o resultados intermedios.** Puede utilizar opciones en los bloque de código de Quarto como `warning`, `message` y `code-fold` para evitar el despliegue de mensajes y advertencias, así como para ocultar el código, si lo considera conveniente.
+-   Agregue texto en Markdown para darle estructura al documento e incluir las explicaciones que considere necesarias.
+-   Para cada gráfico, incluya un título y etiquetas para los ejes x e y.
+-   Los mapas deben tener un control de capas.
+
+## Calificación {.unnumbered}
+
+Entre paréntesis, se muestra el porcentaje correspondiente a cada aspecto que se calificará:
+
+-   Estructura y legibilidad del documento Quarto (10%).
+-   Inclusión de los archivos de datos en el repositorio (5%).
+-   Inclusión del archivo `README.md`, con el contenido descrito en la sección Entregables (5%).
+-   Preparación de los archivos de datos (5%).
+-   Tabla con registros de presencia de especies (10%).
+-   Gráfico de barras apiladas (30%).
+-   Mapa (35%).
