@@ -6,12 +6,15 @@ toc-title: "Contenidos"
 ## Trabajo previo
 
 ### Lecturas
+
 Lovelace, R., Nowosad, J., & Münchow, J. (2019). *Geocomputation with R* (capítulos 1 y 2). CRC Press. <https://geocompr.robinlovelace.net/>
 
 ## Resumen
+
 El lenguaje de programación R cuenta con varios paquetes para manejo de datos geoespaciales, entre los que están el paquete `sf` para datos vectoriales, el paquete `terra` para datos raster y el paquete `leaflet` para mapas en la Web.
 
 ## Introducción
+
 La comunidad de programadores de R ha desarrollado un conjunto de paquetes para el manejo de datos geoespaciales, tanto en formatos vectoriales como raster. Algunos de los principales de estos paquetes son:
 
 -   El paquete [sf](https://cran.r-project.org/web/packages/sf/). Ofrece un conjunto de funciones para el manejo de datos vectoriales, de acuerdo con el estándar [Simple Features](https://www.ogc.org/standards/sfa).
@@ -27,9 +30,11 @@ En [CRAN Task View: Analysis of Spatial Data](https://cran.r-project.org/web/vie
 ## Datos vectoriales
 
 ### El modelo vectorial
+
 El modelo vectorial de datos está basado en puntos localizados en un [sistema de referencia de coordenadas (CRS)](https://en.wikipedia.org/wiki/Spatial_reference_system). Los puntos individuales pueden representar objetos independientes (ej. postes eléctricos, cabinas telefónicas) o pueden también agruparse para formar geometrías más complejas como líneas (ej. ríos, caminos) o polígonos (ej. fincas, países, provincias). Por lo general, los puntos tienen solo dos dimensiones (x, y), a las que se les puede agregar una tercera dimensión z, usualmente correspondiente a la altitud sobre el nivel del mar.
 
 ### El estándar Simple Features
+
 [Simple Features](https://www.ogc.org/standards/sfa) (o Simple Feature Access) es un estándar abierto de la [Organización Internacional de Estandarización (ISO)](https://iso.org/) y del [Open Geospatial Consortium (OGC)](https://www.ogc.org/) que especifica un modelo común de almacenamiento y acceso para geometrías de dos dimensiones (líneas, polígonos, multilíneas, multipolígonos, etc.). El estándar es implementado por muchas bibliotecas y bases de datos geoespaciales como [sf](https://cran.r-project.org/web/packages/sf/), [Fiona](https://pypi.org/project/Fiona/), [GDAL](https://gdal.org/), [PostgreSQL/PostGIS](https://postgis.net/), [SQLite/SpatiaLite](https://www.gaia-gis.it/fossil/libspatialite/), [Oracle Spatial](https://www.oracle.com/database/technologies/spatialandgraph.html) y [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/), entre muchas otras.
 
 La especificación define 17 tipos de geometrías, de las cuales siete son las más comúnmente utilizadas. Estas últimas se muestran en la @fig-tipos-geometrias-simple-features.
@@ -43,6 +48,7 @@ knitr::include_graphics(rep("img/tipos-geometrias-simple-features.png"))
 ```
 
 ### El paquete sf
+
 El paquete [sf](https://r-spatial.github.io/sf/) (de *Simple Features*) de R implementa los modelos de datos de las geometrías de tipo vectorial: puntos, líneas, polígonos, sus versiones múltiples y las colecciones de geometrías. Está basado en bibliotecas de sofware ampliamente utilizadas en aplicaciones geoespaciales:
 
 -   [Geospatial Data Abstraction Library (GDAL)](https://gdal.org/): es una biblioteca para leer y escribir datos geoespaciales en varios formatos [raster](https://gdal.org/drivers/raster/) y [vectoriales](https://gdal.org/drivers/vector/). Implementa un único [modelo abstracto de datos raster](https://gdal.org/user/raster_data_model.html) y un único [modelo abstracto de datos vectoriales](https://gdal.org/user/vector_data_model.html), lo que permite programar aplicaciones geoespaciales sin tener que ocuparse de las particularidades de cada formato que se utilice (GeoTIFF, NetCDF, ESRI Shapefile, GeoJSON, etc.). A pesar de que GDAL está programada en C/C++, cuenta con una interfaz de programación de aplicaciones (API) para varios lenguajes de programación, incluyendo [C](https://gdal.org/api/index.html#c-api), [C++](https://gdal.org/api/index.html#id3), [Python](https://gdal.org/python/index.html) y [Java](https://gdal.org/java/overview-summary.html). Además, ofrece un conjunto de [utilitarios de línea de comandos](https://gdal.org/programs/) cuyas [distribuciones binarias](https://gdal.org/download.html#binaries) están disponibles para varios sistemas operativos, incluyendo Windows, macOS y Linux.
@@ -72,6 +78,7 @@ library(sf)
 ```
 
 #### Métodos
+
 La lista de métodos (i.e. funciones) de la clase `sf` puede obtenerse a través de la función `methods()`:
 
 ```{r}
@@ -84,6 +91,7 @@ methods(class = "sf")
 Seguidamente, se describen y ejemplifican algunos de los métodos básicos de la clase `sf`.
 
 ##### st_read() - lectura de datos
+
 El método [st_read()](https://r-spatial.github.io/sf/reference/st_read.html) lee datos vectoriales de una fuente en formato geoespacial (ej. shapefiles, archivos GeoJSON, bases de datos geoespaciales) y los recupera en un [objeto sf](https://r-spatial.github.io/sf/reference/sf.html).
 
 En el siguiente bloque de código en R, se utiliza el método `st_read()` para leer un [archivo GeoJSON con los polígonos de las provincias de Costa Rica](datos/ign/delimitacion-territorial-administrativa/provincias.geojson). Este archivo proviene de un [geoservicio de tipo Web Feature Service (WFS)](http://geos.snitcr.go.cr/be/IGN_5/wfs) publicado por el Instituto Geográfico Nacional (IGN).
@@ -140,6 +148,7 @@ provincias
 ```
 
 ##### st_crs() y st_transform() - manejo de sistemas de coordenadas
+
 El método [st_crs()](https://r-spatial.github.io/sf/reference/st_crs.html) retorna el CRS de un objeto `sf`.
 
 ```{r}
@@ -173,6 +182,7 @@ provincias <-
 ```
 
 ##### plot() - mapeo
+
 El método [plot()](https://r-spatial.github.io/sf/reference/plot.html) grafica objetos `sf` en un mapa.
 
 ```{r}
@@ -216,6 +226,7 @@ plot(felinos$geometry,
 Para conocer los valores del argumento `pch`, puede consultar [R plot pch symbols](http://www.sthda.com/english/wiki/r-plot-pch-symbols-the-different-point-shapes-available-in-r).
 
 ##### st_write() - escritura de datos
+
 El método [st_write()](https://r-spatial.github.io/sf/reference/st_write.html) guarda en el disco un objeto `sf` en los diferentes [formatos vectoriales de GDAL](https://gdal.org/drivers/vector/).
 
 ```{r}
@@ -252,6 +263,7 @@ summary(provincias$geometry)
 ### Mapeo de objetos sf con otros paquetes
 
 #### leaflet
+
 El paquete [leaflet](https://rstudio.github.io/leaflet/) genera mapas interactivos en [lenguaje de marcado de hipertexto (HTML)](https://es.wikipedia.org/wiki/HTML), el lenguaje de marcado utilizado para desarrollar páginas web.
 
 ##### Instalación y carga
@@ -262,6 +274,12 @@ El paquete [leaflet](https://rstudio.github.io/leaflet/) genera mapas interactiv
 
 # Instalación de leaflet
 install.packages("leaflet")
+
+# Instalación de leaflet.extras (funciones adicionales de leaflet)
+install.packages("leaflet.extras")
+
+# Instalación de leaflem (funciones adicionales de leaflet)
+install.packages("leafem")
 ```
 
 ```{r}
@@ -270,6 +288,12 @@ install.packages("leaflet")
 
 # Carga de leaflet
 library(leaflet)
+
+# Carga de leaflet.extras
+library(leaflet.extras)
+
+# Carga de leafem
+library(leafem)
 ```
 
 El siguiente bloque de código muestra las capas de provincias (polígonos) y de registros de presencia de felinos (puntos) sobre una capa base de [OpenStreetMap (OSM)](https://www.openstreetmap.org/).
@@ -283,7 +307,7 @@ leaflet() |>
     lng = -84.19452,
     lat = 9.572735,
     zoom = 7) |>
-  addTiles(group = "OpenStreetMap") |> # capa base de OSM
+  addTiles(group = "OpenStreetMap") |> # capa base de OSM |>
   addPolygons(
     # capa de provincias (polígonos)
     data = provincias,
@@ -309,14 +333,26 @@ leaflet() |>
       sep = '<br/>'
     )
   ) |>
-  addLayersControl(# control de capas
+  addLayersControl(
     baseGroups = c("OpenStreetMap"),
-    overlayGroups = c("Felinos"))
+    overlayGroups = c("Felinos")) |> # control de capas
+  addResetMapButton() |> # botón de reinicio
+  addSearchOSM() |> # búsqueda en OSM
+  addMouseCoordinates() |> # coordenadas del puntero del ratón
+  addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) |> # barra de escala
+  addMiniMap(position = "bottomleft") # mapa de ubicación
 ```
+
+### Ejercicios
+
+1.  Agregue capas base adicionales al mapa anterior, con la función [leaflet::addProviderTiles()](https://rdrr.io/cran/leaflet/man/addProviderTiles.html) (vea [Leaflet for R - Using Basemaps](https://rstudio.github.io/leaflet/basemaps.html)).
+2.  Agrupe los puntos correspondientes a los registros de presencia mediante la función `markerClusterOptions()` (vea [Leaflet for R - Markers](https://rstudio.github.io/leaflet/markers.html)).
+3.  Genere una capa de calor ([*heat map*](https://es.wikipedia.org/wiki/Mapa_de_calor)) con la función [leaflet.extras::addHeatmap()](https://bhaskarvk.github.io/leaflet.extras/reference/heatmap.html).
 
 ## Datos raster
 
 ### El modelo raster
+
 El modelo de datos raster usualmente consiste de un encabezado y de una matriz con celdas (también llamadas pixeles) de un mismo tamaño. El encabezado define el CRS, la extensión y el punto de origen de una capa raster. Por lo general, el origen se ubica en la esquina inferior izquierda o en la esquina superior izquierda de la matriz. La extensión se define mediante el número de filas, el número de columnas y el tamaño (resolución) de la celda.
 
 Cada celda tiene una identificación (ID) y almacena un único valor, el cual puede ser numérico o categórico, como se muestra en la @fig-modelo-raster.
@@ -342,6 +378,7 @@ knitr::include_graphics(rep("img/raster-continuo-categorico.png"))
 ```
 
 ### El paquete terra
+
 El paquete [terra](https://rspatial.org/terra/) implementa un conjunto de funciones para la lectura, escritura, manipulación, análisis y modelado de datos raster y vectoriales. Implementa la clase [SpatRaster](https://rdrr.io/cran/terra/man/SpatRaster-class.html) para manejar los objetos raster.
 
 #### Instalación y carga
@@ -363,6 +400,7 @@ library(terra)
 ```
 
 #### Métodos
+
 La función `help()` presenta la documentación del paquete terra, incluyendo sus métodos.
 
 ```{r}
@@ -410,6 +448,7 @@ altitud
 ```
 
 ##### crs() y project() - manejo de sistemas de coordenadas
+
 El método [crs()](https://rdrr.io/pkg/terra/man/crs.html) retorna el CRS de un objeto `SpatRaster`.
 
 ```{r}
@@ -447,6 +486,7 @@ crs(altitud_utm17N)
 ```
 
 ##### plot() - mapeo
+
 El método [plot()](https://rdrr.io/pkg/terra/man/plot.html) muestra objetos `SpatRaster` en un mapa.
 
 ```{r}
@@ -478,6 +518,7 @@ plot(felinos$geometry,
 ```
 
 ##### writeRaster() - escritura de datos
+
 La función [writeRaster()](https://rdrr.io/pkg/terra/man/writeRaster.html) guarda en el disco un objeto `SpatRaster` en los diferentes [formatos raster de GDAL](https://gdal.org/drivers/raster/).
 
 ```{r}
@@ -508,6 +549,7 @@ res(altitud)
 ```
 
 #### leaflet
+
 A la fecha de escritura de este documento (2022-11-05), el paquete `leaflet` no cuenta con soporte para combinar en un mapa objetos `sf` con objetos `SpatRaster`, pero sí puede hacerlo con objetos de tipo `RasterLayer` del paquete [raster](https://cran.r-project.org/web/packages/raster/) (antecesor de `terra`). Por este motivo, se utiliza aquí el método [raster()](https://rdrr.io/pkg/raster/man/raster.html) de `raster` para realizar la conversión de `SpatRaster` a `RasterLayer` y así mapear el objeto `altitud` con el método [addRasterImage()](https://rdrr.io/pkg/leaflet/man/addRasterImage.html) de `leaflet`. Para más información sobre el tema de conversiones entre las diferentes clases espaciales de R, puede consultarse [Conversions between different spatial classes in R](https://www.r-bloggers.com/2021/06/conversions-between-different-spatial-classes-in-r/).
 
 Entonces, primero se instala y carga el paquete `raster`. También debe cargarse e instalarse el paquete `rgdal`, como complemento de `raster`.
@@ -537,6 +579,12 @@ Se muestran en un mapa `leaflet` las capas de altitud (raster), provincias (pol�
 #| message: false
 #| warning: false
 
+# Paleta de colores de altitud de Costa Rica
+colores_altitud <-
+  colorNumeric(terrain.colors(25),
+               values(altitud),
+               na.color = "transparent")
+
 # Mapa leaflet básico con capas de altitud, provincias y registros de presencia de felinos
 leaflet() %>%
   setView(# centro y nivel inicial de acercamiento
@@ -546,9 +594,17 @@ leaflet() %>%
   addTiles(group = "OpenStreetMap") |> # capa base de OSM
   addRasterImage( # capa raster
     raster(altitud), # conversión de SpatRaster a RasterLayer 
+    colors = colores_altitud, # paleta de colores
     opacity = 0.6,
     group = "Altitud",
-  ) %>%    
+  ) |>
+  addLegend(
+    title = "Altitud",
+    values = values(altitud),
+    pal = colores_altitud,
+    position = "bottomleft",
+    group = "Altitud"
+  ) |>
   addPolygons(
     data = provincias,
     color = "black",
@@ -556,7 +612,7 @@ leaflet() %>%
     stroke = TRUE,
     weight = 1.0,
     group = "Provincias"
-  ) %>%
+  ) |>
   addCircleMarkers(
     data = felinos,
     stroke = F,
@@ -581,6 +637,7 @@ leaflet() %>%
 ```
 
 ## Ejercicios
+
 En un documento Quarto incluya:
 
 1.  Una tabla `DT` con las columnas del conjunto de datos de felinos de Costa Rica correspondientes a especie (`species`), fecha (`eventDate`), provincia (`stateProvince`), localidad (`locality`), longitud (`decimalLongitude`) y latitud (`decimalLatitude`).
@@ -599,6 +656,6 @@ Publique el documento como un sitio web en [GitHub Pages](https://pages.github.c
 
 ## Recursos de interés
 
-Bivand, R. (2022). *CRAN Task View: Analysis of Spatial Data*. [https://CRAN.R-project.org/view=Spatial](https://CRAN.R-project.org/view=Spatial)
+Bivand, R. (2022). *CRAN Task View: Analysis of Spatial Data*. <https://CRAN.R-project.org/view=Spatial>
 
-R-Ladies Madrid. (2021). *R-Ladies Madrid (español)---Analiza datos espaciales---Stephanie Orellana*. [https://www.youtube.com/watch?v=59tO2ARvVVU](https://www.youtube.com/watch?v=59tO2ARvVVU)
+R-Ladies Madrid. (2021). *R-Ladies Madrid (español)---Analiza datos espaciales---Stephanie Orellana*. <https://www.youtube.com/watch?v=59tO2ARvVVU>
