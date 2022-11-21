@@ -1,0 +1,116 @@
+---
+title: "Shiny - paquete para desarrollo de aplicaciones interactivas"
+---
+
+## Trabajo previo
+
+### Lecturas
+Moraga, P. (2019). Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny (capítulos 13 y 14). Chapman & Hall/CRC. [https://www.paulamoraga.com/book-geospatial/](https://www.paulamoraga.com/book-geospatial/)
+
+Quarto - Shiny. (s. f.). Recuperado 20 de noviembre de 2022, de [https://quarto.org/docs/interactive/shiny/](https://quarto.org/docs/interactive/shiny/)
+
+
+## Resumen
+Este capítulo trata sobre el paquete `Shiny`, para desarrollo de aplicaciones interactivas.
+
+## Instalación y carga
+
+```{r}
+#| label: instalacion-shiny
+#| eval: false
+
+# Instalación de shiny
+install.packages("shiny")
+
+# Instalación de rsconnect,
+# para conectarse a shinyapps.io, RStudio Connect y otras plataformas similares
+install.packages("rsconnect")
+```
+
+```{r}
+#| label: carga-shiny
+#| message: false
+
+# Carga de shiny
+library(shiny)
+
+# Carga de rsconnect
+library(rsconnect)
+```
+
+## Características generales
+En una aplicación interactiva, el usuario puede configurar las salidas, usualmente mediante una interfaz que le permite realizar operaciones como filtros, búsquedas y ordenamientos, entre otras. `Shiny` es un paquete de R que facilita el desarrollo de este tipo de aplicaciones.
+
+Las aplicaciones Shiny requieren un [servidor](https://www.rstudio.com/products/shiny/shiny-server/), el cual puede estar ubicado en cualquier computador habilitado para ejecutar código en R como, por ejemplo, la estación de trabajo del programador (esta opción se usa principalmente para efectos de desarrollo y pruebas), un servidor ubicado en la red de una organización o un servidor en la nube (ej. [shinyapps.io](https://www.shinyapps.io/), [RStudio Connect](https://www.rstudio.com/products/connect/)).
+
+## Ejemplo de aplicación Shiny
+El siguiente documento Quarto contiene una aplicación Shiny que muestra la distribución de la duración de los intervalos de tiempo entre erupciones del [géiser "Old Faithful"](https://rdrr.io/r/datasets/faithful.html).
+
+```` md
+---
+title: "Old Faithful"
+format: html
+server: shiny
+---
+
+```{r}`r ''`
+#| label: interfaz-usuario
+
+sliderInput("bins", 'Cantidad de "bins" del histograma:', 
+            min = 1, max = 50, value = 30)
+            
+plotOutput("histograma")
+```
+
+```{r}`r ''`
+#| label: servidor
+#| context: server
+
+output$histograma <- renderPlot({
+  x <- faithful[, 2]  # columna de duración de intervalos entre erupciones
+  bins <- seq(min(x), max(x), length.out = input$bins + 1)
+  hist(x,
+       breaks = bins,
+       main = 'Distribución de duración de intervalos entre erupciones',
+       xlab = "Duración de intervalos (min)",
+       ylab = "Frecuencia",
+       col = 'darkgray',
+       border = 'white')
+})
+```
+````
+
+Hay dos diferencias importantes entre este documento y otros documentos Quarto:
+
+1. La opción `server: shiny`: en la sección YAML, la cual le indica a Quarto que debe iniciar un servidor Shiny.
+
+2. La opción `context: server`: en el segundo bloque de código, la cual indica que ese bloque debe ejecutarse en el servidor.
+
+## Ejercicios
+1. Ejecute en su computadora el código de la aplicación "Old Faithful" mostrado anteriormente.
+    a. Cree un proyecto en RStudio (puede hacerlo a partir de un repositorio en GitHub).
+    b. Cree un documento Quarto. 
+    c. Copie en el nuevo documento el código de la aplicación "Old Faithful".
+    d. Ejecute el documento con el botón `Run Document`.
+    
+2. Publique la aplicación "Old Faithful" en shinyapps.io (puede consultar [Quarto - Running Documents](https://quarto.org/docs/interactive/shiny/running.html) y [How to Deploy R Shiny App for Free on Shinyapps.io](https://www.youtube.com/watch?v=2QstfyGX4ZU)).
+    a. Cree una cuenta en [shinyapps.io](https://www.shinyapps.io/).
+    b. Obtenga su *token* de autenticación de shinyapps.io en **Accounts - Tokens - Show- Show secret - Copy to clipboard**.
+    c. Ejecute la aplicación en su computadora y publíquela en shinyapps.io con el botón **Publish**. Elija la opción shinyapps.io e ingrese el *token* cuando se le solicite. Debe seleccionar todos los archivos requeridos para que su aplicación funciones (datos, imágenes, etc.). 
+
+3. Ejecute en su computadora y luego publique en shinyapps.io la aplicación [Iris K-Means Clustering](https://quarto.org/docs/interactive/shiny/#custom-layout).
+
+4. Estudie el resto de los ejemplos en [Quarto - Shiny - Examples](https://quarto.org/docs/interactive/shiny/#examples).
+
+5. Cree una aplicación Shiny para el conjunto de datos de [registros de presencia de felinos de Costa Rica](https://doi.org/10.15468/dl.dwpgps), y publíquela en shinyapps.io, con las siguientes características:
+    a. Una lista de selección de especies.
+    b. Una tabla DT que muestre los registros de presencia de la especie seleccionada en la lista.
+
+## Recursos de interés
+Quarto - Running Documents. (s. f.). Recuperado 20 de noviembre de 2022, de [https://quarto.org/docs/interactive/shiny/running.html](https://quarto.org/docs/interactive/shiny/running.html)
+
+Shiny. (s. f.). Recuperado 20 de noviembre de 2022, de [https://shiny.rstudio.com/](https://shiny.rstudio.com/)
+
+Shiny - Gallery. (s. f.). Recuperado 20 de noviembre de 2022, de [https://shiny.rstudio.com/gallery/](https://shiny.rstudio.com/gallery/)
+
+1littlecoder. (2020). How to Deploy R Shiny App for Free on Shinyapps.io. [https://www.youtube.com/watch?v=2QstfyGX4ZU](https://www.youtube.com/watch?v=2QstfyGX4ZU)

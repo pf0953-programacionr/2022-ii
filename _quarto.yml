@@ -25,7 +25,10 @@ book:
         - 09-ggplot2-plotly.qmd  
     - part: part-04-ecosistema-geoespacial.qmd    
       chapters:
-        - 10-introduccion-manejo-datos-geoespaciales.qmd            
+        - 10-introduccion-manejo-datos-geoespaciales.qmd
+    - part: part-05-visualizacion-avanzada.qmd    
+      chapters:
+        - 14-shiny.qmd        
     - part: part-06-evaluaciones.qmd
       chapters:
         - examen_corto-01.qmd    
