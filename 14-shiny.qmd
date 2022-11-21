@@ -102,9 +102,13 @@ Hay dos diferencias importantes entre este documento y otros documentos Quarto:
 
 4. Estudie el resto de los ejemplos en [Quarto - Shiny - Examples](https://quarto.org/docs/interactive/shiny/#examples).
 
-5. Cree una aplicación Shiny para el conjunto de datos de [registros de presencia de felinos de Costa Rica](https://doi.org/10.15468/dl.dwpgps), y publíquela en shinyapps.io, con las siguientes características:
+5. Cree una aplicación Shiny para el conjunto de datos de [registros de presencia de felinos de Costa Rica](https://doi.org/10.15468/dl.dwpgps), y publíquela en shinyapps.io, con los siguientes componentes:
     a. Una lista de selección de especies.
-    b. Una tabla DT que muestre los registros de presencia de la especie seleccionada en la lista.
+    b. Una tabla DT que muestre los registros de la especie seleccionada en la lista.
+    c. Un gráfico ggplot2-plotly de barras que muestre la cantidad de registros por mes de la especie seleccionada en la lista.
+    d. Un mapa leaflet que muestre la ubicación de los registros de la especie seleccionada en la lista.
+    
+    Puede encontrar una solución parcial en [https://github.com/pf0953-programacionr/2022-ii-felinos-shiny](https://github.com/pf0953-programacionr/2022-ii-felinos-shiny).
 
 ## Recursos de interés
 Quarto - Running Documents. (s. f.). Recuperado 20 de noviembre de 2022, de [https://quarto.org/docs/interactive/shiny/running.html](https://quarto.org/docs/interactive/shiny/running.html)
