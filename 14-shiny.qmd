@@ -11,7 +11,7 @@ Quarto - Shiny. (s. f.). Recuperado 20 de noviembre de 2022, de [https://quarto.
 
 
 ## Resumen
-Este capítulo trata sobre el paquete `Shiny`, para desarrollo de aplicaciones interactivas.
+Este capítulo trata sobre el paquete Shiny, para desarrollo de aplicaciones interactivas.
 
 ## Instalación y carga
 
@@ -39,9 +39,22 @@ library(rsconnect)
 ```
 
 ## Características generales
-En una aplicación interactiva, el usuario puede configurar las salidas, usualmente mediante una interfaz que le permite realizar operaciones como filtros, búsquedas y ordenamientos, entre otras. `Shiny` es un paquete de R que facilita el desarrollo de este tipo de aplicaciones.
+En una aplicación interactiva, el usuario puede configurar las salidas, usualmente mediante una interfaz que le permite realizar operaciones como filtros, búsquedas y ordenamientos, entre otras. Shiny es un paquete de R que facilita el desarrollo de este tipo de aplicaciones.
 
-Las aplicaciones Shiny requieren un [servidor](https://www.rstudio.com/products/shiny/shiny-server/), el cual puede estar ubicado en cualquier computador habilitado para ejecutar código en R como, por ejemplo, la estación de trabajo del programador (esta opción se usa principalmente para efectos de desarrollo y pruebas), un servidor ubicado en la red de una organización o un servidor en la nube (ej. [shinyapps.io](https://www.shinyapps.io/), [RStudio Connect](https://www.rstudio.com/products/connect/)).
+Las aplicaciones Shiny requieren un [servidor](https://www.rstudio.com/products/shiny/shiny-server/), el cual es un proceso que puede alojarse en cualquier computador habilitado para ejecutar código en R como, por ejemplo, la estación de trabajo del programador (esta opción se usa principalmente para efectos de desarrollo y pruebas), un servidor ubicado en la red de una organización o un servidor en la nube (ej. [shinyapps.io](https://www.shinyapps.io/), [RStudio Connect](https://www.rstudio.com/products/connect/)).
+
+Para ejemplos de aplicaciones Shiny, puede visitar la siguiente [galería](https://shiny.rstudio.com/gallery/).
+
+## Arquitectura de una aplicación Shiny
+Una aplicación Shiny tiene dos componentes principales:
+
+1. **Interfaz de usuario**: despliega controles de entrada y salida (*widgets*), los cuales eventualente convierte a [Lenguaje de Marcado de Hipertexto (HTML)](https://es.wikipedia.org/wiki/HTML).
+    - [**Widgets de entrada**](https://shiny.rstudio.com/gallery/widget-gallery.html): campos de texto, listas de selección, botones de radio, etc.
+    - **Widgets de salida**: tablas, gráficos, mapas, etc. Muchos de estos controles están incluídos en los paquetes que generan los diferentes tipos de salidas (ej. DT, plotly, leaflet).
+    
+2. **Servidor**: es un proceso que recibe las entradas y realiza el procesamiento necesario para generar las salidas.
+
+Para más información sobre la arquitectura de aplicaciones Shiny, se recomienda leer [The Anatomy of a Shiny Application](https://www.r-bloggers.com/2021/04/the-anatomy-of-a-shiny-application/).
 
 ## Ejemplo de aplicación Shiny
 El siguiente documento Quarto contiene una aplicación Shiny que muestra la distribución de la duración de los intervalos de tiempo entre erupciones del [géiser "Old Faithful"](https://rdrr.io/r/datasets/faithful.html).
@@ -56,20 +69,34 @@ server: shiny
 ```{r}`r ''`
 #| label: interfaz-usuario
 
-sliderInput("bins", 'Cantidad de "bins" del histograma:', 
+# Este bloque de código dibuja la interfaz de usuario,
+# tanto los controles de entrada como los de salida
+
+# Widget de tipo "slider" para entrada de datos
+sliderInput(inputId = "bins", 
+            label = 'Cantidad de "bins" del histograma:', 
             min = 1, max = 50, value = 30)
             
-plotOutput("histograma")
+# Gráfico de salida
+plotOutput(outputId = "histograma")
 ```
 
 ```{r}`r ''`
 #| label: servidor
 #| context: server
 
+# Este bloque realiza el procesamiento en el servidor.
+
+# Generación del gráfico de salida
 output$histograma <- renderPlot({
-  x <- faithful[, 2]  # columna de duración de intervalos entre erupciones
-  bins <- seq(min(x), max(x), length.out = input$bins + 1)
-  hist(x,
+  # Vector con datos de duración de intervalos entre erupciones
+  x <- faithful[, 2]  
+  
+  # "Bins" del histograma
+  bins <- seq(from = min(x), to = max(x), length.out = input$bins + 1)
+  
+  # Histograma
+  hist(x = x,
        breaks = bins,
        main = 'Distribución de duración de intervalos entre erupciones',
        xlab = "Duración de intervalos (min)",
@@ -80,11 +107,18 @@ output$histograma <- renderPlot({
 ```
 ````
 
-Hay dos diferencias importantes entre este documento y otros documentos Quarto:
+**Es de vital importancia comprender que los dos bloques de código del ejemplo anterior se ejecutan en sesiones de R completamente separadas. Esto implica que no es posible, en principio, acceder desde el primer bloque variables definidas en el segundo, ni viceversa. Sin embargo, existen varias estrategias para compartir código, como las que se detallan en [Sharing Code](https://quarto.org/docs/interactive/shiny/execution.html#sharing-code).**
+
+Por otra parte, hay diferencias importantes entre este documento y otros documentos Quarto:
 
 1. La opción `server: shiny`: en la sección YAML, la cual le indica a Quarto que debe iniciar un servidor Shiny.
 
 2. La opción `context: server`: en el segundo bloque de código, la cual indica que ese bloque debe ejecutarse en el servidor.
+
+Existen otras opciones para los bloques de código en aplicaciones Shiny:
+
+- `context: setup`: para operaciones iniciales (ej. carga de bibliotecas).
+- `context: data`: para datos que se desea compartir entre los bloques de código.
 
 ## Ejercicios
 1. Ejecute en su computadora el código de la aplicación "Old Faithful" mostrado anteriormente.
@@ -116,5 +150,7 @@ Quarto - Running Documents. (s. f.). Recuperado 20 de noviembre de 2022, de [htt
 Shiny. (s. f.). Recuperado 20 de noviembre de 2022, de [https://shiny.rstudio.com/](https://shiny.rstudio.com/)
 
 Shiny - Gallery. (s. f.). Recuperado 20 de noviembre de 2022, de [https://shiny.rstudio.com/gallery/](https://shiny.rstudio.com/gallery/)
+
+The Anatomy of a Shiny Application | R-bloggers. (2021). Recuperado 21 de noviembre de 2022, de [https://www.r-bloggers.com/2021/04/the-anatomy-of-a-shiny-application/](https://www.r-bloggers.com/2021/04/the-anatomy-of-a-shiny-application/)
 
 1littlecoder. (2020). How to Deploy R Shiny App for Free on Shinyapps.io. [https://www.youtube.com/watch?v=2QstfyGX4ZU](https://www.youtube.com/watch?v=2QstfyGX4ZU)

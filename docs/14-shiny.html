@@ -327,9 +327,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"> <span class="header-section-number">11.2</span> Resumen</a></li>
   <li><a href="#instalación-y-carga" id="toc-instalación-y-carga" class="nav-link" data-scroll-target="#instalación-y-carga"> <span class="header-section-number">11.3</span> Instalación y carga</a></li>
   <li><a href="#características-generales" id="toc-características-generales" class="nav-link" data-scroll-target="#características-generales"> <span class="header-section-number">11.4</span> Características generales</a></li>
-  <li><a href="#ejemplo-de-aplicación-shiny" id="toc-ejemplo-de-aplicación-shiny" class="nav-link" data-scroll-target="#ejemplo-de-aplicación-shiny"> <span class="header-section-number">11.5</span> Ejemplo de aplicación Shiny</a></li>
-  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios"> <span class="header-section-number">11.6</span> Ejercicios</a></li>
-  <li><a href="#recursos-de-interés" id="toc-recursos-de-interés" class="nav-link" data-scroll-target="#recursos-de-interés"> <span class="header-section-number">11.7</span> Recursos de interés</a></li>
+  <li><a href="#arquitectura-de-una-aplicación-shiny" id="toc-arquitectura-de-una-aplicación-shiny" class="nav-link" data-scroll-target="#arquitectura-de-una-aplicación-shiny"> <span class="header-section-number">11.5</span> Arquitectura de una aplicación Shiny</a></li>
+  <li><a href="#ejemplo-de-aplicación-shiny" id="toc-ejemplo-de-aplicación-shiny" class="nav-link" data-scroll-target="#ejemplo-de-aplicación-shiny"> <span class="header-section-number">11.6</span> Ejemplo de aplicación Shiny</a></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios"> <span class="header-section-number">11.7</span> Ejercicios</a></li>
+  <li><a href="#recursos-de-interés" id="toc-recursos-de-interés" class="nav-link" data-scroll-target="#recursos-de-interés"> <span class="header-section-number">11.8</span> Recursos de interés</a></li>
   </ul>
 </nav>
     </div>
@@ -362,7 +363,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="resumen" class="level2" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="resumen"><span class="header-section-number">11.2</span> Resumen</h2>
-<p>Este capítulo trata sobre el paquete <code>Shiny</code>, para desarrollo de aplicaciones interactivas.</p>
+<p>Este capítulo trata sobre el paquete Shiny, para desarrollo de aplicaciones interactivas.</p>
 </section>
 <section id="instalación-y-carga" class="level2" data-number="11.3">
 <h2 data-number="11.3" class="anchored" data-anchor-id="instalación-y-carga"><span class="header-section-number">11.3</span> Instalación y carga</h2>
@@ -384,11 +385,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="características-generales" class="level2" data-number="11.4">
 <h2 data-number="11.4" class="anchored" data-anchor-id="características-generales"><span class="header-section-number">11.4</span> Características generales</h2>
-<p>En una aplicación interactiva, el usuario puede configurar las salidas, usualmente mediante una interfaz que le permite realizar operaciones como filtros, búsquedas y ordenamientos, entre otras. <code>Shiny</code> es un paquete de R que facilita el desarrollo de este tipo de aplicaciones.</p>
-<p>Las aplicaciones Shiny requieren un <a href="https://www.rstudio.com/products/shiny/shiny-server/">servidor</a>, el cual puede estar ubicado en cualquier computador habilitado para ejecutar código en R como, por ejemplo, la estación de trabajo del programador (esta opción se usa principalmente para efectos de desarrollo y pruebas), un servidor ubicado en la red de una organización o un servidor en la nube (ej. <a href="https://www.shinyapps.io/">shinyapps.io</a>, <a href="https://www.rstudio.com/products/connect/">RStudio Connect</a>).</p>
+<p>En una aplicación interactiva, el usuario puede configurar las salidas, usualmente mediante una interfaz que le permite realizar operaciones como filtros, búsquedas y ordenamientos, entre otras. Shiny es un paquete de R que facilita el desarrollo de este tipo de aplicaciones.</p>
+<p>Las aplicaciones Shiny requieren un <a href="https://www.rstudio.com/products/shiny/shiny-server/">servidor</a>, el cual es un proceso que puede alojarse en cualquier computador habilitado para ejecutar código en R como, por ejemplo, la estación de trabajo del programador (esta opción se usa principalmente para efectos de desarrollo y pruebas), un servidor ubicado en la red de una organización o un servidor en la nube (ej. <a href="https://www.shinyapps.io/">shinyapps.io</a>, <a href="https://www.rstudio.com/products/connect/">RStudio Connect</a>).</p>
+<p>Para ejemplos de aplicaciones Shiny, puede visitar la siguiente <a href="https://shiny.rstudio.com/gallery/">galería</a>.</p>
 </section>
-<section id="ejemplo-de-aplicación-shiny" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="ejemplo-de-aplicación-shiny"><span class="header-section-number">11.5</span> Ejemplo de aplicación Shiny</h2>
+<section id="arquitectura-de-una-aplicación-shiny" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="arquitectura-de-una-aplicación-shiny"><span class="header-section-number">11.5</span> Arquitectura de una aplicación Shiny</h2>
+<p>Una aplicación Shiny tiene dos componentes principales:</p>
+<ol type="1">
+<li><strong>Interfaz de usuario</strong>: despliega controles de entrada y salida (<em>widgets</em>), los cuales eventualente convierte a <a href="https://es.wikipedia.org/wiki/HTML">Lenguaje de Marcado de Hipertexto (HTML)</a>.
+<ul>
+<li><a href="https://shiny.rstudio.com/gallery/widget-gallery.html"><strong>Widgets de entrada</strong></a>: campos de texto, listas de selección, botones de radio, etc.</li>
+<li><strong>Widgets de salida</strong>: tablas, gráficos, mapas, etc. Muchos de estos controles están incluídos en los paquetes que generan los diferentes tipos de salidas (ej. DT, plotly, leaflet).</li>
+</ul></li>
+<li><strong>Servidor</strong>: es un proceso que recibe las entradas y realiza el procesamiento necesario para generar las salidas.</li>
+</ol>
+<p>Para más información sobre la arquitectura de aplicaciones Shiny, se recomienda leer <a href="https://www.r-bloggers.com/2021/04/the-anatomy-of-a-shiny-application/">The Anatomy of a Shiny Application</a>.</p>
+</section>
+<section id="ejemplo-de-aplicación-shiny" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="ejemplo-de-aplicación-shiny"><span class="header-section-number">11.6</span> Ejemplo de aplicación Shiny</h2>
 <p>El siguiente documento Quarto contiene una aplicación Shiny que muestra la distribución de la duración de los intervalos de tiempo entre erupciones del <a href="https://rdrr.io/r/datasets/faithful.html">géiser “Old Faithful”</a>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Old Faithful"</span></span>
@@ -399,36 +414,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: interfaz-usuario</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sliderInput</span>(<span class="st">"bins"</span>, <span class="st">'Cantidad de "bins" del histograma:'</span>, </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">50</span>, <span class="at">value =</span> <span class="dv">30</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plotOutput</span>(<span class="st">"histograma"</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: servidor</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| context: server</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>histograma <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> faithful[, <span class="dv">2</span>]  <span class="co"># columna de duración de intervalos entre erupciones</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  bins <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(x), <span class="fu">max</span>(x), <span class="at">length.out =</span> input<span class="sc">$</span>bins <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(x,</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> bins,</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">'Distribución de duración de intervalos entre erupciones'</span>,</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">"Duración de intervalos (min)"</span>,</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylab =</span> <span class="st">"Frecuencia"</span>,</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">'darkgray'</span>,</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">border =</span> <span class="st">'white'</span>)</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Hay dos diferencias importantes entre este documento y otros documentos Quarto:</p>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Este bloque de código dibuja la interfaz de usuario,</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># tanto los controles de entrada como los de salida</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Widget de tipo "slider" para entrada de datos</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">sliderInput</span>(<span class="at">inputId =</span> <span class="st">"bins"</span>, </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> <span class="st">'Cantidad de "bins" del histograma:'</span>, </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">50</span>, <span class="at">value =</span> <span class="dv">30</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de salida</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"histograma"</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: servidor</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| context: server</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Este bloque realiza el procesamiento en el servidor.</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Generación del gráfico de salida</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>histograma <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Vector con datos de duración de intervalos entre erupciones</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> faithful[, <span class="dv">2</span>]  </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># "Bins" del histograma</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  bins <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">min</span>(x), <span class="at">to =</span> <span class="fu">max</span>(x), <span class="at">length.out =</span> input<span class="sc">$</span>bins <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Histograma</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(<span class="at">x =</span> x,</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> bins,</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">'Distribución de duración de intervalos entre erupciones'</span>,</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">"Duración de intervalos (min)"</span>,</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylab =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">'darkgray'</span>,</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>       <span class="at">border =</span> <span class="st">'white'</span>)</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Es de vital importancia comprender que los dos bloques de código del ejemplo anterior se ejecutan en sesiones de R completamente separadas. Esto implica que no es posible, en principio, acceder desde el primer bloque variables definidas en el segundo, ni viceversa. Sin embargo, existen varias estrategias para compartir código, como las que se detallan en <a href="https://quarto.org/docs/interactive/shiny/execution.html#sharing-code">Sharing Code</a>.</strong></p>
+<p>Por otra parte, hay diferencias importantes entre este documento y otros documentos Quarto:</p>
 <ol type="1">
 <li><p>La opción <code>server: shiny</code>: en la sección YAML, la cual le indica a Quarto que debe iniciar un servidor Shiny.</p></li>
 <li><p>La opción <code>context: server</code>: en el segundo bloque de código, la cual indica que ese bloque debe ejecutarse en el servidor.</p></li>
 </ol>
+<p>Existen otras opciones para los bloques de código en aplicaciones Shiny:</p>
+<ul>
+<li><code>context: setup</code>: para operaciones iniciales (ej. carga de bibliotecas).</li>
+<li><code>context: data</code>: para datos que se desea compartir entre los bloques de código.</li>
+</ul>
 </section>
-<section id="ejercicios" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="ejercicios"><span class="header-section-number">11.6</span> Ejercicios</h2>
+<section id="ejercicios" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="ejercicios"><span class="header-section-number">11.7</span> Ejercicios</h2>
 <ol type="1">
 <li><p>Ejecute en su computadora el código de la aplicación “Old Faithful” mostrado anteriormente.</p>
 <ol type="a">
@@ -455,11 +490,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Puede encontrar una solución parcial en <a href="https://github.com/pf0953-programacionr/2022-ii-felinos-shiny">https://github.com/pf0953-programacionr/2022-ii-felinos-shiny</a>.</p></li>
 </ol>
 </section>
-<section id="recursos-de-interés" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="recursos-de-interés"><span class="header-section-number">11.7</span> Recursos de interés</h2>
+<section id="recursos-de-interés" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="recursos-de-interés"><span class="header-section-number">11.8</span> Recursos de interés</h2>
 <p>Quarto - Running Documents. (s. f.). Recuperado 20 de noviembre de 2022, de <a href="https://quarto.org/docs/interactive/shiny/running.html">https://quarto.org/docs/interactive/shiny/running.html</a></p>
 <p>Shiny. (s. f.). Recuperado 20 de noviembre de 2022, de <a href="https://shiny.rstudio.com/">https://shiny.rstudio.com/</a></p>
 <p>Shiny - Gallery. (s. f.). Recuperado 20 de noviembre de 2022, de <a href="https://shiny.rstudio.com/gallery/">https://shiny.rstudio.com/gallery/</a></p>
+<p>The Anatomy of a Shiny Application | R-bloggers. (2021). Recuperado 21 de noviembre de 2022, de <a href="https://www.r-bloggers.com/2021/04/the-anatomy-of-a-shiny-application/">https://www.r-bloggers.com/2021/04/the-anatomy-of-a-shiny-application/</a></p>
 <p>1littlecoder. (2020). How to Deploy R Shiny App for Free on Shinyapps.io. <a href="https://www.youtube.com/watch?v=2QstfyGX4ZU">https://www.youtube.com/watch?v=2QstfyGX4ZU</a></p>
 
 
