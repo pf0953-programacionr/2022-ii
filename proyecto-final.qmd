@@ -1,0 +1,99 @@
+# Proyecto final {.unnumbered}
+
+## Fecha y hora límite de entrega {.unnumbered}
+Sábado 10 de diciembre de 2022, 11:59 p.m.
+
+La entrega debe realizarse a través de la plataforma Mediación Virtual.
+
+## Objetivos {.unnumbered}
+Cada estudiante debe mostrar que es capaz de:
+
+1.  Desarrollar programas en el lenguaje R y documentos en el sistema de publicación científica y técnica Quarto.
+2.  Implementar tablas, gráficos y mapas con las bibliotecas DT, ggplot2, plotly, sf y leaflet.
+3.  Desarrollar aplicaciones interactivas con la biblioteca Shiny que contengan *widgets* (controles) para controlar el comportamiento de tablas, gráficos y mapas.
+
+## Entregables {.unnumbered}
+Dirección de un repositorio en GitHub que contenga el código, los datos, la documentación y la dirección web de una aplicación Shiny que permita visualizar datos de registros de presencia de especies mediante tablas, gráficos y mapas. Los registros de presencia deben ser de un grupo taxonómico (i.e. un conjunto de especies) y de un área geográfica (uno o varios países) de su elección.
+
+Específicamente, el repositorio debe contener:
+
+1.  El código fuente necesario para generar las salidas especificadas en la sección Desarrollo.
+2.  Un directorio con archivos de datos.
+3.  Un archivo `README.md` con:
+    1.  Una breve descripción (no mayor a 200 palabras) del contenido del repositorio. Si lo desea, puede incluir su interpretación de los resultados.
+    2.  Una mención y un enlace a las fuentes de los datos (ej. DOI de las consultas al portal de GBIF, fuentes de datos geoespaciales).
+    3.  Un enlace a la aplicación Shiny publicada en shinyapps.io.
+
+La entrega debe realizarse a través de la plataforma Mediación Virtual.
+
+## Consideraciones adicionales {.unnumbered}
+Esta tarea puede realizarse en parejas o de manera individual. Si es en pareja, solo un integrante debe realizar la entrega e indicar el nombre del otro integrante en Mediación Virtual.
+
+## Desarrollo {.unnumbered}
+Debe desarrollar una aplicación Shiny que utilice los siguientes conjuntos de datos:
+
+1. Un conjunto de registros de presencia de especies, agrupados por la Infraestructura Mundial de Información en Biodiversidad (GBIF). Puede buscar y descargar, en formato CSV, los registros en el portal de GBIF ([https://www.gbif.org/occurrence/search](https://www.gbif.org/occurrence/search)). Elija las especies (géneros, familias, etc.) con las que desea trabajar. Se recomienda utilizar, al menos, los siguientes filtros en el portal:
+
+    - `Occurrence status`: `Present`
+    - `Scientific name`: lista de especies, géneros, familias, etc. de su elección. Debe incluir, por lo menos, cuatro especies y deben ser diferentes a las de los ejemplos vistos en clase. 
+    - `Location`: `Including coordinates`
+    - `Country or area`: lista de países de su elección. Pueden ser uno o varios.
+
+Se recomienda que el número de registros de presencia no sea demasiado grande. Puede empezar probando con 10000 registros o menos e incrementar paulatinamente esa cantidad, si es necesario.
+    
+2. Un conjunto de polígonos correspondientes a alguna zonificación del área de estudio (ej. división territorial administrativa, áreas silvestres protegidas, zonas de vida, etc.). Puede encontrar este tipo de datos en varios sitios como, por ejemplo, el [Sistema Nacional de Información Territorial (SNIT)](https://www.snitcr.go.cr/), [GADM](https://gadm.org/) o [Natural Earth](https://www.naturalearthdata.com/).
+
+Debe cargar los datos en R y realizar las conversiones y preparaciones necesarias, por ejemplo:
+
+-   Conversiones de tipos (ej. fechas).
+-   Manejo de codificaciones de caracteres (*locales*).
+-   Eliminación de columnas no necesarias.
+-   Eliminación de filas no necesarias.
+-   Cambio de nombres de columnas.
+-   Manejo de valores nulos.
+
+Luego, debe implementar las siguientes salidas en la aplicación Shiny:
+
+1.  Una tabla que muestre los registros de presencia. Incluya, al menos, las columnas: especie (`species`), provincia (`stateProvince`), localidad (`locality`), provincia o estado (`stateProvince`), fecha (`eventDate`).
+    - Los encabezados de las columnas en la tabla deben estar correctamente escritos (ej. con tildes), pero no deben alterarse los nombres de las columnas del conjunto de datos. Sugerencia: utilice el argumento `colnames` de la función `DT::datatable()`.
+    - Los controles de la tabla deben estar en español.
+
+2.  Un gráfico de barras apiladas que muestre la cantidad de registros por especie en cada mes del año. El gráfico debe tener 12 barras (una por mes) y cada barra debe estar dividida en un máximo de seis partes (una por especie). 
+    - Las barras deben estar ordenadas de enero a diciembre.
+    - El gráfico debe tener título, etiqueta para el eje X y etiqueta para el eje Y.
+    - Los controles del gráfico deben estar en español.
+
+3.  Un mapa con:
+
+    - Dos capas base.
+    - La capa de polígonos. La ventana emergente (*popup*) debe mostrar el nombre del polígono (provincia, departamento, ASP, etc.) al hacer clic sobre el polígono.
+    - La capa de puntos de registros de presencia. La ventana emergente (*popup*) debe mostrar el nombre de la especie, la provincia, la localidad y la fecha.
+    - Un control para activar y desactivar las capas.
+
+4. El siguiente conjunto de *widgets* de listas de selección (`selectInput()`) para filtrar las tablas, gráficos y mapas:
+    - Especie (con una opción de "Todas" para ignorar este filtro).
+    - Año (con una opción de "Todos" para ignorar este filtro).
+    - Provincia (o equivalente: estado, departamento, etc.; con una opción de "Todas" para ignorar este filtro).
+    
+La tabla, el gráfico y el mapa deben reflejar los filtros seleccionados por el usuario. Los valores de las listas deben estar ordenados alfabéticamente.
+
+Las tablas deben generarse con DT. Los gráficos deben generarse con ggplot2 y convertirse a plotly con la función ggplotly(), para que sean interactivos. Los mapas deben implementarse con leaflet.
+
+Siga los siguientes lineamientos:
+
+-   El código en R y sus salidas deben ser **legibles y bien presentados**.
+-   **Incluya solamente el código necesario para generar los resultados. No incluya pruebas o resultados intermedios.** Puede utilizar opciones en los bloque de código de Quarto como `warning`, `message` y `code-fold` para evitar el despliegue de mensajes y advertencias, así como para ocultar el código, si lo considera conveniente.
+-   Agregue texto en Markdown para darle estructura al documento e incluir las explicaciones que considere necesarias.
+
+## Calificación {.unnumbered}
+
+Entre paréntesis, se muestra el porcentaje correspondiente a cada aspecto que se calificará:
+
+-   Estructura y legibilidad del código fuente (5%).
+-   Inclusión de los archivos de datos en el repositorio (5%).
+-   Inclusión del archivo `README.md`, con el contenido descrito en la sección Entregables (5%).
+-   Preparación de los archivos de datos (5%).
+-   Tabla con registros de presencia de especies (5%).
+-   Gráfico de barras apiladas (20%).
+-   Mapa (25%).
+-   *widgets* de listas de selección (30%).
