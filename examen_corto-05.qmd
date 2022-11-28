@@ -1,0 +1,9 @@
+# Examen corto 05 {.unnumbered}
+
+## Fecha {.unnumbered}
+
+Lunes 28 de noviembre de 2022
+
+## Temas a evaluar {.unnumbered}
+
+-   [Introducción al manejo de datos geoespaciales en R](https://pf0953-programacionr.github.io/2022-ii/10-introduccion-manejo-datos-geoespaciales.html)
